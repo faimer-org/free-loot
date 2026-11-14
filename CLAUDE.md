@@ -38,6 +38,10 @@ GitHub Action (7 h 45 et 17 h 45, heure de Paris)
        ├─ Steam  IStoreService/GetAppList     → apps modifiées depuis la dernière exécution (clé requise)
        │         IStoreBrowseService/GetItems → prix, remise, date de fin, type, DLC, jaquette (sans clé)
        │         appdetails                   → recoupement des Free to Keep
+       ├─ Détails (collector/steam/details.ts, sans clé)
+       │         IStoreService/GetTagList     → noms des tags en français
+       │         IStoreBrowseService/GetItems → tags, description, captures, micro-bande-annonce des offres Steam
+       │         storesearch                  → jeu Steam du même nom qu'une offre Epic, pour ses tags
        ├─ fusion avec site/data/offers.json, archivage dans site/data/history/<année>.json
        └─ data/state.json                     → curseur Steam (non publié)
   └─ commit des données, puis publication de site/ sur GitHub Pages
@@ -45,6 +49,7 @@ GitHub Action (7 h 45 et 17 h 45, heure de Paris)
 
 - `site/data/offers.json` : offres en cours, à venir et expirées depuis moins de 30 jours.
 - `site/data/history/<année>.json` : offres plus anciennes, chargées par la page seulement quand on affiche les expirées.
+- `details` d'une offre : tags (5 au plus, sans « Jeu solo », « Multijoueur », « Free-to-play », « Accès anticipé »), description, 4 captures, vidéo. Epic fournit description et captures (redimensionnées par son CDN), pas de vidéo lisible ; ses tags viennent de Steam. Une source indisponible n'efface pas les détails connus (`mergeDetails`). Pas de capture ni de vidéo pour un jeu signalé pour nudité ou contenu sexuel (descripteurs Steam 1, 3, 4) ; la violence (2) et le « contenu adulte » général (5) restent affichés.
 - `data/state.json` : dernière lecture de `GetAppList` et plus grand `price_change_number` vu.
 
 ## Développement
@@ -77,3 +82,5 @@ La clé n'existe que dans l'environnement de l'étape de collecte : elle n'est �
 - **Devenu gratuit** : repose sur l'hypothèse que `price_change_number` est un compteur global croissant. La collecte journalise sa plage de valeurs pour la vérifier.
 - **Débit** : limites Steam non documentées ; environ 200 appels par 5 minutes pour `appdetails` selon la communauté.
 - **Planification** : GitHub peut retarder une exécution planifiée, voire l'abandonner en cas de forte charge.
+- **Tags des offres Epic** : le flux Epic ne donne que des identifiants de tags, et son API GraphQL est derrière une vérification anti-robot. Les tags sont repris du jeu Steam de même nom exact (casse, ponctuation, accents et ™ ® ignorés) : pas de tags si le jeu n'est pas sur Steam ou s'il y porte un autre nom ; un homonyme donnerait des tags faux. 3 offres Epic sur 3 trouvées le 2026-11-14.
+- **API de détails** : `GetTagList`, `storesearch` et les champs `tags`, `screenshots`, `trailers` de `GetItems` ne sont pas documentés par Valve ; testés sans clé le 2026-11-14. Les adresses des micro-bandes-annonces (`store_trailers/…/microtrailer.mp4`) sont reconstituées à partir de la redirection observée.

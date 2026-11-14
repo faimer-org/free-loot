@@ -14,6 +14,7 @@ import {
   type OffersFile,
   type State,
 } from './state.ts';
+import { addDetails } from './steam/details.ts';
 import { collectSteam } from './steam/index.ts';
 
 const HOUR = 3600;
@@ -74,6 +75,8 @@ if (sourcesRead === 0) {
   process.exit(1);
 }
 
+await addDetails(detected);
+
 const merged = mergeOffers(offersFile.offers, detected, { now, steamChecked });
 const { current, archived } = splitArchived(merged, now);
 
@@ -86,6 +89,13 @@ console.log(
 if (dryRun) {
   for (const offer of detected) {
     console.log(`  [${offer.store}] ${offer.type} ${offer.isDlc ? '(DLC) ' : ''}${offer.title} → ${offer.endDate ?? 'sans fin'}`);
+    const details = offer.details;
+    if (details) {
+      console.log(
+        `      tags : ${details.tags.join(', ') || '—'} · ${details.screenshots.length} capture(s)` +
+          ` · vidéo : ${details.video ? 'oui' : 'non'} · description : ${details.description ? 'oui' : 'non'}`,
+      );
+    }
   }
   console.log('--dry-run : aucun fichier écrit');
 } else {

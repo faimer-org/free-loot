@@ -28,6 +28,7 @@ describe('parseEpic (réponse réelle du 2026-11-14)', () => {
       endDate: '2026-11-19T16:00:00.000Z',
       url: 'https://store.epicgames.com/fr/p/knightica-3be45c',
       image: 'https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png',
+      details: knightica?.details, // vérifiés dans details.test.ts
     });
   });
 
