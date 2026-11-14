@@ -1,6 +1,6 @@
 # CLAUDE.md — free-loot
 
-Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `faimer-org/workspace`. Ce fichier ne contient que ce qui est propre au projet.
+Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `faimer-org/workspace`. Ce fichier contient ce qui est propre au projet, y compris sa documentation technique : le README s'adresse aux visiteurs du site.
 
 ## Projet
 
@@ -14,8 +14,66 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 - La clé Steam (`STEAM_API_KEY`) ne doit apparaître ni dans `site/`, ni dans `data/`, ni dans les journaux : ne jamais journaliser une URL de requête (`collector/http.ts` ne logue que des libellés).
 - Seul `site/` est publié sur Pages.
 - Tester la classification sur des réponses réelles enregistrées dans `tests/fixtures/` (dater le nom du fichier).
-- Signaler toute hypothèse non vérifiée sur les API dans le README (section « Points non vérifiés »).
+- Signaler toute hypothèse non vérifiée sur les API dans la section « Points non vérifiés » ci-dessous.
+- L'Action commite sur `main` deux fois par jour : toujours partir d'un `main` à jour.
+- Le README reste non technique : ce que fait le site, pour qui le visite.
 
-## Commandes
+## Offres suivies
 
-`npm test`, `npm run typecheck`, `npm run collect:dry`, `npm run serve`.
+| Type | Steam | Epic |
+|---|---|---|
+| Free to Keep (payant offert, conservé à vie) | ✔ | ✔ |
+| Free Weekend (jouable gratuitement pendant un événement) | ✔ | — |
+| Devenu gratuit, sans date de fin | ✔ (heuristique, voir plus bas) | ✘ non exposé par l'API |
+| DLC, avec le jeu de base requis | ✔ | ✔ (nom du jeu de base déduit de son slug) |
+
+Exclus : free-to-play permanents, démos, remises qui ne descendent pas à 0.
+
+## Fonctionnement
+
+```
+GitHub Action (7 h 45 et 17 h 45, heure de Paris)
+  └─ collector/main.ts
+       ├─ Epic   freeGamesPromotions          → promotions gratuites en cours et à venir
+       ├─ Steam  IStoreService/GetAppList     → apps modifiées depuis la dernière exécution (clé requise)
+       │         IStoreBrowseService/GetItems → prix, remise, date de fin, type, DLC, jaquette (sans clé)
+       │         appdetails                   → recoupement des Free to Keep
+       ├─ fusion avec site/data/offers.json, archivage dans site/data/history/<année>.json
+       └─ data/state.json                     → curseur Steam (non publié)
+  └─ commit des données, puis publication de site/ sur GitHub Pages
+```
+
+- `site/data/offers.json` : offres en cours, à venir et expirées depuis moins de 30 jours.
+- `site/data/history/<année>.json` : offres plus anciennes, chargées par la page seulement quand on affiche les expirées.
+- `data/state.json` : dernière lecture de `GetAppList` et plus grand `price_change_number` vu.
+
+## Développement
+
+Prérequis : Node.js 24.
+
+```bash
+npm install
+npm test            # tests (node:test)
+npm run typecheck   # vérification des types (tsc)
+npm run collect:dry # collecte réelle, sans écrire de fichier
+npm run collect     # collecte réelle, écrit site/data et data/state.json
+npm run serve       # http://localhost:8080
+```
+
+Clé Steam en local : copier `.env.example` en `.env.local` (ignoré par git) et y renseigner `STEAM_API_KEY`. Sans clé, la collecte Steam se limite à revérifier les offres déjà connues.
+
+## Mise en place sur GitHub
+
+1. Dépôt **public** (GitHub Pages n'est disponible que sur les dépôts publics du plan gratuit).
+2. *Settings → Pages → Source* : **GitHub Actions**.
+3. *Settings → Environments → github-pages* : branches de déploiement limitées à `main`.
+4. *Settings → Secrets and variables → Actions* : secret de dépôt `STEAM_API_KEY`.
+
+La clé n'existe que dans l'environnement de l'étape de collecte : elle n'est écrite dans aucun fichier, et seul `site/` est publié.
+
+## Points non vérifiés
+
+- **Free Weekend** : le champ `free_weekend` de `GetItems` est confirmé (4 Free Weekends détectés le 2026-11-14). On ne sait pas si chaque Free Weekend fait apparaître l'app dans `GetAppList` : ceux-ci y figuraient sur une fenêtre de 14 jours.
+- **Devenu gratuit** : repose sur l'hypothèse que `price_change_number` est un compteur global croissant. La collecte journalise sa plage de valeurs pour la vérifier.
+- **Débit** : limites Steam non documentées ; environ 200 appels par 5 minutes pour `appdetails` selon la communauté.
+- **Planification** : GitHub peut retarder une exécution planifiée, voire l'abandonner en cas de forte charge.
