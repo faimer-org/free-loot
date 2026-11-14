@@ -232,6 +232,8 @@ svg { flex-shrink: 0; }
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  /* Toutes les lignes à la hauteur de la plus haute : une carte sans compte à rebours, seule sur sa ligne, paraît sinon toute en jaquette. */
+  grid-auto-rows: 1fr;
   gap: 16px;
 }
 
@@ -497,7 +499,7 @@ svg { flex-shrink: 0; }
 .reset:hover { border-color: var(--gold); color: var(--gold); }
 .reset:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-.archive-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.archive-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); grid-auto-rows: auto; gap: 14px; }
 .archive-card .cover img { filter: saturate(0.4) brightness(0.8); transition: filter 0.2s ease, transform 0.3s ease; }
 .archive-card:hover:not(.is-clicked) .cover img, .archive-card:has(:focus-visible) .cover img { filter: none; }
 .archive-card .card-body { gap: 6px; }
