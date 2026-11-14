@@ -1,0 +1,20 @@
+{
+  "name": "free-loot",
+  "private": true,
+  "type": "module",
+  "description": "Jeux offerts du moment sur Steam et l'Epic Games Store",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "collect": "node --env-file-if-exists=.env.local collector/main.ts",
+    "collect:dry": "node --env-file-if-exists=.env.local collector/main.ts --dry-run",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "typecheck": "tsc",
+    "serve": "node tests/serve.ts"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

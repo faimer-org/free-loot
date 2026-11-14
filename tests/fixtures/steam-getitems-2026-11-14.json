@@ -1,0 +1,308 @@
+{
+ "response": {
+  "store_items": [
+   {
+    "item_type": 0,
+    "id": 227300,
+    "success": 1,
+    "visible": true,
+    "name": "Euro Truck Simulator 2",
+    "store_url_path": "app/227300/Euro_Truck_Simulator_2",
+    "store_url_slug": "Euro_Truck_Simulator_2",
+    "appid": 227300,
+    "type": 0,
+    "related_items": {
+     "demo_appid": [
+      231120
+     ],
+     "demos": [
+      {
+       "appid": 231120,
+       "show_above_purchase": true
+      }
+     ]
+    },
+    "categories": {
+     "supported_player_categoryids": [
+      2,
+      1,
+      9,
+      38
+     ],
+     "feature_categoryids": [
+      22,
+      29,
+      30,
+      67,
+      68,
+      69,
+      70,
+      74,
+      75,
+      78,
+      79,
+      23,
+      17,
+      41,
+      42,
+      44,
+      62
+     ],
+     "controller_categoryids": [
+      59,
+      18
+     ]
+    },
+    "basic_info": {
+     "short_description": "Voyagez à travers l'Europe en tant que roi de la route, un camionneur qui livre d'importantes marchandises sur des distances impressionnantes ! Avec des dizaines de villes à explorer, votre endurance, vos compétences et votre vitesse seront poussées à leurs limites.",
+     "publishers": [
+      {
+       "name": "SCS Software",
+       "creator_clan_account_id": 4036972
+      }
+     ],
+     "developers": [
+      {
+       "name": "SCS Software",
+       "creator_clan_account_id": 4036972
+      }
+     ],
+     "capsule_headline": "#msg_new_content_now_available"
+    },
+    "assets": {
+     "asset_url_format": "steam/apps/227300/${FILENAME}?t=1794502925",
+     "main_capsule": "5237101dc9efe4873c9be1804d4ed2619ad7bee4/capsule_616x353.jpg",
+     "main_capsule_2x": "5237101dc9efe4873c9be1804d4ed2619ad7bee4/capsule_616x353_2x.jpg",
+     "small_capsule": "da84d11d3ddd817e0cca299608b469a854d75ba5/capsule_231x87.jpg",
+     "small_capsule_2x": "da84d11d3ddd817e0cca299608b469a854d75ba5/capsule_231x87_2x.jpg",
+     "header": "9a81dc3126c56637297b654f9dcac057cfd79b77/header.jpg",
+     "header_2x": "9a81dc3126c56637297b654f9dcac057cfd79b77/header_2x.jpg",
+     "hero_capsule": "b1783fbc824cba63d3393db25af776d77e68a079/hero_capsule.jpg",
+     "hero_capsule_2x": "b1783fbc824cba63d3393db25af776d77e68a079/hero_capsule_2x.jpg",
+     "library_capsule": "library_600x900.jpg",
+     "library_capsule_2x": "library_600x900_2x.jpg",
+     "library_hero": "library_hero.jpg",
+     "library_hero_2x": "library_hero_2x.jpg",
+     "community_icon": "adc18a4fc9adc0330144b76d61cbda68bb2394a0",
+     "page_background_path": "app/227300?t=1794502925",
+     "edition_comparison": "e586ef63a0d32a32995b02d66e7f2d797a5966fc/edition_comparision.jpg",
+     "last_modified": 1794502925
+    },
+    "release": {
+     "steam_release_date": 1350061200,
+     "original_release_date": 1350543600
+    },
+    "best_purchase_option": {
+     "packageid": 19007,
+     "purchase_option_name": "Euro Truck Simulator 2",
+     "final_price_in_cents": "499",
+     "original_price_in_cents": "1999",
+     "formatted_final_price": "4,99€",
+     "formatted_original_price": "19,99€",
+     "discount_pct": 75,
+     "active_discounts": [
+      {
+       "discount_amount": "1500",
+       "discount_description": "#discount_desc_preset_special",
+       "discount_end_date": 1795539600
+      }
+     ],
+     "user_can_purchase_as_gift": true,
+     "hide_discount_pct_for_compliance": false,
+     "included_game_count": 1,
+     "lowest_recent_price_in_cents": "499",
+     "must_purchase_as_set": false,
+     "package_group": "default",
+     "price_cannot_be_displayed_as_discount": false,
+     "formatted_lowest_recent_price": "4,99€"
+    }
+   },
+   {
+    "item_type": 0,
+    "id": 3809270,
+    "success": 1,
+    "visible": true,
+    "name": "Euro Truck Simulator 2 - Coaches",
+    "store_url_path": "app/3809270/Euro_Truck_Simulator_2_Coaches",
+    "store_url_slug": "Euro_Truck_Simulator_2_Coaches",
+    "appid": 3809270,
+    "type": 4,
+    "related_items": {
+     "parent_appid": 227300
+    },
+    "categories": {
+     "supported_player_categoryids": [
+      2,
+      1,
+      9,
+      38
+     ],
+     "feature_categoryids": [
+      22,
+      29,
+      30,
+      23,
+      17,
+      41,
+      42,
+      44,
+      62
+     ],
+     "controller_categoryids": [
+      59,
+      18
+     ]
+    },
+    "basic_info": {
+     "short_description": "Échangez vos marchandises contre des passagers dans le DLC « Coaches » !",
+     "publishers": [
+      {
+       "name": "SCS Software",
+       "creator_clan_account_id": 4036972
+      }
+     ],
+     "developers": [
+      {
+       "name": "SCS Software",
+       "creator_clan_account_id": 4036972
+      }
+     ]
+    },
+    "assets": {
+     "asset_url_format": "steam/apps/3809270/${FILENAME}?t=1794576017",
+     "main_capsule": "8a82641a57bdd6ee899c0b939f3e28d325ace749/capsule_616x353.jpg",
+     "main_capsule_2x": "8a82641a57bdd6ee899c0b939f3e28d325ace749/capsule_616x353_2x.jpg",
+     "small_capsule": "ce8d9aba1de129bfa8b9423fb8978123d51e5740/capsule_231x87.jpg",
+     "small_capsule_2x": "ce8d9aba1de129bfa8b9423fb8978123d51e5740/capsule_231x87_2x.jpg",
+     "header": "76265f5ca82a7e38ef486f169108f08379785a51/header.jpg",
+     "header_2x": "76265f5ca82a7e38ef486f169108f08379785a51/header_2x.jpg",
+     "page_background": "cc46ecc0e48ee734c92268ea2fc45504cc5abf7a/page_bg_v6.jpg",
+     "hero_capsule": "a3df0a895543a28064a346d6e86c789ece691136/hero_capsule.jpg",
+     "hero_capsule_2x": "a3df0a895543a28064a346d6e86c789ece691136/hero_capsule_2x.jpg",
+     "page_background_path": "app/3809270?t=1794576017",
+     "raw_page_background": "cc46ecc0e48ee734c92268ea2fc45504cc5abf7a/page_bg_raw.jpg",
+     "last_modified": 1794576017
+    },
+    "release": {
+     "steam_release_date": 1794502650
+    },
+    "best_purchase_option": {
+     "packageid": 1339799,
+     "purchase_option_name": "Euro Truck Simulator 2 - Coaches",
+     "final_price_in_cents": "1499",
+     "formatted_final_price": "14,99€",
+     "user_can_purchase_as_gift": true,
+     "hide_discount_pct_for_compliance": false,
+     "included_game_count": 0,
+     "must_purchase_as_set": false,
+     "package_group": "default",
+     "price_cannot_be_displayed_as_discount": false
+    }
+   },
+   {
+    "item_type": 0,
+    "id": 620,
+    "success": 1,
+    "visible": true,
+    "name": "Portal 2",
+    "store_url_path": "app/620/Portal_2",
+    "store_url_slug": "Portal_2",
+    "appid": 620,
+    "type": 0,
+    "categories": {
+     "supported_player_categoryids": [
+      2,
+      1,
+      9,
+      38,
+      39,
+      24
+     ],
+     "feature_categoryids": [
+      22,
+      29,
+      13,
+      30,
+      51,
+      67,
+      68,
+      69,
+      70,
+      74,
+      79,
+      23,
+      15,
+      17,
+      14,
+      41,
+      42,
+      43,
+      44,
+      62
+     ],
+     "controller_categoryids": [
+      28,
+      55,
+      56,
+      57,
+      58,
+      59
+     ]
+    },
+    "basic_info": {
+     "short_description": "L'« initiative de tests perpétuels » a été étendue pour vous permettre de concevoir des casse-têtes coopératifs pour vous et vos contacts !",
+     "publishers": [
+      {
+       "name": "Valve",
+       "creator_clan_account_id": 4
+      }
+     ],
+     "developers": [
+      {
+       "name": "Valve",
+       "creator_clan_account_id": 4
+      }
+     ],
+     "franchises": [
+      {
+       "name": "Portal"
+      }
+     ]
+    },
+    "assets": {
+     "asset_url_format": "steam/apps/620/${FILENAME}?t=1790187113",
+     "main_capsule": "02b755eb0cf5f41c1838a99c9a353ebce32a88cd/capsule_616x353.jpg",
+     "main_capsule_2x": "02b755eb0cf5f41c1838a99c9a353ebce32a88cd/capsule_616x353_2x.jpg",
+     "small_capsule": "bd23943dcd0280aa2cdc066e2f86d2185cfd4cce/capsule_231x87.jpg",
+     "small_capsule_2x": "bd23943dcd0280aa2cdc066e2f86d2185cfd4cce/capsule_231x87_2x.jpg",
+     "header": "faffc0f560786e2f05104a8d2fac837c6969bf13/header.jpg",
+     "header_2x": "faffc0f560786e2f05104a8d2fac837c6969bf13/header_2x.jpg",
+     "hero_capsule": "9a8ae9bb0b85f125bd956024f86f30a3aeb799e8/hero_capsule.jpg",
+     "hero_capsule_2x": "9a8ae9bb0b85f125bd956024f86f30a3aeb799e8/hero_capsule_2x.jpg",
+     "library_capsule": "library_600x900.jpg",
+     "library_capsule_2x": "library_600x900_2x.jpg",
+     "library_hero": "a58588d857b8683f8065e55f97ab82ad8a945c51/library_hero.jpg",
+     "library_hero_2x": "a58588d857b8683f8065e55f97ab82ad8a945c51/library_hero_2x.jpg",
+     "community_icon": "25a5a16b2423bf7487ac5340b5b0948cef48c5f8",
+     "page_background_path": "app/620?t=1790187113",
+     "last_modified": 1790187113
+    },
+    "release": {
+     "steam_release_date": 1303186800
+    },
+    "best_purchase_option": {
+     "packageid": 7877,
+     "purchase_option_name": "Portal 2",
+     "final_price_in_cents": "969",
+     "formatted_final_price": "9,69€",
+     "user_can_purchase_as_gift": true,
+     "hide_discount_pct_for_compliance": false,
+     "included_game_count": 1,
+     "must_purchase_as_set": false,
+     "package_group": "default",
+     "price_cannot_be_displayed_as_discount": false
+    }
+   }
+  ]
+ }
+}

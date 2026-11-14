@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Loot</title>
+  <meta name="description" content="Jeux et DLC offerts en ce moment sur Steam et l'Epic Games Store, mis à jour deux fois par jour.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Free Loot</h1>
+    <p class="subtitle">Steam et Epic Games Store · <span id="updated">chargement…</span></p>
+  </header>
+
+  <form class="filters" id="filters" aria-label="Filtres et tri">
+    <label>Magasin
+      <select name="store">
+        <option value="">Tous</option>
+        <option value="steam">Steam</option>
+        <option value="epic">Epic Games Store</option>
+      </select>
+    </label>
+    <label>Type d'offre
+      <select name="type">
+        <option value="">Tous</option>
+        <option value="free_to_keep">Free to Keep</option>
+        <option value="free_weekend">Free Weekend</option>
+        <option value="now_free">Devenu gratuit</option>
+      </select>
+    </label>
+    <label>Contenu
+      <select name="dlc">
+        <option value="">Jeux et DLC</option>
+        <option value="game">Jeux</option>
+        <option value="dlc">DLC</option>
+      </select>
+    </label>
+    <fieldset>
+      <legend>Statut</legend>
+      <label class="check"><input type="checkbox" name="status" value="active" checked> En cours</label>
+      <label class="check"><input type="checkbox" name="status" value="upcoming" checked> À venir</label>
+      <label class="check"><input type="checkbox" name="status" value="expired"> Expirées</label>
+    </fieldset>
+    <label>Tri
+      <select name="sort">
+        <option value="ending">Fin la plus proche</option>
+        <option value="value">Valeur la plus haute</option>
+        <option value="recent">Ajout le plus récent</option>
+        <option value="name">Nom</option>
+      </select>
+    </label>
+  </form>
+
+  <main>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="grid" id="offers"></ul>
+  </main>
+
+  <footer class="page-footer">
+    <p>Sources : Epic Games Store (freeGamesPromotions), Steam (IStoreService, IStoreBrowseService, appdetails). Prix en euros, boutique France. Heures de Paris.</p>
+    <p>Les offres sont relevées vers 8 h et 18 h : vérifiez toujours le prix sur la page du magasin avant de valider.</p>
+  </footer>
+</body>
+</html>

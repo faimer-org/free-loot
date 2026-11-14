@@ -1,0 +1,72 @@
+name: Mise à jour des offres
+
+on:
+  schedule:
+    # Heure de Paris. Minute décalée de l'heure pile, où GitHub retarde le plus les exécutions planifiées.
+    - cron: '45 7 * * *'
+      timezone: 'Europe/Paris'
+    - cron: '45 17 * * *'
+      timezone: 'Europe/Paris'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md']
+
+permissions:
+  contents: write # commit de l'état et des données
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-offers
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+      - name: Collecte
+        run: npm run collect
+        env:
+          # Le secret n'existe que dans l'environnement de cette étape ; il n'est écrit dans aucun fichier.
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+
+      - name: Commit de l'état
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data site/data
+          if git diff --cached --quiet; then
+            echo "Aucun changement"
+          else
+            git commit -m "Mise à jour des offres"
+            git pull --rebase
+            git push
+          fi
+
+      # Seul site/ est publié : ni data/state.json, ni le code du collecteur.
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: collect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
