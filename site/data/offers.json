@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T18:07:55.935Z",
+  "generatedAt": "2026-11-14T18:08:42.652Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,24 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z"
+      "lastSeen": "2026-11-14T18:08:42.652Z",
+      "details": {
+        "tags": [
+          "Autobattler",
+          "Défense de tours",
+          "Construction de decks",
+          "Tour par tour",
+          "Roguelike"
+        ],
+        "description": "Recrutez des unités puissantes, placez-les stratégiquement et trouvez les meilleures synergies dans cet Autobattler Roguelike ! Knightica vous permet de guider une bande à travers de nombreux défis pour libérer les royaumes. Découvrez des combinaisons optimales, tissez de puissants enchantements, affrontez de dangereux monstres et menez votre armée à la victoire !",
+        "screenshots": [
+          "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-aqy9g.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1ibrb.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-11a8u.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-v0pin.png?h=338&quality=medium&resize=1&w=600"
+        ],
+        "video": null
+      }
     },
     {
       "id": "epic-3d6441ab9d4246208bc97d7babf664b5-1f9a12b06b4f437790b6913ad136a08c-free_to_keep-2026-11-19",
@@ -34,7 +51,24 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z"
+      "lastSeen": "2026-11-14T18:08:42.652Z",
+      "details": {
+        "tags": [
+          "Pirates",
+          "Isométrique",
+          "Action et aventure",
+          "Scénario riche",
+          "Aventure"
+        ],
+        "description": "Mark of the Deep est une aventure épique sur le thème des pirates, dotée d'une narration captivante et d'un mélange palpitant de Metroidvania et de souls-like. Lancez-vous dans ce périple, explorez les mystères d'une île maudite et retrouvez votre équipage de pirates disparu !",
+        "screenshots": [
+          "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1k2bg.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1aw2l.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1dac0.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-een94.png?h=338&quality=medium&resize=1&w=600"
+        ],
+        "video": null
+      }
     },
     {
       "id": "epic-df37f065c3f14eadbf011177396e2966-d37f3694e7a04edb8347f3cb6320f9d3-free_to_keep-2026-11-19",
@@ -51,7 +85,24 @@
       "url": "https://store.epicgames.com/fr/p/alien-isolation",
       "image": "https://cdn1.epicgames.com/df37f065c3f14eadbf011177396e2966/offer/EGS_AlienIsolation_CreativeAssembly_S6-1200x1600-af00adc8f67a7c6138cce183ac1e9503.jpg",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z"
+      "lastSeen": "2026-11-14T18:08:42.652Z",
+      "details": {
+        "tags": [
+          "Horreur",
+          "Horreur et survie",
+          "Science-fiction",
+          "Extraterrestres",
+          "Atmosphère"
+        ],
+        "description": "Découvrez le vrai sens de la peur dans Alien: Isolation, un survival horror se déroulant dans une atmosphère d'épouvante et de danger constants. Créé avec le moteur CATHODE™.",
+        "screenshots": [
+          "https://cdn2.unrealengine.com/egs-alienisolation-creativeassembly-g1a-01-1920x1080-b65e51b6fb2e.jpg?h=338&quality=medium&resize=1&w=600",
+          "https://cdn2.unrealengine.com/egs-alienisolation-creativeassembly-g1a-02-1920x1080-7e870d423c46.jpg?h=338&quality=medium&resize=1&w=600",
+          "https://cdn2.unrealengine.com/egs-alienisolation-creativeassembly-g1a-03-1920x1080-14d440b45f8a.jpg?h=338&quality=medium&resize=1&w=600",
+          "https://cdn2.unrealengine.com/egs-alienisolation-creativeassembly-g1a-04-1920x1080-99a3d5d4610a.jpg?h=338&quality=medium&resize=1&w=600"
+        ],
+        "video": null
+      }
     },
     {
       "id": "steam-1677280-free_weekend-2026-11-12",
@@ -68,11 +119,28 @@
       "url": "https://store.steampowered.com/app/1677280/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/13d0039949e0565f4abf4a421eaff3f5101046d6/library_capsule.jpg?t=1794506606",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z",
+      "lastSeen": "2026-11-14T18:08:42.652Z",
       "discount": {
         "price": 1814,
         "percent": 67,
         "endDate": "2026-11-19T18:00:00.000Z"
+      },
+      "details": {
+        "tags": [
+          "Stratégie",
+          "Stratégie en temps réel",
+          "Simulation de guerre",
+          "Action et stratégie en temps réel",
+          "Seconde Guerre mondiale"
+        ],
+        "description": "Plus impressionnant que jamais, Company of Heroes 3 associe un combat haletant à des choix stratégiques encore plus complexes dans un sublime théâtre d'opérations méditerranéen. Dans Company of Heroes 3, chaque bataille a une histoire... Alors, quelle sera la vôtre ?",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/e108f5edefc8ee8875bbcc973d65b40694d77584/ss_e108f5edefc8ee8875bbcc973d65b40694d77584.600x338.jpg?t=1794506606",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/648e46b9453cc7de6d7534de7fd38e1b2c59487a/ss_648e46b9453cc7de6d7534de7fd38e1b2c59487a.600x338.jpg?t=1794506606",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/fbbc1d67fab2dee2dc65b0ef397dbe26963a8531/ss_fbbc1d67fab2dee2dc65b0ef397dbe26963a8531.600x338.jpg?t=1794506606",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/9315efc6cd5207cf9cdeca84b36f1f8c78c75bc1/ss_9315efc6cd5207cf9cdeca84b36f1f8c78c75bc1.600x338.jpg?t=1794506606"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/1677280/1422315669/cf003afc0fa3d211d2be7511f0e660740a65e1e7/1793818440/microtrailer.mp4"
       }
     },
     {
@@ -90,11 +158,28 @@
       "url": "https://store.steampowered.com/app/2605790/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/8da4be0bff9ff5608885734b752e2315c2a8ac01/library_capsule.jpg?t=1794615194",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z",
+      "lastSeen": "2026-11-14T18:08:42.652Z",
       "discount": {
         "price": 1499,
         "percent": 50,
         "endDate": "2026-11-26T18:00:00.000Z"
+      },
+      "details": {
+        "tags": [
+          "FPS",
+          "Coop",
+          "Nains",
+          "JcE",
+          "Roguelite"
+        ],
+        "description": "DEEP ROCK GALACTIC: ROGUE CORE est un jeu d'action roguelite de tir à la première personne en coopération pour 1 à 4 joueurs, mettant en scène des nains de science-fiction, des créatures extraterrestres terrifiantes et des cavernes générées de manière procédurale. Rejoignez les Vindicateurs, une unité d'élite naine, et frayez-vous un chemin à travers des installations minières périlleuses infesté…",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/5b2a02f79b42293ab1ebda8e51be65221cdfa253/ss_5b2a02f79b42293ab1ebda8e51be65221cdfa253.600x338.jpg?t=1794615194",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/46f12e4aa86d98afd4d2dfa97104fbecc2a425e3/ss_46f12e4aa86d98afd4d2dfa97104fbecc2a425e3.600x338.jpg?t=1794615194",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/a3546fbf54121e6a9ae5479ff042fe0ce18d29df/ss_a3546fbf54121e6a9ae5479ff042fe0ce18d29df.600x338.jpg?t=1794615194",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/0d5ee90e068ba83a777b678bc5672d8a493cf159/ss_0d5ee90e068ba83a777b678bc5672d8a493cf159.600x338.jpg?t=1794615194"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/2605790/2033847924/32945575712c3173cad7efd8e08fae291e654247/1779267960/microtrailer.mp4"
       }
     },
     {
@@ -112,11 +197,28 @@
       "url": "https://store.steampowered.com/app/307960/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/library_600x900.jpg?t=1794512204",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z",
+      "lastSeen": "2026-11-14T18:08:42.652Z",
       "discount": {
         "price": 734,
         "percent": 85,
         "endDate": "2026-11-15T11:00:00.000Z"
+      },
+      "details": {
+        "tags": [
+          "Avions",
+          "Simulation",
+          "Réaliste",
+          "VR",
+          "Seconde Guerre mondiale"
+        ],
+        "description": "IL-2 Sturmovik: Battle of Stalingrad is the continuation of the legendary IL-2 Sturmovik series that has set the standard for PC combat flight games for more than ten years. This new entry into the series will offer virtual pilots an even more accurate simulation of the most famous air battles.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/ss_17adaaf32573df6f0fa5f5c8033aa14fb2295411.600x338.jpg?t=1794512204",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/ss_a16ae32dcdc6381fc1a3b7063cef50b9338a1e87.600x338.jpg?t=1794512204",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/ss_fea6826de21607a0d46918f2e734b0aeedd06fca.600x338.jpg?t=1794512204",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/ss_0ae2ec209a42a5ab5155fda0130ae2245c24a2fe.600x338.jpg?t=1794512204"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/307960/220840/98583174e2da48d8cbe310730b5c551126425810/1750504598/microtrailer.mp4"
       }
     },
     {
@@ -134,11 +236,28 @@
       "url": "https://store.steampowered.com/app/949230/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/library_600x900.jpg?t=1794506466",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T18:07:55.935Z",
+      "lastSeen": "2026-11-14T18:08:42.652Z",
       "discount": {
         "price": 3499,
         "percent": 30,
         "endDate": "2026-11-19T18:00:00.000Z"
+      },
+      "details": {
+        "tags": [
+          "Construction de villes",
+          "Simulation",
+          "Construction",
+          "Bac à sable",
+          "Gestion"
+        ],
+        "description": "Bâtissez une ville pour en faire une métropole florissante. Éprouvez votre créativité et votre sens de la résolution de problèmes grâce à une simulation approfondie et une économie dynamique. Une carte vous attend dans Cities: Skylines II. Si vous pouvez l'imaginer, vous pouvez la construire.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/ddeb0387afd486d345172a049da56f51aa08f38b/ss_ddeb0387afd486d345172a049da56f51aa08f38b.600x338.jpg?t=1794506466",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/cedb08924ea98f4707c566da3070a9dccd6fbc89/ss_cedb08924ea98f4707c566da3070a9dccd6fbc89.600x338.jpg?t=1794506466",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/d4d026f575a122df399763c566cecaa625cc41be/ss_d4d026f575a122df399763c566cecaa625cc41be.600x338.jpg?t=1794506466",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/f3f5a5fde092dd801c1a8a83061a433b7877f325/ss_f3f5a5fde092dd801c1a8a83061a433b7877f325.600x338.jpg?t=1794506466"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/949230/1520289042/151ea02f187729b5aa0d7da491dfd8fd9c34da5e/1772640568/microtrailer.mp4"
       }
     }
   ]
