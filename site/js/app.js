@@ -1,3 +1,17 @@
+import {
+  baseGameElement,
+  coverElement,
+  el,
+  formatMoney,
+  icon,
+  offerTags,
+  STORE_LABELS,
+  STORES,
+  tagsElement,
+  TIME_ZONE,
+  titleElement,
+  TYPE_LABELS,
+} from './common.js';
 import { initPreview } from './preview.js';
 import { createSortMenu } from './sortMenu.js';
 import { offerStatus } from './status.js';
@@ -11,12 +25,10 @@ import { offerStatus } from './status.js';
 // Préfixe localStorage du projet dans l'organisation : « fl- ».
 const STORAGE_KEY = 'fl-filters';
 
-/** Magasins dans l'ordre d'affichage. @type {Store[]} */
-const STORES = ['steam', 'epic'];
-const STORE_LABELS = { steam: 'Steam', epic: 'Epic Games Store' };
-const TYPE_LABELS = { free_to_keep: 'À garder', free_weekend: 'Week-end gratuit', now_free: 'Devenu gratuit' };
 const SORT_LABELS = { ending: 'Fin la plus proche', value: 'Valeur la plus haute', recent: 'Ajout le plus récent', name: 'Nom' };
-const STATUS_RANK = { active: 0, upcoming: 1, expired: 2 };
+const STATUS_RANK = { active: 0, upcoming: 1 };
+/** Statuts affichés ici ; les offres terminées sont sur la page Archives. */
+const STATUSES = ['active', 'upcoming'];
 /** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
 const CARD_TAGS = 3;
 
@@ -25,7 +37,7 @@ const defaultFilters = () => ({
   store: '',
   types: Object.keys(TYPE_LABELS),
   content: ['game', 'dlc'],
-  status: ['active', 'upcoming'],
+  status: [...STATUSES],
   sort: { steam: 'ending', epic: 'ending' },
 });
 
@@ -35,7 +47,6 @@ const HOUR = 3_600_000;
 const LEVEL_MID = 0.5;
 const LEVEL_LOW = 0.2;
 
-const TIME_ZONE = 'Europe/Paris';
 const dayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, weekday: 'short', day: 'numeric', month: 'short' });
 const dayYearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
 const longDayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, day: 'numeric', month: 'long' });
@@ -73,9 +84,6 @@ const sections = /** @type {Record<Store, StoreSection>} */ (
 
 /** @type {Offer[]} */
 let offers = [];
-/** @type {number[]} */
-let historyYears = [];
-let historyLoaded = false;
 
 const preview = initPreview(/** @type {HTMLElement} */ (document.querySelector('main')), (id) =>
   offers.find((offer) => offer.id === id),
@@ -92,8 +100,7 @@ async function init() {
     const response = await fetch('data/offers.json', { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    offers = data.offers;
-    historyYears = data.historyYears ?? [];
+    offers = Array.isArray(data.offers) ? data.offers : [];
     updated.textContent = data.generatedAt ? `Mis à jour ${relativeDay(new Date(data.generatedAt))}` : 'Date de mise à jour inconnue';
     message.textContent = '';
   } catch {
@@ -103,32 +110,14 @@ async function init() {
     return;
   }
 
-  await onChange();
+  onChange();
   setInterval(tick, 1000);
 }
 
-async function onChange() {
+function onChange() {
   const filters = readFilters();
   saveFilters(filters);
-  if (filters.status.includes('expired')) await loadHistory();
   render(filters);
-}
-
-/** L'historique (offres expirées depuis plus de 30 jours) n'est chargé que si on affiche les expirées. */
-async function loadHistory() {
-  if (historyLoaded) return;
-  historyLoaded = true;
-  const files = await Promise.all(
-    historyYears.map((year) =>
-      fetch(`data/history/${year}.json`)
-        .then((response) => (response.ok ? response.json() : { offers: [] }))
-        .catch(() => ({ offers: [] })),
-    ),
-  );
-  const known = new Set(offers.map((offer) => offer.id));
-  for (const file of files) {
-    offers.push(...file.offers.filter((/** @type {Offer} */ offer) => !known.has(offer.id)));
-  }
 }
 
 /** @param {Filters} filters */
@@ -166,12 +155,11 @@ function comparator(sort) {
     case 'name':
       return (a, b) => a.offer.title.localeCompare(b.offer.title, 'fr', { sensitivity: 'base' });
     default:
-      // Fin la plus proche : en cours, puis à venir, puis expirées (les plus récentes d'abord).
+      // Fin la plus proche : en cours, puis à venir.
       return (a, b) => {
-        const rank = STATUS_RANK[a.status] - STATUS_RANK[b.status];
+        const rank = (STATUS_RANK[/** @type {'active'} */ (a.status)] ?? 2) - (STATUS_RANK[/** @type {'active'} */ (b.status)] ?? 2);
         if (rank !== 0) return rank;
-        const diff = time(a.offer.endDate, Infinity) - time(b.offer.endDate, Infinity);
-        return a.status === 'expired' ? -diff : diff;
+        return time(a.offer.endDate, Infinity) - time(b.offer.endDate, Infinity);
       };
   }
 }
@@ -182,67 +170,15 @@ function comparator(sort) {
  * @param {number} now
  */
 function card(offer, status, now) {
-  const url = safeUrl(offer.url);
   const item = el('li', `card is-${status}`);
   item.dataset.id = offer.id;
 
-  const cover = el('div', 'cover');
-  const image = safeUrl(offer.image);
-  if (image) {
-    const img = /** @type {HTMLImageElement} */ (el('img'));
-    img.src = image;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.referrerPolicy = 'no-referrer';
-    img.addEventListener('load', () => img.classList.toggle('is-wide', img.naturalWidth > img.naturalHeight));
-    img.addEventListener('error', () => img.replaceWith(el('span', 'cover-fallback', offer.title)));
-    cover.append(img);
-  } else {
-    cover.append(el('span', 'cover-fallback', offer.title));
-  }
-  const pills = el('div', 'pills');
-  pills.append(el('span', 'pill', TYPE_LABELS[offer.type]));
-  if (offer.isDlc) pills.append(el('span', 'pill', 'DLC'));
-  if (typeof offer.details?.video === 'string') {
-    // Signale qu'une vidéo se lance au survol.
-    const video = el('span', 'pill pill-video', 'Vidéo');
-    video.prepend(icon('icon-video'));
-    pills.append(video);
-  }
-  cover.append(pills);
-
   const body = el('div', 'card-body');
-
-  // Le lien du titre couvre toute la carte (voir style.css).
-  const title = el('h3');
-  const titleLink = /** @type {HTMLAnchorElement} */ (el('a', '', offer.title));
-  linkTo(titleLink, url);
-  titleLink.setAttribute('aria-label', `${offer.title} sur ${STORE_LABELS[offer.store]}`);
-  title.append(titleLink);
-  body.append(title);
-
-  // Absents des offres enregistrées avant l'ajout des détails.
-  const tags = Array.isArray(offer.details?.tags) ? offer.details.tags.slice(0, CARD_TAGS) : [];
-  if (tags.length > 0) {
-    const list = el('ul', 'tags');
-    list.setAttribute('aria-label', 'Tags');
-    list.append(...tags.map((tag) => el('li', 'tag', String(tag))));
-    body.append(list);
-  }
-
-  if (offer.isDlc) {
-    const base = el('p', 'base-game', 'Nécessite : ');
-    const baseUrl = safeUrl(offer.baseGame?.url ?? null);
-    if (offer.baseGame && baseUrl) {
-      const link = /** @type {HTMLAnchorElement} */ (el('a', '', offer.baseGame.title));
-      linkTo(link, baseUrl);
-      base.append(link);
-    } else {
-      base.append(offer.baseGame?.title ?? 'le jeu de base');
-    }
-    body.append(base);
-  }
+  body.append(titleElement(offer));
+  const tags = tagsElement(offerTags(offer), CARD_TAGS);
+  if (tags) body.append(tags);
+  const base = baseGameElement(offer);
+  if (base) body.append(base);
 
   const price = el('p', 'price');
   if (offer.originalPrice !== null && offer.currency) {
@@ -257,7 +193,7 @@ function card(offer, status, now) {
   body.append(dateLine(offer, status));
   body.append(countdown(offer, status, now));
 
-  item.append(cover, body);
+  item.append(coverElement(offer), body);
   return item;
 }
 
@@ -276,21 +212,20 @@ function dateLine(offer, status) {
     line.append(prefix, time);
   };
   if (status === 'upcoming' && offer.startDate) withDate('Dès le ', offer.startDate);
-  else if (status === 'expired' && offer.endDate) withDate('Terminée le ', offer.endDate);
   else if (offer.endDate) withDate('Jusqu’au ', offer.endDate);
   else line.append('Sans date de fin connue');
   return line;
 }
 
 /**
- * Compte à rebours et barre du temps restant ; rien de dynamique pour une offre terminée ou sans fin.
+ * Compte à rebours et barre du temps restant ; rien de dynamique pour une offre sans fin.
  * @param {Offer} offer
  * @param {OfferStatus} status
  * @param {number} now
  */
 function countdown(offer, status, now) {
   const state = countdownState(offer, status, now);
-  if (!state) return el('p', 'ended', status === 'expired' ? 'Offre terminée' : 'En cours');
+  if (!state) return el('p', 'ended', 'En cours');
 
   const box = el('div', `countdown ${state.level}`);
   box.append(el('p', 'countdown-label', state.label));
@@ -358,7 +293,7 @@ function pad(value) {
 
 /**
  * Remise payante en cours pendant un Free Weekend ; chaîne vide s'il n'y en a pas.
- * Les offres enregistrées avant l'ajout du champ `discount` (offers.json, historique) n'en ont pas.
+ * Les offres enregistrées avant l'ajout du champ `discount` n'en ont pas.
  * @param {Offer} offer
  * @param {OfferStatus} status
  * @param {number} now
@@ -369,14 +304,6 @@ function discountText(offer, status, now) {
   if (discount.endDate && Date.parse(discount.endDate) <= now) return '';
   const end = discount.endDate ? ` jusqu’au ${dayFormat.format(new Date(discount.endDate))}` : '';
   return `En promotion à ${formatMoney(discount.price, offer.currency)} (-${discount.percent} %)${end}`;
-}
-
-/**
- * @param {number} cents
- * @param {string} currency
- */
-function formatMoney(cents, currency) {
-  return new Intl.NumberFormat('fr-FR', { style: 'currency', currency }).format(cents / 100);
 }
 
 /** « mer. 18 nov. 21 h 43 », avec l'année si ce n'est pas l'année en cours. @param {Date} date */
@@ -426,44 +353,6 @@ function tick() {
   }
 }
 
-/** @param {string} id */
-function icon(id) {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('aria-hidden', 'true');
-  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  use.setAttribute('href', `#${id}`);
-  svg.append(use);
-  return svg;
-}
-
-/**
- * @param {string} tag
- * @param {string} [className]
- * @param {string} [text]
- */
-function el(tag, className = '', text = '') {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text) node.textContent = text;
-  return node;
-}
-
-/**
- * @param {HTMLAnchorElement} anchor
- * @param {string | null} url
- */
-function linkTo(anchor, url) {
-  if (!url) return;
-  anchor.href = url;
-  anchor.target = '_blank';
-  anchor.rel = 'noopener noreferrer';
-}
-
-/** Seules les URL https sont affichées. @param {string | null} url */
-function safeUrl(url) {
-  return url && url.startsWith('https://') ? url : null;
-}
-
 /** @returns {Filters} */
 function readFilters() {
   const data = new FormData(form);
@@ -490,7 +379,7 @@ function applyFilters(filters) {
 
 /**
  * Valeur stockée illisible, d'un ancien format ou stockage indisponible : on garde ce qui est valide,
- * le reste prend la valeur par défaut.
+ * le reste prend la valeur par défaut. « expired », d'avant la page Archives, est ignoré.
  * @returns {Filters}
  */
 function loadFilters() {
@@ -511,7 +400,7 @@ function loadFilters() {
   if (['', ...STORES].includes(stored.store)) filters.store = stored.store;
   filters.types = list(stored.types, Object.keys(TYPE_LABELS)) ?? filters.types;
   filters.content = list(stored.content, ['game', 'dlc']) ?? filters.content;
-  filters.status = list(stored.status, Object.keys(STATUS_RANK)) ?? filters.status;
+  filters.status = list(stored.status, STATUSES) ?? filters.status;
   for (const store of STORES) {
     // Ancien format : un seul tri pour toute la page.
     const sort = typeof stored.sort === 'object' && stored.sort ? stored.sort[store] : stored.sort;
