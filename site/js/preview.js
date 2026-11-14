@@ -1,11 +1,14 @@
 // Aperçu d'une offre au survol de sa carte : vidéo ou captures, tags, description.
 // Souris uniquement (rien sur écran tactile) ; au clavier, il suit le focus du lien de la carte.
+// Médias en boucle : vidéo, puis chaque capture, puis de nouveau la vidéo.
+// Un clic sur la carte (y compris molette ou Ctrl + clic) ferme l'aperçu et retire l'effet de survol
+// jusqu'à ce que la souris quitte la carte (classe is-clicked).
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 
 /** Délai avant l'ouverture : évite un aperçu à chaque carte traversée. */
 const OPEN_DELAY = 350;
-/** Défilement des captures quand il n'y a pas de vidéo. */
+/** Durée d'affichage de chaque capture. */
 const SLIDE_INTERVAL = 2000;
 const WIDTH = 360;
 const GAP = 12;
@@ -28,7 +31,6 @@ export function initPreview(root, findOffer) {
   const media = el('div', 'preview-media');
   const video = /** @type {HTMLVideoElement} */ (el('video'));
   video.muted = true;
-  video.loop = true;
   video.playsInline = true;
   video.preload = 'none';
   video.setAttribute('aria-hidden', 'true');
@@ -55,16 +57,24 @@ export function initPreview(root, findOffer) {
   let viaFocus = false;
   let openTimer = 0;
   let slideTimer = 0;
+  /** Captures de l'offre affichée, montrées entre deux lectures de la vidéo. @type {string[]} */
+  let shots = [];
 
   video.addEventListener('error', () => {
-    // Vidéo illisible (format, réseau) : on passe aux captures.
-    if (!video.hidden && current) showScreenshots(screenshotsOf(findOffer(current.dataset.id ?? '')));
+    // Vidéo illisible (format, réseau) : on passe aux captures, sans revenir à la vidéo.
+    if (!video.hidden && current) showScreenshots(false);
+  });
+
+  video.addEventListener('ended', () => {
+    if (video.hidden) return;
+    if (shots.length > 0) showScreenshots(true);
+    else playVideo();
   });
 
   root.addEventListener('pointerover', (event) => {
     if (event.pointerType !== 'mouse' || !canHover.matches) return;
     const card = cardOf(event.target);
-    if (!card || card === current) return;
+    if (!card || card === current || card.classList.contains('is-clicked')) return;
     hide();
     current = card;
     openTimer = window.setTimeout(() => show(card), OPEN_DELAY);
@@ -72,8 +82,23 @@ export function initPreview(root, findOffer) {
 
   root.addEventListener('pointerout', (event) => {
     const card = cardOf(event.target);
-    if (card && card === current && !card.contains(/** @type {Node | null} */ (event.relatedTarget))) hide();
+    if (!card || card.contains(/** @type {Node | null} */ (event.relatedTarget))) return;
+    if (card === current) hide();
+    if (event.pointerType === 'mouse') card.classList.remove('is-clicked');
   });
+
+  // Clic souris (gauche ou molette, avec ou sans Ctrl) : l'offre s'ouvre dans un autre onglet,
+  // la carte ne doit plus paraître survolée. Au clavier (detail = 0), l'aperçu reste : il suit le focus.
+  /** @param {MouseEvent} event */
+  const onClick = (event) => {
+    if (event.detail === 0 || event.button > 1) return;
+    const card = cardOf(event.target);
+    if (!card) return;
+    if (card === current) hide();
+    card.classList.add('is-clicked');
+  };
+  root.addEventListener('click', onClick);
+  root.addEventListener('auxclick', onClick);
 
   root.addEventListener('focusin', (event) => {
     const target = /** @type {HTMLElement} */ (event.target);
@@ -106,7 +131,7 @@ export function initPreview(root, findOffer) {
     const offer = findOffer(card.dataset.id ?? '');
     const details = offer?.details;
     if (!offer || !details) return;
-    const shots = screenshotsOf(offer);
+    shots = screenshotsOf(offer);
     const clip = reduceMotion.matches ? null : safeUrl(details.video);
     const text = typeof details.description === 'string' ? details.description : '';
     if (!clip && shots.length === 0 && !text) return;
@@ -120,16 +145,13 @@ export function initPreview(root, findOffer) {
 
     media.hidden = !clip && shots.length === 0;
     if (clip) {
-      image.hidden = true;
-      dots.replaceChildren();
-      video.hidden = false;
       video.poster = shots[0] ?? '';
       video.src = clip;
-      video.play().catch(() => {
-        // Lecture refusée ou interrompue : la vidéo reste sur son affiche, ou l'événement error prend le relais.
-      });
+      playVideo();
+      // Préchargement des captures pour qu'elles s'affichent sans attente à la fin de la vidéo.
+      for (const url of shots) new Image().src = url;
     } else if (shots.length > 0) {
-      showScreenshots(shots);
+      showScreenshots(false);
     }
 
     panel.hidden = false;
@@ -138,9 +160,26 @@ export function initPreview(root, findOffer) {
     card.querySelector('h3 a')?.setAttribute('aria-describedby', description.id);
   }
 
-  /** @param {string[]} shots */
-  function showScreenshots(shots) {
-    stopVideo();
+  /** Vidéo depuis le début ; la source est conservée d'un tour à l'autre (pas de nouveau téléchargement). */
+  function playVideo() {
+    window.clearInterval(slideTimer);
+    image.hidden = true;
+    image.removeAttribute('src');
+    dots.replaceChildren();
+    video.hidden = false;
+    video.currentTime = 0;
+    video.play().catch(() => {
+      // Lecture refusée ou interrompue : la vidéo reste sur son affiche, ou l'événement error prend le relais.
+    });
+  }
+
+  /**
+   * Défilement des captures de l'offre affichée.
+   * @param {boolean} backToVideo après la dernière capture, relancer la vidéo (sinon les captures bouclent)
+   */
+  function showScreenshots(backToVideo) {
+    if (backToVideo) video.pause();
+    else stopVideo();
     video.hidden = true;
     image.hidden = false;
     let index = 0;
@@ -155,7 +194,12 @@ export function initPreview(root, findOffer) {
     // Préchargement des captures suivantes pour un défilement sans attente.
     for (const url of shots.slice(1)) new Image().src = url;
     window.clearInterval(slideTimer);
-    if (shots.length > 1 && !reduceMotion.matches) {
+    if (backToVideo) {
+      slideTimer = window.setInterval(() => {
+        if (index + 1 < shots.length) go(index + 1);
+        else playVideo();
+      }, SLIDE_INTERVAL);
+    } else if (shots.length > 1 && !reduceMotion.matches) {
       slideTimer = window.setInterval(() => go(index + 1), SLIDE_INTERVAL);
     }
   }
