@@ -27,6 +27,8 @@ const STORAGE_KEY = 'fl-filters';
 
 const SORT_LABELS = { ending: 'Fin la plus proche', value: 'Valeur la plus haute', recent: 'Ajout le plus récent', name: 'Nom' };
 const STATUS_RANK = { active: 0, upcoming: 1 };
+/** Mention sous le prix barré, selon ce que l'offre donne vraiment. @type {Record<string, string>} */
+const PRICE_LABELS = { free_to_keep: 'Gratuit à vie', free_weekend: 'Gratuit ce week-end', now_free: 'Gratuit' };
 /** Statuts affichés ici ; les offres terminées sont sur la page Archives. */
 const STATUSES = ['active', 'upcoming'];
 /** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
@@ -184,7 +186,7 @@ function card(offer, status, now) {
   if (offer.originalPrice !== null && offer.currency) {
     price.append(el('s', '', formatMoney(offer.originalPrice, offer.currency)));
   }
-  price.append(el('strong', '', offer.type === 'free_weekend' ? 'Gratuit à jouer' : 'Gratuit'));
+  price.append(el('strong', '', PRICE_LABELS[offer.type] ?? 'Gratuit'));
   body.append(price);
 
   const discount = discountElement(offer, status, now);
