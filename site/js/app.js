@@ -193,7 +193,8 @@ function card(offer, status, now) {
   if (discount) body.append(discount);
 
   body.append(dateLine(offer, status));
-  body.append(countdown(offer, status, now));
+  // Devenu gratuit : pas de fin, donc ni compte à rebours ni mention « En cours ».
+  if (!isPermanent(offer)) body.append(countdown(offer, status, now));
 
   item.append(coverElement(offer), body);
   return item;
@@ -215,8 +216,16 @@ function dateLine(offer, status) {
   };
   if (status === 'upcoming' && offer.startDate) withDate('Dès le ', offer.startDate);
   else if (offer.endDate) withDate('Jusqu’au ', offer.endDate);
-  else line.append('Sans date de fin connue');
+  else line.append(isPermanent(offer) ? 'Définitif' : 'Sans date de fin connue');
   return line;
+}
+
+/**
+ * Jeu devenu gratuit sans date de fin : la gratuité est définitive.
+ * @param {Offer} offer
+ */
+function isPermanent(offer) {
+  return offer.type === 'now_free' && !offer.endDate;
 }
 
 /**
