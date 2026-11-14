@@ -22,6 +22,18 @@ export interface Discount {
   endDate: string | null;
 }
 
+/** Présentation du jeu, pour les cartes et l'aperçu au survol. */
+export interface Details {
+  /** Tags Steam en français, du plus au moins représentatif. Vide si inconnus. */
+  tags: string[];
+  /** Courte description fournie par le magasin, en texte brut. */
+  description: string | null;
+  /** Captures d'écran (URL https, environ 600 × 338). */
+  screenshots: string[];
+  /** Courte vidéo muette (micro-bande-annonce Steam, mp4), null si aucune. */
+  video: string | null;
+}
+
 /** Offre publiée dans site/data/offers.json : uniquement des données publiques. */
 export interface Offer {
   /** Identifiant unique d'une occurrence d'offre (un même jeu peut être offert plusieurs fois). */
@@ -46,6 +58,11 @@ export interface Offer {
   endDate: string | null;
   url: string;
   image: string | null;
+  /**
+   * Absent des offres enregistrées avant l'ajout du champ, et quand la collecte n'a pas pu le lire :
+   * la valeur connue est alors conservée.
+   */
+  details?: Details;
   firstSeen: string;
   lastSeen: string;
 }

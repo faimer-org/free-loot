@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { offerStatus } from '../site/js/status.js';
+import { mergeDetails } from './details.ts';
 import type { DetectedOffer, Offer } from './offer.ts';
 
 const DAY = 86_400_000;
@@ -83,6 +84,7 @@ export function mergeOffers(known: Offer[], detected: DetectedOffer[], { now, st
       Object.assign(existing, candidate, {
         // Steam ne donne pas de date de début pour un Free to Keep : on garde celle connue.
         startDate: candidate.startDate ?? existing.startDate,
+        details: mergeDetails(existing.details, candidate.details),
         lastSeen: nowIso,
       });
       matched.add(existing);

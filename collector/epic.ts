@@ -1,5 +1,6 @@
+import { cleanDescription } from './details.ts';
 import { fetchJson } from './http.ts';
-import type { DetectedOffer } from './offer.ts';
+import type { DetectedOffer, Details } from './offer.ts';
 
 export const EPIC_URL =
   'https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions?locale=fr&country=FR&allowCountries=FR';
@@ -18,6 +19,7 @@ interface EpicElement {
   title: string;
   id: string;
   namespace: string;
+  description?: string;
   offerType: string;
   productSlug: string | null;
   urlSlug?: string | null;
@@ -84,6 +86,30 @@ function toOffer(element: EpicElement, promotion: EpicPromotion): DetectedOffer 
     endDate: new Date(promotion.endDate).toISOString(),
     url: slug ? STORE_PAGE + slug : FREE_GAMES_PAGE,
     image: coverImage(element),
+    details: epicDetails(element),
+  };
+}
+
+/** Le CDN d'Epic redimensionne à la demande : environ 50 Ko au lieu de 2 Mo (testé le 2026-11-14). */
+const SCREENSHOT_SIZE = 'h=338&quality=medium&resize=1&w=600';
+const MAX_SCREENSHOTS = 4;
+
+/**
+ * Description et captures (`featuredMedia`). Pas de tags : le flux n'en donne que les identifiants,
+ * ils sont repris de Steam quand le jeu y est vendu sous le même nom (voir main.ts).
+ * Pas de vidéo : `heroCarouselVideo` est une adresse interne d'Epic (com.epicgames.video.qs://).
+ */
+export function epicDetails(element: EpicElement): Details {
+  const description = cleanDescription(element.description);
+  return {
+    tags: [],
+    // Faute de description, le flux répète parfois le titre.
+    description: description && description !== element.title ? description : null,
+    screenshots: (element.keyImages ?? [])
+      .filter((image) => image.type === 'featuredMedia' && image.url.startsWith('https://'))
+      .slice(0, MAX_SCREENSHOTS)
+      .map((image) => `${image.url}${image.url.includes('?') ? '&' : '?'}${SCREENSHOT_SIZE}`),
+    video: null,
   };
 }
 
