@@ -145,6 +145,7 @@ export function initPreview(root, findOffer) {
 
     media.hidden = !clip && shots.length === 0;
     if (clip) {
+      video.hidden = false;
       video.poster = shots[0] ?? '';
       video.src = clip;
       playVideo();
@@ -160,13 +161,14 @@ export function initPreview(root, findOffer) {
     card.querySelector('h3 a')?.setAttribute('aria-describedby', description.id);
   }
 
-  /** Vidéo depuis le début ; la source est conservée d'un tour à l'autre (pas de nouveau téléchargement). */
+  /**
+   * Vidéo depuis le début ; la source est conservée d'un tour à l'autre (pas de nouveau téléchargement).
+   * La capture posée par-dessus s'efface en fondu (CSS) et découvre la vidéo.
+   */
   function playVideo() {
     window.clearInterval(slideTimer);
-    image.hidden = true;
-    image.removeAttribute('src');
+    image.classList.remove('is-shown');
     dots.replaceChildren();
-    video.hidden = false;
     video.currentTime = 0;
     video.play().catch(() => {
       // Lecture refusée ou interrompue : la vidéo reste sur son affiche, ou l'événement error prend le relais.
@@ -174,14 +176,17 @@ export function initPreview(root, findOffer) {
   }
 
   /**
-   * Défilement des captures de l'offre affichée.
+   * Défilement des captures de l'offre affichée. Elles apparaissent en fondu par-dessus la vidéo,
+   * qui reste en dessous, arrêtée sur sa dernière image.
    * @param {boolean} backToVideo après la dernière capture, relancer la vidéo (sinon les captures bouclent)
    */
   function showScreenshots(backToVideo) {
-    if (backToVideo) video.pause();
-    else stopVideo();
-    video.hidden = true;
-    image.hidden = false;
+    if (backToVideo) {
+      video.pause();
+    } else {
+      stopVideo();
+      video.hidden = true;
+    }
     let index = 0;
     const dotNodes = shots.map(() => el('span'));
     dots.replaceChildren(...(shots.length > 1 ? dotNodes : []));
@@ -191,6 +196,7 @@ export function initPreview(root, findOffer) {
       dotNodes.forEach((dot, i) => dot.classList.toggle('is-current', i === index));
     };
     go(0);
+    image.classList.add('is-shown');
     // Préchargement des captures suivantes pour un défilement sans attente.
     for (const url of shots.slice(1)) new Image().src = url;
     window.clearInterval(slideTimer);
@@ -239,6 +245,7 @@ export function initPreview(root, findOffer) {
     panel.classList.remove('is-visible');
     panel.hidden = true;
     stopVideo();
+    image.classList.remove('is-shown');
     image.removeAttribute('src');
   }
 

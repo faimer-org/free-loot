@@ -335,7 +335,26 @@ svg { flex-shrink: 0; }
 .price { margin: 0; }
 .price s { color: var(--muted); margin-right: 6px; }
 .price strong { color: var(--gold); font-weight: 600; }
-.discount { margin: 0; font-size: 0.8rem; color: var(--gold); }
+/* Remise payante pendant un Free Weekend : badge aux couleurs des remises Steam. */
+.discount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.discount-badge {
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: #4c6b22;
+  color: #beee11;
+  font-weight: 700;
+}
+
+.discount strong { color: var(--text); font-weight: 700; }
 
 .date {
   display: flex;
@@ -559,6 +578,16 @@ svg { flex-shrink: 0; }
   height: 100%;
   object-fit: cover;
 }
+
+/* Les captures se superposent à la vidéo : fondu de l'une à l'autre (site/js/preview.js). */
+.preview-media img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.preview-media img.is-shown { opacity: 1; }
 
 .preview-dots {
   position: absolute;

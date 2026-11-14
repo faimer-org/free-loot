@@ -187,8 +187,8 @@ function card(offer, status, now) {
   price.append(el('strong', '', offer.type === 'free_weekend' ? 'Gratuit à jouer' : 'Gratuit'));
   body.append(price);
 
-  const discount = discountText(offer, status, now);
-  if (discount) body.append(el('p', 'discount', discount));
+  const discount = discountElement(offer, status, now);
+  if (discount) body.append(discount);
 
   body.append(dateLine(offer, status));
   body.append(countdown(offer, status, now));
@@ -292,18 +292,40 @@ function pad(value) {
 }
 
 /**
- * Remise payante en cours pendant un Free Weekend ; chaîne vide s'il n'y en a pas.
+ * Remise payante en cours pendant un Free Weekend ; null s'il n'y en a pas.
  * Les offres enregistrées avant l'ajout du champ `discount` n'en ont pas.
  * @param {Offer} offer
  * @param {OfferStatus} status
  * @param {number} now
  */
-function discountText(offer, status, now) {
+function activeDiscount(offer, status, now) {
   const discount = offer.discount;
-  if (!discount || typeof discount.price !== 'number' || !offer.currency || status === 'expired') return '';
-  if (discount.endDate && Date.parse(discount.endDate) <= now) return '';
-  const end = discount.endDate ? ` jusqu’au ${dayFormat.format(new Date(discount.endDate))}` : '';
-  return `En promotion à ${formatMoney(discount.price, offer.currency)} (-${discount.percent} %)${end}`;
+  if (!discount || typeof discount.price !== 'number' || !offer.currency || status === 'expired') return null;
+  if (discount.endDate && Date.parse(discount.endDate) <= now) return null;
+  return discount;
+}
+
+/**
+ * Badge de remise à la manière de Steam (« -67 % »), prix remisé en gras, date de fin.
+ * @param {Offer} offer
+ * @param {OfferStatus} status
+ * @param {number} now
+ */
+function discountElement(offer, status, now) {
+  const discount = activeDiscount(offer, status, now);
+  if (!discount || typeof discount.price !== 'number' || !offer.currency) return null;
+  const line = el('p', 'discount');
+  line.append(
+    el('span', 'sr-only', 'En promotion : '),
+    el('span', 'discount-badge', `-${discount.percent} %`),
+    // Espaces pour la lecture d'écran et le copier-coller ; ignorés par la mise en page flex.
+    ' ',
+    el('strong', '', formatMoney(discount.price, offer.currency)),
+  );
+  if (discount.endDate) {
+    line.append(' ', el('span', 'discount-end', `jusqu’au ${dayFormat.format(new Date(discount.endDate))}`));
+  }
+  return line;
 }
 
 /** « mer. 18 nov. 21 h 43 », avec l'année si ce n'est pas l'année en cours. @param {Date} date */
@@ -349,7 +371,7 @@ function tick() {
       /** @type {HTMLElement} */ (box.querySelector('.bar-fill')).style.width = `${state.ratio * 100}%`;
     }
     // Remise terminée pendant que la page est ouverte.
-    if (!discountText(offer, status, now)) node.querySelector('.discount')?.remove();
+    if (!activeDiscount(offer, status, now)) node.querySelector('.discount')?.remove();
   }
 }
 
