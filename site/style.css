@@ -335,7 +335,26 @@ svg { flex-shrink: 0; }
 .price { margin: 0; }
 .price s { color: var(--muted); margin-right: 6px; }
 .price strong { color: var(--gold); font-weight: 600; }
-.discount { margin: 0; font-size: 0.8rem; color: var(--gold); }
+/* Remise payante pendant un Free Weekend : badge aux couleurs des remises Steam. */
+.discount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.discount-badge {
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: #4c6b22;
+  color: #beee11;
+  font-weight: 700;
+}
+
+.discount strong { color: var(--text); font-weight: 700; }
 
 .date {
   display: flex;
