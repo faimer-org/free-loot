@@ -31,6 +31,8 @@ const STATUS_RANK = { active: 0, upcoming: 1 };
 const PRICE_LABELS = { free_to_keep: 'Gratuit à vie', free_weekend: 'Gratuit ce week-end', now_free: 'Gratuit' };
 /** Statuts affichés ici ; les offres terminées sont sur la page Archives. */
 const STATUSES = ['active', 'upcoming'];
+/** Un jeu devenu gratuit reste ici ce nombre de jours, puis seulement sur la page Devenus gratuits. */
+const NOW_FREE_HOME_DAYS = 7;
 /** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
 const CARD_TAGS = 3;
 
@@ -129,6 +131,7 @@ function render(filters) {
   const visible = offers
     .map((offer) => ({ offer, status: offerStatus(offer, now) }))
     .filter(({ offer, status }) =>
+      !isOldNowFree(offer, now) &&
       filters.types.includes(offer.type) &&
       filters.content.includes(offer.isDlc ? 'dlc' : 'game') &&
       filters.status.includes(status),
@@ -226,6 +229,15 @@ function dateLine(offer, status) {
  */
 function isPermanent(offer) {
   return offer.type === 'now_free' && !offer.endDate;
+}
+
+/**
+ * Jeu devenu gratuit détecté il y a plus de NOW_FREE_HOME_DAYS jours : il n'a plus sa place parmi les nouveautés.
+ * @param {Offer} offer
+ * @param {number} now
+ */
+function isOldNowFree(offer, now) {
+  return offer.type === 'now_free' && now - Date.parse(offer.firstSeen) > NOW_FREE_HOME_DAYS * DAY;
 }
 
 /**

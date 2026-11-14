@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Devenus gratuits · Free Loot</title>
+  <meta name="description" content="Jeux auparavant payants devenus gratuits pour de bon sur Steam.">
+  <link rel="icon" href="favicon-32.png" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/nowFree.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1><svg class="gem" aria-hidden="true"><use href="icons.svg#icon-gem"/></svg>Free <span>Loot</span></h1>
+    <p class="subtitle">Les jeux offerts sur Steam et l'Epic Games Store</p>
+    <nav class="tabs" aria-label="Pages">
+      <a href="./">Offres en cours</a>
+      <a href="devenus-gratuits.html" aria-current="page">Devenus gratuits</a>
+      <a href="archives.html">Archives</a>
+    </nav>
+  </header>
+
+  <main class="archives">
+    <h2 class="sr-only">Jeux devenus gratuits</h2>
+
+    <dl class="stats" id="stats" hidden>
+      <div><dt id="stat-count-label">Jeux, 6 derniers mois</dt><dd id="stat-count">0</dd></div>
+      <div><dt>Ce mois-ci</dt><dd id="stat-month" class="is-gold">0</dd></div>
+      <div><dt>Depuis</dt><dd id="stat-since">—</dd></div>
+    </dl>
+
+    <form class="filters archive-filters" id="filters" aria-label="Filtres" hidden>
+      <div class="archive-toolbar">
+        <label class="search">
+          <span class="sr-only">Rechercher un jeu</span>
+          <svg aria-hidden="true"><use href="icons.svg#icon-search"/></svg>
+          <input type="search" name="q" placeholder="Rechercher un jeu" autocomplete="off">
+        </label>
+        <div class="sort" id="period-menu"></div>
+        <div class="sort" id="sort-menu"></div>
+      </div>
+      <div class="archive-chips">
+        <fieldset class="chips">
+          <legend>Magasin</legend>
+          <label class="chip"><input type="checkbox" name="store" value="steam" checked><span>Steam</span></label>
+          <label class="chip"><input type="checkbox" name="store" value="epic" checked><span>Epic</span></label>
+        </fieldset>
+        <fieldset class="chips">
+          <legend>Contenu</legend>
+          <label class="chip"><input type="checkbox" name="content" value="game" checked><span>Jeux</span></label>
+          <label class="chip"><input type="checkbox" name="content" value="dlc" checked><span>DLC</span></label>
+        </fieldset>
+      </div>
+      <fieldset class="chips tag-chips" id="tag-chips" hidden>
+        <legend>Catégorie</legend>
+      </fieldset>
+    </form>
+
+    <div class="results-head">
+      <p class="message" id="message" aria-live="polite">Chargement des jeux devenus gratuits…</p>
+      <button type="button" class="reset" id="reset" hidden>Réinitialiser les filtres</button>
+    </div>
+    <ul class="grid archive-grid" id="results"></ul>
+    <nav class="pagination" id="pagination" aria-label="Pages de résultats" hidden></nav>
+  </main>
+
+  <footer class="page-footer">
+    <p>Prix en euros, boutique France. Heures de Paris.</p>
+    <p>Un jeu redevenu payant passe dans les archives. Steam seulement : l'Epic Games Store ne signale pas ces jeux.</p>
+  </footer>
+</body>
+</html>
