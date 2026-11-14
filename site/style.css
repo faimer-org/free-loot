@@ -206,6 +206,37 @@ svg { flex-shrink: 0; }
 .sort-icon { left: 12px; }
 .sort-chevron { right: 12px; }
 
+/* Liste déroulante aux couleurs du site là où le navigateur le permet (select personnalisable,
+   Chromium 135+) ; ailleurs, la liste native du système, en sombre grâce à color-scheme. */
+@supports (appearance: base-select) {
+  .sort select, .sort select::picker(select) { appearance: base-select; }
+  .sort select::picker-icon { display: none; }
+
+  .sort select::picker(select) {
+    margin-top: 6px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 12px 28px -10px rgb(0 0 0 / 0.6);
+    position-area: block-end span-inline-start;
+    min-width: anchor-size(width);
+  }
+
+  .sort option {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .sort option::checkmark { display: none; }
+  .sort option:hover, .sort option:focus-visible { background: var(--surface-2); outline: none; }
+  .sort option:checked { color: var(--gold); }
+}
+
 .empty { color: var(--muted); margin: 0; }
 
 /* Cartes */
