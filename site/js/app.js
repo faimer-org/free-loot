@@ -1,3 +1,4 @@
+import { initPreview } from './preview.js';
 import { createSortMenu } from './sortMenu.js';
 import { offerStatus } from './status.js';
 
@@ -76,6 +77,10 @@ let offers = [];
 let historyYears = [];
 let historyLoaded = false;
 
+const preview = initPreview(/** @type {HTMLElement} */ (document.querySelector('main')), (id) =>
+  offers.find((offer) => offer.id === id),
+);
+
 init();
 
 async function init() {
@@ -128,6 +133,7 @@ async function loadHistory() {
 
 /** @param {Filters} filters */
 function render(filters) {
+  preview.hide(); // sa carte va être remplacée
   const now = Date.now();
   const visible = offers
     .map((offer) => ({ offer, status: offerStatus(offer, now) }))
@@ -198,6 +204,12 @@ function card(offer, status, now) {
   const pills = el('div', 'pills');
   pills.append(el('span', 'pill', TYPE_LABELS[offer.type]));
   if (offer.isDlc) pills.append(el('span', 'pill', 'DLC'));
+  if (typeof offer.details?.video === 'string') {
+    // Signale qu'une vidéo se lance au survol.
+    const video = el('span', 'pill pill-video', 'Vidéo');
+    video.prepend(icon('icon-video'));
+    pills.append(video);
+  }
   cover.append(pills);
 
   const body = el('div', 'card-body');
