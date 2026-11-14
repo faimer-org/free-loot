@@ -47,15 +47,18 @@ try {
   const since = state.steam.lastRun
     ? Math.floor(Date.parse(state.steam.lastRun) / 1000) - OVERLAP_SECONDS
     : nowSeconds - FIRST_RUN_DAYS * 24 * HOUR;
-  const recheck = offersFile.offers
-    .filter((offer) => offer.store === 'steam' && offerStatus(offer, now.getTime()) !== 'expired')
-    .map((offer) => Number(offer.storeId));
+  const steamActive = offersFile.offers.filter(
+    (offer) => offer.store === 'steam' && offerStatus(offer, now.getTime()) !== 'expired',
+  );
+  const recheck = steamActive.map((offer) => Number(offer.storeId));
+  const knownNowFree = steamActive.filter((offer) => offer.type === 'now_free').map((offer) => Number(offer.storeId));
 
   const steam = await collectSteam({
     apiKey: process.env.STEAM_API_KEY || undefined,
     since,
     lastMaxPriceChange: state.steam.maxPriceChange,
     recheck,
+    knownNowFree,
     now,
   });
   console.log(`Steam : ${steam.offers.length} offre(s) gratuite(s)`);

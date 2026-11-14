@@ -6,7 +6,11 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 
 - Collecteur en TypeScript exécuté directement par Node 24 (`collector/`), sans dépendance à l'exécution. Syntaxe effaçable uniquement (`erasableSyntaxOnly`) : pas d'`enum`, pas de `namespace`, imports avec l'extension `.ts`.
 - Page statique sans build (`site/`). `site/js/status.js` est partagé avec le collecteur : il reste en JavaScript (JSDoc), sans dépendance.
-- Deux pages : `index.html` (`js/app.js`, offres en cours et à venir) et `archives.html` (`js/archives.js`, offres terminées : recherche, filtres, catégories, pagination, état des filtres dans l'adresse). Partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`). Icône d'onglet : `favicon.svg`, avec `favicon-32.png` en secours, déclarée dans le `<head>` des deux pages.
+- Trois pages :
+  - `index.html` (`js/app.js`) : offres en cours et à venir ; un jeu devenu gratuit n'y reste que 7 jours après sa détection (`NOW_FREE_HOME_DAYS`).
+  - `devenus-gratuits.html` (`js/nowFree.js`) : jeux devenus gratuits encore gratuits, datés par leur détection (`firstSeen`) ; période par défaut : 6 derniers mois (paramètre `periode`).
+  - `archives.html` (`js/archives.js`) : offres terminées, datées par leur fin (paramètre `annee`).
+- `js/catalog.js` : liste commune aux Devenus gratuits et aux Archives (recherche, filtres, catégories, période, tri, pagination, état des filtres dans l'adresse), configurée par chaque page. Autres partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`). Icône d'onglet : `favicon.svg`, avec `favicon-32.png` en secours, déclarée dans le `<head>` de chaque page.
 - Données publiées : `site/data/` (commitées par l'Action). État interne : `data/state.json`.
 - Préfixe `localStorage` : `fl-`.
 
@@ -48,7 +52,8 @@ GitHub Action (7 h 45 et 17 h 45, heure de Paris)
   └─ commit des données, puis publication de site/ sur GitHub Pages
 ```
 
-- `site/data/offers.json` : offres en cours, à venir et expirées depuis moins de 30 jours.
+- `site/data/offers.json` : offres en cours, à venir et expirées depuis moins de 30 jours. Un jeu devenu gratuit n'a pas de date de fin : il y reste tant qu'il est gratuit (le fichier grossit avec eux ; à sortir dans un fichier à part si le volume le justifie).
+- Devenu gratuit : détecté une première fois quand son prix change (`priceChangedSinceLastRun`), il reste ensuite détecté tant qu'il est gratuit (`isKnownNowFree`, à partir des offres en cours d'`offers.json`). Redevenu payant, il n'est plus détecté et la fusion le clôt : il part dans les archives.
 - `site/data/history/<année>.json` : offres plus anciennes, chargées seulement par la page Archives (avec les offres expirées d'`offers.json`).
 - `details` d'une offre : tags (5 au plus, sans « Jeu solo », « Multijoueur », « Free-to-play », « Accès anticipé »), description, 4 captures, vidéo. Epic fournit description et captures (redimensionnées par son CDN), pas de vidéo lisible ; ses tags viennent de Steam. Une source indisponible n'efface pas les détails connus (`mergeDetails`). Pas de capture ni de vidéo pour un jeu signalé pour nudité ou contenu sexuel (descripteurs Steam 1, 3, 4) ; la violence (2) et le « contenu adulte » général (5) restent affichés.
 - `data/state.json` : dernière lecture de `GetAppList` et plus grand `price_change_number` vu.

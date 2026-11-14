@@ -13,6 +13,8 @@ export interface ClassifyContext {
    * Sert à distinguer un jeu devenu gratuit d'un free-to-play qui l'a toujours été.
    */
   priceChangedSinceLastRun(appid: number): boolean;
+  /** Vrai si l'app est déjà suivie comme « devenu gratuit » encore en cours. */
+  isKnownNowFree(appid: number): boolean;
 }
 
 export interface SteamDetection {
@@ -66,9 +68,12 @@ export function classifySteamItem(item: StoreItem, context: ClassifyContext): St
   }
 
   // 4. Devenu gratuit : gratuit, prix modifié depuis la dernière exécution, sorti depuis plus de 30 jours.
-  if (item.is_free && context.priceChangedSinceLastRun(appid)) {
+  // Une fois suivi, le jeu le reste tant qu'il est gratuit : son prix ne change plus aux exécutions suivantes.
+  if (item.is_free) {
     const released = item.release?.steam_release_date;
-    if (released && now - released * 1000 > NOW_FREE_MIN_AGE_DAYS * DAY) {
+    const isNew =
+      context.priceChangedSinceLastRun(appid) && released && now - released * 1000 > NOW_FREE_MIN_AGE_DAYS * DAY;
+    if (isNew || context.isKnownNowFree(appid)) {
       return detection(item, 'now_free', { originalPrice: null, startDate: null, endDate: null });
     }
   }
