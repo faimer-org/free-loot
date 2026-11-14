@@ -21,7 +21,11 @@ const item = (appid: number): StoreItem => {
 };
 
 const now = new Date('2026-11-14T12:00:00Z');
-const context = (priceChanged = false): ClassifyContext => ({ now, priceChangedSinceLastRun: () => priceChanged });
+const context = (priceChanged = false, knownNowFree = false): ClassifyContext => ({
+  now,
+  priceChangedSinceLastRun: () => priceChanged,
+  isKnownNowFree: () => knownNowFree,
+});
 
 /** Transforme une app réelle en offre gratuite à durée limitée (forme observée sur une remise de 75 %). */
 function freeToKeep(base: StoreItem, endDate = 1_795_539_600): StoreItem {
@@ -113,6 +117,14 @@ describe('classifySteamItem', () => {
     const free = { ...item(620), is_free: true, best_purchase_option: undefined };
     assert.equal(classifySteamItem(free, context(false)), null);
     assert.equal(classifySteamItem(free, context(true))?.offer.type, 'now_free');
+  });
+
+  it('garde un jeu devenu gratuit déjà suivi tant qu’il est gratuit', () => {
+    const free = { ...item(620), is_free: true, best_purchase_option: undefined };
+    // Exécution suivante : le prix n'a plus changé, l'offre ne doit pas être close.
+    assert.equal(classifySteamItem(free, context(false, true))?.offer.type, 'now_free');
+    // Redevenu payant : plus détecté, la fusion clôt l'offre.
+    assert.equal(classifySteamItem(item(620), context(false, true)), null);
   });
 
   it('ne prend pas un free-to-play récent pour un jeu devenu gratuit', () => {

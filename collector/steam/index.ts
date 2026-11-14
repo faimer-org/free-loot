@@ -13,6 +13,8 @@ export interface SteamRunInput {
   lastMaxPriceChange: number;
   /** Apps des offres Steam encore actives, à revérifier même si elles n'ont pas changé. */
   recheck: number[];
+  /** Apps des offres « devenu gratuit » encore en cours : elles restent détectées tant qu'elles sont gratuites. */
+  knownNowFree: number[];
   now: Date;
 }
 
@@ -51,8 +53,11 @@ export async function collectSteam(input: SteamRunInput): Promise<SteamRunResult
   const priceChangedSinceLastRun = (appid: number) =>
     input.lastMaxPriceChange > 0 && (priceChanges.get(appid) ?? 0) > input.lastMaxPriceChange;
 
+  const knownNowFree = new Set(input.knownNowFree);
+  const isKnownNowFree = (appid: number) => knownNowFree.has(appid);
+
   const detections = items
-    .map((item) => classifySteamItem(item, { now: input.now, priceChangedSinceLastRun }))
+    .map((item) => classifySteamItem(item, { now: input.now, priceChangedSinceLastRun, isKnownNowFree }))
     .filter((detection) => detection !== null);
 
   await fillBaseGameNames(detections);
