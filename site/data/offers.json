@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T04:48:59.084Z",
+  "generatedAt": "2026-11-14T04:52:41.948Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "epic-3d6441ab9d4246208bc97d7babf664b5-1f9a12b06b4f437790b6913ad136a08c-free_to_keep-2026-11-19",
@@ -34,7 +34,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "epic-df37f065c3f14eadbf011177396e2966-d37f3694e7a04edb8347f3cb6320f9d3-free_to_keep-2026-11-19",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/alien-isolation",
       "image": "https://cdn1.epicgames.com/df37f065c3f14eadbf011177396e2966/offer/EGS_AlienIsolation_CreativeAssembly_S6-1200x1600-af00adc8f67a7c6138cce183ac1e9503.jpg",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "steam-1677280-free_weekend-2026-11-12",
@@ -61,14 +61,14 @@
       "title": "Company of Heroes 3",
       "isDlc": false,
       "baseGame": null,
-      "originalPrice": 1814,
+      "originalPrice": 5499,
       "currency": "EUR",
       "startDate": "2026-11-12T18:00:00.000Z",
       "endDate": "2026-11-16T18:00:00.000Z",
       "url": "https://store.steampowered.com/app/1677280/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/13d0039949e0565f4abf4a421eaff3f5101046d6/library_capsule.jpg?t=1794506606",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "steam-2605790-free_weekend-2026-11-12",
@@ -78,14 +78,14 @@
       "title": "Deep Rock Galactic: Rogue Core",
       "isDlc": false,
       "baseGame": null,
-      "originalPrice": 1499,
+      "originalPrice": 2999,
       "currency": "EUR",
       "startDate": "2026-11-12T18:00:00.000Z",
       "endDate": "2026-11-16T18:00:00.000Z",
       "url": "https://store.steampowered.com/app/2605790/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/8da4be0bff9ff5608885734b752e2315c2a8ac01/library_capsule.jpg?t=1794615194",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -95,14 +95,14 @@
       "title": "IL-2 Sturmovik: Battle of Stalingrad",
       "isDlc": false,
       "baseGame": null,
-      "originalPrice": 734,
+      "originalPrice": 4899,
       "currency": "EUR",
       "startDate": "2026-11-12T18:00:00.000Z",
       "endDate": "2026-11-16T18:00:00.000Z",
       "url": "https://store.steampowered.com/app/307960/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/library_600x900.jpg?t=1794512204",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
@@ -112,14 +112,14 @@
       "title": "Cities: Skylines II",
       "isDlc": false,
       "baseGame": null,
-      "originalPrice": 3499,
+      "originalPrice": 4999,
       "currency": "EUR",
       "startDate": "2026-11-12T18:00:00.000Z",
       "endDate": "2026-11-16T18:00:00.000Z",
       "url": "https://store.steampowered.com/app/949230/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/library_600x900.jpg?t=1794506466",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T04:48:59.084Z"
+      "lastSeen": "2026-11-14T04:52:41.948Z"
     }
   ]
 }
