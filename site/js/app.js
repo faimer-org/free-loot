@@ -16,6 +16,8 @@ const STORE_LABELS = { steam: 'Steam', epic: 'Epic Games Store' };
 const TYPE_LABELS = { free_to_keep: 'À garder', free_weekend: 'Week-end gratuit', now_free: 'Devenu gratuit' };
 const SORT_LABELS = { ending: 'Fin la plus proche', value: 'Valeur la plus haute', recent: 'Ajout le plus récent', name: 'Nom' };
 const STATUS_RANK = { active: 0, upcoming: 1, expired: 2 };
+/** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
+const CARD_TAGS = 3;
 
 /** @returns {Filters} */
 const defaultFilters = () => ({
@@ -207,6 +209,15 @@ function card(offer, status, now) {
   titleLink.setAttribute('aria-label', `${offer.title} sur ${STORE_LABELS[offer.store]}`);
   title.append(titleLink);
   body.append(title);
+
+  // Absents des offres enregistrées avant l'ajout des détails.
+  const tags = Array.isArray(offer.details?.tags) ? offer.details.tags.slice(0, CARD_TAGS) : [];
+  if (tags.length > 0) {
+    const list = el('ul', 'tags');
+    list.setAttribute('aria-label', 'Tags');
+    list.append(...tags.map((tag) => el('li', 'tag', String(tag))));
+    body.append(list);
+  }
 
   if (offer.isDlc) {
     const base = el('p', 'base-game', 'Nécessite : ');
