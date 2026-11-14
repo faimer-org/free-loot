@@ -27,6 +27,8 @@ const STORAGE_KEY = 'fl-filters';
 
 const SORT_LABELS = { ending: 'Fin la plus proche', value: 'Valeur la plus haute', recent: 'Ajout le plus récent', name: 'Nom' };
 const STATUS_RANK = { active: 0, upcoming: 1 };
+/** Mention sous le prix barré, selon ce que l'offre donne vraiment. @type {Record<string, string>} */
+const PRICE_LABELS = { free_to_keep: 'Gratuit à vie', free_weekend: 'Gratuit ce week-end', now_free: 'Gratuit' };
 /** Statuts affichés ici ; les offres terminées sont sur la page Archives. */
 const STATUSES = ['active', 'upcoming'];
 /** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
@@ -184,14 +186,15 @@ function card(offer, status, now) {
   if (offer.originalPrice !== null && offer.currency) {
     price.append(el('s', '', formatMoney(offer.originalPrice, offer.currency)));
   }
-  price.append(el('strong', '', offer.type === 'free_weekend' ? 'Gratuit à jouer' : 'Gratuit'));
+  price.append(el('strong', '', PRICE_LABELS[offer.type] ?? 'Gratuit'));
   body.append(price);
 
   const discount = discountElement(offer, status, now);
   if (discount) body.append(discount);
 
   body.append(dateLine(offer, status));
-  body.append(countdown(offer, status, now));
+  // Devenu gratuit : pas de fin, donc ni compte à rebours ni mention « En cours ».
+  if (!isPermanent(offer)) body.append(countdown(offer, status, now));
 
   item.append(coverElement(offer), body);
   return item;
@@ -213,8 +216,16 @@ function dateLine(offer, status) {
   };
   if (status === 'upcoming' && offer.startDate) withDate('Dès le ', offer.startDate);
   else if (offer.endDate) withDate('Jusqu’au ', offer.endDate);
-  else line.append('Sans date de fin connue');
+  else line.append(isPermanent(offer) ? 'Définitif' : 'Sans date de fin connue');
   return line;
+}
+
+/**
+ * Jeu devenu gratuit sans date de fin : la gratuité est définitive.
+ * @param {Offer} offer
+ */
+function isPermanent(offer) {
+  return offer.type === 'now_free' && !offer.endDate;
 }
 
 /**
