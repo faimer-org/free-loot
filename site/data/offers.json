@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T19:23:35.192Z",
+  "generatedAt": "2026-11-14T19:56:03.232Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "details": {
         "tags": [
           "Pirates",
@@ -85,7 +85,7 @@
       "url": "https://store.epicgames.com/fr/p/alien-isolation",
       "image": "https://cdn1.epicgames.com/df37f065c3f14eadbf011177396e2966/offer/EGS_AlienIsolation_CreativeAssembly_S6-1200x1600-af00adc8f67a7c6138cce183ac1e9503.jpg",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "details": {
         "tags": [
           "Horreur",
@@ -119,7 +119,7 @@
       "url": "https://store.steampowered.com/app/1677280/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/13d0039949e0565f4abf4a421eaff3f5101046d6/library_capsule.jpg?t=1794506606",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "discount": {
         "price": 1814,
         "percent": 67,
@@ -158,7 +158,7 @@
       "url": "https://store.steampowered.com/app/2605790/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/8da4be0bff9ff5608885734b752e2315c2a8ac01/library_capsule.jpg?t=1794615194",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "discount": {
         "price": 1499,
         "percent": 50,
@@ -197,7 +197,7 @@
       "url": "https://store.steampowered.com/app/307960/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/library_600x900.jpg?t=1794512204",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "discount": {
         "price": 734,
         "percent": 85,
@@ -222,6 +222,76 @@
       }
     },
     {
+      "id": "steam-4449700-now_free-2026-11-14",
+      "store": "steam",
+      "storeId": "4449700",
+      "type": "now_free",
+      "title": "Gloomvex",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4449700/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449700/89fdf94558e678ca12eb4195966b8664e5f4a350/library_capsule.jpg?t=1794684401",
+      "details": {
+        "tags": [
+          "Action et roguelike",
+          "Bullet Hell",
+          "Roguelite",
+          "JcE",
+          "Roguelike"
+        ],
+        "description": "Roguelite d’arène brutal avec 10 héros, 11 boss et une progression poussée. Fusionnez vos armes jusqu’au rang légendaire, empilez des puces pour des builds mortels et maîtrisez les coups critiques. Chaque minute, les vagues deviennent plus fortes. Survivre est le défi.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449700/f88f0b54a245a72c456451e4a7b1694b5f1d3cb6/ss_f88f0b54a245a72c456451e4a7b1694b5f1d3cb6.600x338.jpg?t=1794684401",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449700/31b1cf924f6048ea4cf8866e551097a40e104b99/ss_31b1cf924f6048ea4cf8866e551097a40e104b99.600x338.jpg?t=1794684401",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449700/a6d7bcdf8c1d4572e08481cbf1f45bf48c3ade8a/ss_a6d7bcdf8c1d4572e08481cbf1f45bf48c3ade8a.600x338.jpg?t=1794684401",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449700/e0a9010c91d2f3234270fa206fb5020b915bd4a3/ss_e0a9010c91d2f3234270fa206fb5020b915bd4a3.600x338.jpg?t=1794684401"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-14T19:56:03.232Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z"
+    },
+    {
+      "id": "steam-4782420-now_free-2026-11-14",
+      "store": "steam",
+      "storeId": "4782420",
+      "type": "now_free",
+      "title": "Nullbreak Protocol",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4782420/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/86686daddf52365401ac201c4f79e25ef78694fa/library_capsule.jpg?t=1794684482",
+      "details": {
+        "tags": [
+          "Action et roguelike",
+          "Casual",
+          "Roguelite",
+          "JcE",
+          "Arcade"
+        ],
+        "description": "A sci-fi arcade roguelite of fast, escalating runs. Launch your core, shatter every block, survive what the room fires back. Draw stacking protocols to build your run, push deeper into the system, and beat your record — the descent never ends.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/7dc06e442c54e7df27b1ea3ab3b94e9dbc669013/ss_7dc06e442c54e7df27b1ea3ab3b94e9dbc669013.600x338.jpg?t=1794684482",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/208afb4b704c2a3f66a13ced10ae77bace1f3ae9/ss_208afb4b704c2a3f66a13ced10ae77bace1f3ae9.600x338.jpg?t=1794684482",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/8b54c9e65d219b3994f30e4f0c59529f4c6f5e13/ss_8b54c9e65d219b3994f30e4f0c59529f4c6f5e13.600x338.jpg?t=1794684482",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/96424f4ef1b2b498ed1c6321a3cf137ccc454368/ss_96424f4ef1b2b498ed1c6321a3cf137ccc454368.600x338.jpg?t=1794684482"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-14T19:56:03.232Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z"
+    },
+    {
       "id": "steam-949230-free_weekend-2026-11-12",
       "store": "steam",
       "storeId": "949230",
@@ -236,7 +306,7 @@
       "url": "https://store.steampowered.com/app/949230/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/library_600x900.jpg?t=1794506466",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-14T19:23:35.192Z",
+      "lastSeen": "2026-11-14T19:56:03.232Z",
       "discount": {
         "price": 3499,
         "percent": 30,
