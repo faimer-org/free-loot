@@ -6,7 +6,7 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 
 - Collecteur en TypeScript exécuté directement par Node 24 (`collector/`), sans dépendance à l'exécution. Syntaxe effaçable uniquement (`erasableSyntaxOnly`) : pas d'`enum`, pas de `namespace`, imports avec l'extension `.ts`.
 - Page statique sans build (`site/`). `site/js/status.js` est partagé avec le collecteur : il reste en JavaScript (JSDoc), sans dépendance.
-- Deux pages : `index.html` (`js/app.js`, offres en cours et à venir) et `archives.html` (`js/archives.js`, offres terminées : recherche, filtres, catégories, pagination, état des filtres dans l'adresse). Partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`).
+- Deux pages : `index.html` (`js/app.js`, offres en cours et à venir) et `archives.html` (`js/archives.js`, offres terminées : recherche, filtres, catégories, pagination, état des filtres dans l'adresse). Partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`). Icône d'onglet : `favicon.svg`, avec `favicon-32.png` en secours, déclarée dans le `<head>` des deux pages.
 - Données publiées : `site/data/` (commitées par l'Action). État interne : `data/state.json`.
 - Préfixe `localStorage` : `fl-`.
 
