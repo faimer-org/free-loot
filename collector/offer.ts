@@ -12,6 +12,16 @@ export interface BaseGame {
   url: string | null;
 }
 
+/** Remise payante en cours pendant un Free Weekend. */
+export interface Discount {
+  /** Prix remisé en centimes, dans la devise de l'offre. */
+  price: number;
+  /** Pourcentage de remise (67 pour -67 %). */
+  percent: number;
+  /** Fin de la remise, date ISO 8601 (UTC) ; null si inconnue. */
+  endDate: string | null;
+}
+
 /** Offre publiée dans site/data/offers.json : uniquement des données publiques. */
 export interface Offer {
   /** Identifiant unique d'une occurrence d'offre (un même jeu peut être offert plusieurs fois). */
@@ -26,6 +36,11 @@ export interface Offer {
   /** Prix d'origine en centimes, null si inconnu. */
   originalPrice: number | null;
   currency: string | null;
+  /**
+   * Free Weekend seulement : remise en cours sur le jeu, null sinon.
+   * Absent des offres enregistrées avant l'ajout du champ (offers.json, historique) et des offres Epic.
+   */
+  discount?: Discount | null;
   /** Dates ISO 8601 (UTC). */
   startDate: string | null;
   endDate: string | null;

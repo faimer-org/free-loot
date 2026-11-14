@@ -9,6 +9,11 @@ const realItems = (): StoreItem[] =>
   JSON.parse(readFileSync(new URL('./fixtures/steam-getitems-2026-11-14.json', import.meta.url), 'utf-8')).response
     .store_items;
 
+// Réponse réelle de GetItems (2026-11-14) : Company of Heroes 3, en Free Weekend et remisé à -67 %.
+const companyOfHeroes3 = (): StoreItem =>
+  JSON.parse(readFileSync(new URL('./fixtures/steam-getitems-coh3-2026-11-14.json', import.meta.url), 'utf-8'))
+    .response.store_items[0];
+
 const item = (appid: number): StoreItem => {
   const found = realItems().find((candidate) => candidate.id === appid);
   assert.ok(found);
@@ -56,6 +61,7 @@ describe('classifySteamItem', () => {
     assert.equal(result?.offer.title, 'Euro Truck Simulator 2');
     assert.equal(result?.offer.originalPrice, 1999);
     assert.equal(result?.offer.endDate, '2026-11-24T17:00:00.000Z');
+    assert.equal(result?.offer.discount, null);
     assert.equal(result?.offer.url, 'https://store.steampowered.com/app/227300/');
     assert.equal(result?.offer.isDlc, false);
   });
@@ -78,16 +84,24 @@ describe('classifySteamItem', () => {
     assert.equal(result?.offer.startDate, '2026-11-14T17:00:00.000Z');
     assert.equal(result?.offer.endDate, '2026-11-17T17:00:00.000Z');
     assert.equal(result?.offer.originalPrice, 969);
+    assert.equal(result?.offer.discount, null, 'pas de remise : prix final = prix normal');
   });
 
-  it('donne le prix d’origine d’un Free Weekend accompagné d’une remise', () => {
-    // Forme observée le 2026-11-14 sur Company of Heroes 3 (1677280).
+  it('donne le prix d’origine et la remise d’un Free Weekend remisé', () => {
+    const result = classifySteamItem(companyOfHeroes3(), context());
+    assert.equal(result?.offer.type, 'free_weekend');
+    assert.equal(result?.offer.originalPrice, 5499);
+    assert.equal(result?.offer.endDate, '2026-11-16T18:00:00.000Z');
+    // La remise dure plus longtemps que le week-end gratuit.
+    assert.deepEqual(result?.offer.discount, { price: 1814, percent: 67, endDate: '2026-11-19T18:00:00.000Z' });
+  });
+
+  it('calcule le pourcentage d’une remise sans discount_pct ni date de fin', () => {
     const weekend = {
-      ...item(620),
-      best_purchase_option: { final_price_in_cents: '1814', original_price_in_cents: '5499', discount_pct: 67 },
-      free_weekend: { start_time: 1_794_506_400, end_time: 1_794_852_000 },
+      ...companyOfHeroes3(),
+      best_purchase_option: { final_price_in_cents: '1814', original_price_in_cents: '5499' },
     };
-    assert.equal(classifySteamItem(weekend, context())?.offer.originalPrice, 5499);
+    assert.deepEqual(classifySteamItem(weekend, context())?.offer.discount, { price: 1814, percent: 67, endDate: null });
   });
 
   it('ignore un Free Weekend terminé', () => {

@@ -179,17 +179,42 @@ function card(offer, status, now) {
 
   const price = el('p', 'price');
   if (offer.originalPrice !== null && offer.currency) {
-    const money = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: offer.currency });
-    price.append(el('s', '', money.format(offer.originalPrice / 100)));
+    price.append(el('s', '', formatMoney(offer.originalPrice, offer.currency)));
   }
   price.append(offer.type === 'free_weekend' ? 'Gratuit à jouer' : 'Gratuit');
-  body.append(price, el('p', 'dates', datesText(offer)));
+  body.append(price);
+  const discount = discountText(offer, status, now);
+  if (discount) body.append(el('p', 'discount', discount));
+  body.append(el('p', 'dates', datesText(offer)));
 
   const countdown = el('p', `countdown status-${status}`, countdownText(offer, status, now));
   body.append(countdown);
 
   item.append(cover, body);
   return item;
+}
+
+/**
+ * Remise payante en cours pendant un Free Weekend ; chaîne vide s'il n'y en a pas.
+ * Les offres enregistrées avant l'ajout du champ `discount` (offers.json, historique) n'en ont pas.
+ * @param {Offer} offer
+ * @param {OfferStatus} status
+ * @param {number} now
+ */
+function discountText(offer, status, now) {
+  const discount = offer.discount;
+  if (!discount || typeof discount.price !== 'number' || !offer.currency || status === 'expired') return '';
+  if (discount.endDate && Date.parse(discount.endDate) <= now) return '';
+  const end = discount.endDate ? ` jusqu'au ${dateFormat.format(new Date(discount.endDate))}` : '';
+  return `En promotion à ${formatMoney(discount.price, offer.currency)} (-${discount.percent}\u00a0%)${end}`;
+}
+
+/**
+ * @param {number} cents
+ * @param {string} currency
+ */
+function formatMoney(cents, currency) {
+  return new Intl.NumberFormat('fr-FR', { style: 'currency', currency }).format(cents / 100);
 }
 
 /** @param {Offer} offer */
@@ -238,6 +263,8 @@ function refreshCountdowns() {
     }
     const countdown = node.querySelector('.countdown');
     if (countdown) countdown.textContent = countdownText(offer, status, now);
+    // Remise terminée pendant que la page est ouverte.
+    if (!discountText(offer, status, now)) node.querySelector('.discount')?.remove();
   }
 }
 
