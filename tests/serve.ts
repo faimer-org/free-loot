@@ -10,6 +10,8 @@ const types: Record<string, string> = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  // Sans ce type, les icônes de icons.svg (<use href="icons.svg#…">) ne s'affichent pas.
+  '.svg': 'image/svg+xml',
 };
 
 createServer(async (request, response) => {

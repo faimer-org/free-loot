@@ -6,6 +6,7 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 
 - Collecteur en TypeScript exécuté directement par Node 24 (`collector/`), sans dépendance à l'exécution. Syntaxe effaçable uniquement (`erasableSyntaxOnly`) : pas d'`enum`, pas de `namespace`, imports avec l'extension `.ts`.
 - Page statique sans build (`site/`). `site/js/status.js` est partagé avec le collecteur : il reste en JavaScript (JSDoc), sans dépendance.
+- Deux pages : `index.html` (`js/app.js`, offres en cours et à venir) et `archives.html` (`js/archives.js`, offres terminées : recherche, filtres, catégories, pagination, état des filtres dans l'adresse). Partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`).
 - Données publiées : `site/data/` (commitées par l'Action). État interne : `data/state.json`.
 - Préfixe `localStorage` : `fl-`.
 
@@ -48,7 +49,7 @@ GitHub Action (7 h 45 et 17 h 45, heure de Paris)
 ```
 
 - `site/data/offers.json` : offres en cours, à venir et expirées depuis moins de 30 jours.
-- `site/data/history/<année>.json` : offres plus anciennes, chargées par la page seulement quand on affiche les expirées.
+- `site/data/history/<année>.json` : offres plus anciennes, chargées seulement par la page Archives (avec les offres expirées d'`offers.json`).
 - `details` d'une offre : tags (5 au plus, sans « Jeu solo », « Multijoueur », « Free-to-play », « Accès anticipé »), description, 4 captures, vidéo. Epic fournit description et captures (redimensionnées par son CDN), pas de vidéo lisible ; ses tags viennent de Steam. Une source indisponible n'efface pas les détails connus (`mergeDetails`). Pas de capture ni de vidéo pour un jeu signalé pour nudité ou contenu sexuel (descripteurs Steam 1, 3, 4) ; la violence (2) et le « contenu adulte » général (5) restent affichés.
 - `data/state.json` : dernière lecture de `GetAppList` et plus grand `price_change_number` vu.
 

@@ -1,6 +1,8 @@
 // Liste déroulante de tri, identique sur tous les navigateurs (un <select> natif ne se laisse pas habiller partout).
 // Motif ARIA « select-only combobox » simplifié : bouton + liste d'options (role="listbox").
 
+import { icon } from './common.js';
+
 let instances = 0;
 
 /**
@@ -12,10 +14,11 @@ let instances = 0;
 /**
  * Construit le menu dans `root` (vidé au préalable).
  * @param {HTMLElement} root
- * @param {{ label: string, options: Record<string, string>, value: string, onChange: (value: string) => void }} config
+ * Les options s'affichent dans l'ordre des clés : éviter les clés numériques, que JavaScript trie avant les autres.
+ * @param {{ label: string, options: Record<string, string>, value: string, onChange: (value: string) => void, iconId?: string }} config
  * @returns {SortMenu}
  */
-export function createSortMenu(root, { label, options, value, onChange }) {
+export function createSortMenu(root, { label, options, value, onChange, iconId = 'icon-sort' }) {
   const id = `sort-menu-${++instances}`;
   const entries = Object.entries(options);
   let current = Object.hasOwn(options, value) ? value : (entries[0]?.[0] ?? '');
@@ -28,7 +31,7 @@ export function createSortMenu(root, { label, options, value, onChange }) {
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-controls', `${id}-list`);
   const buttonText = document.createElement('span');
-  button.append(icon('icon-sort', 'sort-icon'), buttonText, icon('icon-chevron', 'sort-chevron'));
+  button.append(icon(iconId, 'sort-icon'), buttonText, icon('icon-chevron', 'sort-chevron'));
 
   const list = document.createElement('ul');
   list.className = 'sort-list';
@@ -173,16 +176,3 @@ export function createSortMenu(root, { label, options, value, onChange }) {
   };
 }
 
-/**
- * @param {string} id
- * @param {string} className
- */
-function icon(id, className) {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('class', className);
-  svg.setAttribute('aria-hidden', 'true');
-  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  use.setAttribute('href', `#${id}`);
-  svg.append(use);
-  return svg;
-}

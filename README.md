@@ -9,7 +9,9 @@ Les jeux et DLC offerts en ce moment sur Steam et l'Epic Games Store, réunis su
 - **Devenu gratuit** : des jeux autrefois payants, désormais gratuits sans date de fin.
 - **DLC** : des extensions offertes, avec le jeu de base nécessaire.
 
-Pour chaque offre : la jaquette, qui mène à la page du magasin, le prix d'origine, les dates et le temps restant. On peut filtrer par magasin, type d'offre, jeu ou DLC et statut, et trier par fin la plus proche, valeur, ajout le plus récent ou nom. Les offres passées restent consultables.
+Pour chaque offre : la jaquette, qui mène à la page du magasin, les catégories, le prix d'origine, les dates et le temps restant ; au survol, un aperçu en vidéo ou en images. On peut filtrer par magasin, type d'offre, jeu ou DLC et statut, et trier par fin la plus proche, valeur, ajout le plus récent ou nom.
+
+Les offres passées restent consultables dans les **Archives** : recherche par nom, filtres par magasin, type, catégorie et année.
 
 Fonctionne dans le navigateur, sans compte ni installation ; vos filtres restent enregistrés sur votre appareil. Vérifiez toujours le prix sur la page du magasin avant de valider.
 
