@@ -12,6 +12,7 @@
   --upcoming: #b45309;
   --expired: #6b7280;
   --badge-bg: #eef1f5;
+  --sale: #4d7c0f;
   --radius: 10px;
 }
 
@@ -29,6 +30,7 @@
     --upcoming: #fbbf24;
     --expired: #9ca3af;
     --badge-bg: #252c34;
+    --sale: #a3e635;
   }
 }
 
@@ -45,6 +47,7 @@
   --upcoming: #fbbf24;
   --expired: #9ca3af;
   --badge-bg: #252c34;
+  --sale: #a3e635;
 }
 
 * { box-sizing: border-box; }
@@ -190,6 +193,7 @@ select {
 
 .price { margin: 0; font-weight: 600; }
 .price s { color: var(--muted); font-weight: 400; margin-right: 6px; }
+.discount { margin: 0; font-size: 0.85rem; font-weight: 600; color: var(--sale); }
 
 .countdown {
   margin: auto 0 0;
