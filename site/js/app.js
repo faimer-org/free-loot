@@ -1,10 +1,11 @@
+import { createSortMenu } from './sortMenu.js';
 import { offerStatus } from './status.js';
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 /** @typedef {import('../../collector/offer.ts').Store} Store */
 /** @typedef {import('./status.js').OfferStatus} OfferStatus */
 /** @typedef {{ store: string, types: string[], content: string[], status: string[], sort: Record<Store, string> }} Filters */
-/** @typedef {{ section: HTMLElement, list: HTMLUListElement, empty: HTMLElement, sort: HTMLSelectElement }} StoreSection */
+/** @typedef {{ section: HTMLElement, list: HTMLUListElement, empty: HTMLElement, sort: import('./sortMenu.js').SortMenu }} StoreSection */
 
 // Préfixe localStorage du projet dans l'organisation : « fl- ».
 const STORAGE_KEY = 'fl-filters';
@@ -48,8 +49,12 @@ const sections = /** @type {Record<Store, StoreSection>} */ (
   Object.fromEntries(
     STORES.map((store) => {
       const section = /** @type {HTMLElement} */ (document.querySelector(`.store[data-store="${store}"]`));
-      const sort = /** @type {HTMLSelectElement} */ (section.querySelector('select'));
-      for (const [value, label] of Object.entries(SORT_LABELS)) sort.append(new Option(label, value));
+      const sort = createSortMenu(/** @type {HTMLElement} */ (section.querySelector('.sort')), {
+        label: `Trier les offres ${STORE_LABELS[store]}`,
+        options: SORT_LABELS,
+        value: 'ending',
+        onChange,
+      });
       return [
         store,
         {
@@ -74,7 +79,6 @@ init();
 async function init() {
   applyFilters(loadFilters());
   form.addEventListener('change', onChange);
-  for (const store of STORES) sections[store].sort.addEventListener('change', onChange);
   message.textContent = 'Chargement des offres…';
 
   try {
@@ -445,7 +449,7 @@ function readFilters() {
     types: data.getAll('type').map(String),
     content: data.getAll('content').map(String),
     status: data.getAll('status').map(String),
-    sort: { steam: sections.steam.sort.value, epic: sections.epic.sort.value },
+    sort: { steam: sections.steam.sort.get(), epic: sections.epic.sort.get() },
   };
 }
 
@@ -458,7 +462,7 @@ function applyFilters(filters) {
     else if (box.name === 'content') box.checked = filters.content.includes(box.value);
     else if (box.name === 'status') box.checked = filters.status.includes(box.value);
   }
-  for (const store of STORES) sections[store].sort.value = filters.sort[store];
+  for (const store of STORES) sections[store].sort.set(filters.sort[store]);
 }
 
 /**

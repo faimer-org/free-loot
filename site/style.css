@@ -166,76 +166,59 @@ svg { flex-shrink: 0; }
 .store-label-steam { background: var(--steam-bg); border: 1px solid var(--steam-border); color: #fff; }
 .store-label-epic { background: #fff; border: 1px solid #fff; color: #111; }
 
-/* Bouton de tri : un select natif habillé en pastille. */
-.sort {
-  position: relative;
+/* Menu de tri (site/js/sortMenu.js) : bouton en pastille et liste aux couleurs du site. */
+.sort { position: relative; margin-left: auto; }
+
+.sort-button {
   display: inline-flex;
   align-items: center;
-  margin-left: auto;
+  gap: 8px;
+  padding: 5px 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
   color: var(--muted);
+  font: inherit;
+  font-size: 0.83rem;
+  cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
 }
 
-.sort:hover, .sort:focus-within { border-color: var(--gold); color: var(--gold); }
-.sort:focus-within { outline: 2px solid var(--gold); outline-offset: 2px; }
+.sort-button:hover, .sort.is-open .sort-button { border-color: var(--gold); color: var(--gold); }
+.sort-button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.sort-icon, .sort-chevron { width: 14px; height: 14px; }
+.sort-chevron { transition: transform 0.15s; }
+.sort.is-open .sort-chevron { transform: rotate(180deg); }
 
-.sort select {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: 0.83rem;
-  padding: 5px 32px 5px 32px;
-  cursor: pointer;
-  outline: none;
-}
-
-.sort option { background: var(--surface); color: var(--text); }
-
-.sort-icon, .sort-chevron {
+.sort-list {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  min-width: 100%;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 12px 28px -10px rgb(0 0 0 / 0.6);
+  white-space: nowrap;
 }
 
-.sort-icon { left: 12px; }
-.sort-chevron { right: 12px; }
+.sort-list:focus { outline: none; }
+.sort-list:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-/* Liste déroulante aux couleurs du site là où le navigateur le permet (select personnalisable,
-   Chromium 135+) ; ailleurs, la liste native du système, en sombre grâce à color-scheme. */
-@supports (appearance: base-select) {
-  .sort select, .sort select::picker(select) { appearance: base-select; }
-  .sort select::picker-icon { display: none; }
-
-  .sort select::picker(select) {
-    margin-top: 6px;
-    padding: 4px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--text);
-    box-shadow: 0 12px 28px -10px rgb(0 0 0 / 0.6);
-    position-area: block-end span-inline-start;
-    min-width: anchor-size(width);
-  }
-
-  .sort option {
-    padding: 6px 12px;
-    border-radius: 6px;
-    background: transparent;
-    font-size: 0.85rem;
-    cursor: pointer;
-  }
-
-  .sort option::checkmark { display: none; }
-  .sort option:hover, .sort option:focus-visible { background: var(--surface-2); outline: none; }
-  .sort option:checked { color: var(--gold); }
+.sort-list li {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
 }
+
+.sort-list li.is-active { background: var(--surface-2); }
+.sort-list li[aria-selected="true"] { color: var(--gold); }
 
 .empty { color: var(--muted); margin: 0; }
 
@@ -401,9 +384,6 @@ svg { flex-shrink: 0; }
   .card-body { padding: 8px; }
   .date { white-space: normal; align-items: flex-start; }
   .timer span { font-size: 0.8rem; }
-  .sort select { padding-inline: 28px 26px; }
-  .sort-icon { left: 9px; }
-  .sort-chevron { right: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
