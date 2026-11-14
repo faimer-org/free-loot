@@ -36,11 +36,12 @@ export function classifySteamItem(item: StoreItem, context: ClassifyContext): St
   const originalPrice = purchase?.original_price_in_cents ? Number(purchase.original_price_in_cents) : null;
   const finalPrice = purchase?.final_price_in_cents !== undefined ? Number(purchase.final_price_in_cents) : null;
 
-  // 1. Free Weekend : champ `free_weekend` du proto (non observé en conditions réelles au 2026-11-14).
+  // 1. Free Weekend : champ `free_weekend` (observé le 2026-11-14, souvent couplé à une remise).
+  // `original_price_in_cents` n'existe qu'en cas de remise ; sinon le prix normal est le prix final.
   const weekend = item.free_weekend;
   if (weekend?.end_time && weekend.end_time * 1000 > now) {
     return detection(item, 'free_weekend', {
-      originalPrice: finalPrice && finalPrice > 0 ? finalPrice : originalPrice,
+      originalPrice: originalPrice ?? (finalPrice && finalPrice > 0 ? finalPrice : null),
       startDate: weekend.start_time ? toIso(weekend.start_time) : null,
       endDate: toIso(weekend.end_time),
     });

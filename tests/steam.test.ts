@@ -80,6 +80,16 @@ describe('classifySteamItem', () => {
     assert.equal(result?.offer.originalPrice, 969);
   });
 
+  it('donne le prix d’origine d’un Free Weekend accompagné d’une remise', () => {
+    // Forme observée le 2026-11-14 sur Company of Heroes 3 (1677280).
+    const weekend = {
+      ...item(620),
+      best_purchase_option: { final_price_in_cents: '1814', original_price_in_cents: '5499', discount_pct: 67 },
+      free_weekend: { start_time: 1_794_506_400, end_time: 1_794_852_000 },
+    };
+    assert.equal(classifySteamItem(weekend, context())?.offer.originalPrice, 5499);
+  });
+
   it('ignore un Free Weekend terminé', () => {
     const weekend = { ...item(620), free_weekend: { start_time: 1_794_000_000, end_time: 1_794_100_000 } };
     assert.equal(classifySteamItem(weekend, context()), null);

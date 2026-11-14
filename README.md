@@ -9,7 +9,7 @@ Site : https://faimer-org.github.io/free-loot/
 | Type | Steam | Epic |
 |---|---|---|
 | Free to Keep (payant offert, conservé à vie) | ✔ | ✔ |
-| Free Weekend (jouable gratuitement pendant un événement) | ✔ (non vérifié en conditions réelles) | — |
+| Free Weekend (jouable gratuitement pendant un événement) | ✔ | — |
 | Devenu gratuit, sans date de fin | ✔ (heuristique, voir plus bas) | ✘ non exposé par l'API |
 | DLC, avec le jeu de base requis | ✔ | ✔ (nom du jeu de base déduit de son slug) |
 
@@ -65,7 +65,7 @@ La clé n'existe que dans l'environnement de l'étape de collecte : elle n'est �
 
 ## Points non vérifiés
 
-- **Free Weekend** : détecté par le champ `free_weekend` de `GetItems` (présent dans le proto Steam), jamais observé en conditions réelles. On ne sait pas non plus si l'activation d'un Free Weekend fait apparaître l'app dans `GetAppList`.
+- **Free Weekend** : le champ `free_weekend` de `GetItems` est confirmé (4 Free Weekends détectés le 2026-11-14). On ne sait pas si chaque Free Weekend fait apparaître l'app dans `GetAppList` : ceux-ci y figuraient sur une fenêtre de 14 jours.
 - **Devenu gratuit** : repose sur l'hypothèse que `price_change_number` est un compteur global croissant. La collecte journalise sa plage de valeurs pour la vérifier.
 - **Débit** : limites Steam non documentées ; environ 200 appels par 5 minutes pour `appdetails` selon la communauté.
 - **Planification** : GitHub peut retarder une exécution planifiée, voire l'abandonner en cas de forte charge.
