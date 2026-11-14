@@ -58,6 +58,26 @@ describe('mergeOffers', () => {
     assert.equal(offer?.endDate, '2026-11-21T17:00:00.000Z');
   });
 
+  it('met à jour la remise d’un Free Weekend, puis la retire quand elle se termine', () => {
+    const weekend = (discount: DetectedOffer['discount']) =>
+      steamOffer({ type: 'free_weekend', storeId: '1677280', startDate: '2026-11-12T18:00:00.000Z', discount });
+    const options = { now, steamChecked: new Set([1677280]) };
+
+    // Offre enregistrée avant l'ajout du champ : pas de clé `discount`.
+    const { discount: _, ...legacy } = weekend(null);
+    const [first] = mergeOffers([known(legacy, '2026-11-13T06:00:00.000Z')], [
+      weekend({ price: 1814, percent: 67, endDate: '2026-11-19T18:00:00.000Z' }),
+    ], options);
+    assert.deepEqual(first?.discount, { price: 1814, percent: 67, endDate: '2026-11-19T18:00:00.000Z' });
+
+    const [second] = mergeOffers([first!], [weekend({ price: 2749, percent: 50, endDate: null })], options);
+    assert.deepEqual(second?.discount, { price: 2749, percent: 50, endDate: null });
+
+    const [third] = mergeOffers([second!], [weekend(null)], options);
+    assert.equal(third?.id, 'known');
+    assert.equal(third?.discount, null);
+  });
+
   it('termine une offre Steam relue mais plus gratuite', () => {
     const existing = known(steamOffer(), '2026-11-13T06:00:00.000Z');
     const [offer] = mergeOffers([existing], [], { now, steamChecked: new Set([227300]) });

@@ -1,5 +1,5 @@
-import { toIso, type DetectedOffer, type OfferType } from '../offer.ts';
-import { APP_TYPE_DLC, APP_TYPE_GAME, type StoreItem } from './storeBrowse.ts';
+import { toIso, type DetectedOffer, type Discount, type OfferType } from '../offer.ts';
+import { APP_TYPE_DLC, APP_TYPE_GAME, type PurchaseOption, type StoreItem } from './storeBrowse.ts';
 
 const ASSETS_BASE = 'https://shared.fastly.steamstatic.com/store_item_assets/';
 const DAY = 86_400_000;
@@ -44,6 +44,7 @@ export function classifySteamItem(item: StoreItem, context: ClassifyContext): St
       originalPrice: originalPrice ?? (finalPrice && finalPrice > 0 ? finalPrice : null),
       startDate: weekend.start_time ? toIso(weekend.start_time) : null,
       endDate: toIso(weekend.end_time),
+      discount: weekendDiscount(purchase, originalPrice, finalPrice),
     });
   }
 
@@ -75,10 +76,30 @@ export function classifySteamItem(item: StoreItem, context: ClassifyContext): St
   return null;
 }
 
+/**
+ * Remise payante en cours pendant un Free Weekend (observée le 2026-11-14 sur Company of Heroes 3).
+ * Avec plusieurs remises actives, la fin retenue est la plus proche : le prix n'est garanti que jusque-là.
+ */
+function weekendDiscount(
+  purchase: PurchaseOption | undefined,
+  originalPrice: number | null,
+  finalPrice: number | null,
+): Discount | null {
+  if (originalPrice === null || finalPrice === null || finalPrice <= 0 || originalPrice <= finalPrice) return null;
+  const ends = (purchase?.active_discounts ?? [])
+    .map((discount) => discount.discount_end_date ?? 0)
+    .filter((end) => end > 0);
+  return {
+    price: finalPrice,
+    percent: purchase?.discount_pct ?? Math.round((1 - finalPrice / originalPrice) * 100),
+    endDate: ends.length > 0 ? toIso(Math.min(...ends)) : null,
+  };
+}
+
 function detection(
   item: StoreItem,
   type: OfferType,
-  fields: Pick<DetectedOffer, 'originalPrice' | 'startDate' | 'endDate'>,
+  fields: Pick<DetectedOffer, 'originalPrice' | 'startDate' | 'endDate'> & { discount?: Discount | null },
 ): SteamDetection {
   const appid = appidOf(item);
   const isDlc = item.type === APP_TYPE_DLC;
@@ -93,6 +114,8 @@ function detection(
       baseGame: parentAppid ? { title: `App ${parentAppid}`, url: storeUrl(parentAppid) } : null,
       originalPrice: fields.originalPrice,
       currency: fields.originalPrice !== null ? 'EUR' : null,
+      // Toujours renseigné pour Steam : la fusion remet ainsi à null une remise terminée.
+      discount: fields.discount ?? null,
       startDate: fields.startDate,
       endDate: fields.endDate,
       url: storeUrl(appid),
