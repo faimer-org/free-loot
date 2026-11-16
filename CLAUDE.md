@@ -13,6 +13,7 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 - `js/catalog.js` : liste commune aux Devenus gratuits et aux Archives (recherche, filtres, catégories, période, tri, pagination, état des filtres dans l'adresse), configurée par chaque page. Autres partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`). Icône d'onglet : `favicon.svg`, avec `favicon-32.png` en secours, déclarée dans le `<head>` de chaque page.
 - Données publiées : `site/data/` (commitées par l'Action). État interne : `data/state.json`.
 - Préfixe `localStorage` : `fl-`.
+- Mesure d'audience : Cloudflare Web Analytics, site `faimer-org.github.io` commun aux sites de l'organisation. Snippet `beacon.min.js` avant `</body>` de chaque page (à ajouter dans toute nouvelle page). Token public par conception, pas un secret ; pas de cookie. Tableau de bord Cloudflare (*Web Analytics*) filtré par chemin `/free-loot/` ; chiffres sous-estimés à cause des bloqueurs de publicité.
 
 ## Règles
 
