@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T16:29:33.948Z",
+  "generatedAt": "2026-11-16T22:22:06.760Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z",
       "details": {
         "tags": [
           "Pirates",
@@ -144,6 +144,41 @@
       }
     },
     {
+      "id": "steam-2204560-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "2204560",
+      "type": "now_free",
+      "title": "Folie Minérale",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/2204560/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2204560/9f35f6918b247117628223b0f0badd08c9b797cb/library_capsule_french.jpg?t=1794850117",
+      "details": {
+        "tags": [
+          "Humour",
+          "Casual",
+          "En groupe",
+          "3ᵉ personne",
+          "JcJ"
+        ],
+        "description": "Creusez, combattez et sabotez vos adversaires pour remporter la victoire dans un jeu multijoueur effréné ! Affrontez d'autres taupes dans des grottes sauvages et aléatoires, choisissez votre équipement préféré et déposez vos minéraux pour gagner.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2204560/ef2e7b192bcc1e9260ecd67da24472db25f2efe6/ss_ef2e7b192bcc1e9260ecd67da24472db25f2efe6.600x338.jpg?t=1794850117",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2204560/8528848184a39115285ee3d23d25c577f02fe36e/ss_8528848184a39115285ee3d23d25c577f02fe36e.600x338.jpg?t=1794850117",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2204560/ss_06f45eee2d15ca51a2bf94b99776180979a927a4.600x338.jpg?t=1794850117",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2204560/dda653630e7f78eafc15d40238e4b7483d557eb3/ss_dda653630e7f78eafc15d40238e4b7483d557eb3.600x338.jpg?t=1794850117"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/2204560/1395983723/c615143137c50e643b8ef2b0910e42519c19d514/1762786459/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
       "id": "steam-2605790-free_weekend-2026-11-12",
       "store": "steam",
       "storeId": "2605790",
@@ -215,7 +250,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z"
+      "lastSeen": "2026-11-16T22:22:06.760Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -253,6 +288,76 @@
       }
     },
     {
+      "id": "steam-4127470-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "4127470",
+      "type": "now_free",
+      "title": "Seconda",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4127470/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/848ec6dae4538ed2748dacf36b54f40f4955acd6/library_capsule.jpg?t=1794864675",
+      "details": {
+        "tags": [
+          "Aventure",
+          "Action",
+          "Action et aventure",
+          "Tir",
+          "Exploration"
+        ],
+        "description": "Trapped in a dying city, Aurora must repair a radio to escape. Stay out of sight, watch your noise, manage your weapons and make choices that will determine how your story ends.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/a098a959031bf7e79babc2b27d063762218d6a08/ss_a098a959031bf7e79babc2b27d063762218d6a08.600x338.jpg?t=1794864675",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e10c0c077075e817118923a414ce9a88c5f63203/ss_e10c0c077075e817118923a414ce9a88c5f63203.600x338.jpg?t=1794864675",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/c50ab7965f869d10ce67c7fcbda3485b2ec814f5/ss_c50ab7965f869d10ce67c7fcbda3485b2ec814f5.600x338.jpg?t=1794864675",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e2796c0b753543e57d15fbca10b1bd90b1d69d3f/ss_e2796c0b753543e57d15fbca10b1bd90b1d69d3f.600x338.jpg?t=1794864675"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4127470/1442818048/7dd6ba7021cdfc0c33aeeeb037ac08fbdc7c8002/1761151175/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
+      "id": "steam-4182060-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "4182060",
+      "type": "now_free",
+      "title": "拓荒",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4182060/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4182060/e557cda4ab828c95f4a17583013c7b433429fc2f/library_capsule.jpg?t=1794851394",
+      "details": {
+        "tags": [
+          "Tir à la 3ᵉ personne",
+          "Monde ouvert",
+          "Coop en ligne",
+          "Postapocalyptique",
+          "Casual"
+        ],
+        "description": "Frontiers is a uniquely styled and vibrant low-poly open-world survival game where you can embark on a solo journey or team up with friends to explore this vast and perilous world brimming with opportunities. Your goal is clear: explore, survive, and uncover the ultimate mystery behind this world!",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4182060/79f3378b4ed0ceeb318ca7c673f235384c9e447f/ss_79f3378b4ed0ceeb318ca7c673f235384c9e447f.600x338.jpg?t=1794851394",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4182060/66d2914dc9672587a7d6167ac2fe935589232218/ss_66d2914dc9672587a7d6167ac2fe935589232218.600x338.jpg?t=1794851394",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4182060/d37a92f07f701fd51962f5e5b0be4bbb84f09936/ss_d37a92f07f701fd51962f5e5b0be4bbb84f09936.600x338.jpg?t=1794851394",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4182060/fc31b2f5ae842b3f8b76e5b9d92b3deaa92040c4/ss_fc31b2f5ae842b3f8b76e5b9d92b3deaa92040c4.600x338.jpg?t=1794851394"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4182060/2097959363/5a7403f3a15d6d2ebf1687692824da1480b23108/1767541848/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
       "id": "steam-4449700-now_free-2026-11-14",
       "store": "steam",
       "storeId": "4449700",
@@ -285,7 +390,67 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z"
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
+      "id": "steam-4514600-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "4514600",
+      "type": "now_free",
+      "title": "Yokai Legends",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4514600/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4514600/b1c53c9c7b31e71a92d26c74c5699e8b879bd84d/library_capsule.jpg?t=1794866009",
+      "details": {
+        "tags": [
+          "LGBTQ+",
+          "Contenu à caractère sexuel",
+          "Romantique",
+          "Roman graphique",
+          "RPG japonais"
+        ],
+        "description": "A Japanese-themed, anime-styled RPG card‑battler for BL/Yaoi lovers. Build your 5‑man team, master strategies, and conquer turn-based battles. Level up to unlock intimate H-scenes, collect handsome hunks, and enjoy various game modes as you purify a realm tainted by evil spirits.",
+        "screenshots": [],
+        "video": null
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
+      "id": "steam-4764310-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "4764310",
+      "type": "now_free",
+      "title": "进浴系魅魔",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4764310/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4764310/fd84c25539f76f86eedc4bcb458bfe273b2717ac/library_capsule.jpg?t=1794863177",
+      "details": {
+        "tags": [
+          "LGBTQ+",
+          "Casual",
+          "RPG",
+          "Anime",
+          "Chats"
+        ],
+        "description": "A cute BL game made for my OCs. The gameplay is simple: guide these two cuties through dessert mazes ~ ⚠️NO art theft / AI-feeding. Offenders inherit all my family's sickness and misery. ⚠️NO using my OCs as a素材库 (collage/mashup) or tracing AI art. Offenders owe my parents 10 years of your life.",
+        "screenshots": [],
+        "video": null
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -320,7 +485,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z"
+      "lastSeen": "2026-11-16T22:22:06.760Z"
     },
     {
       "id": "steam-4839860-now_free-2026-11-16",
@@ -353,7 +518,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z"
+      "lastSeen": "2026-11-16T22:22:06.760Z"
     },
     {
       "id": "steam-5218930-now_free-2026-11-16",
@@ -388,7 +553,37 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T16:29:33.948Z"
+      "lastSeen": "2026-11-16T22:22:06.760Z"
+    },
+    {
+      "id": "steam-5230050-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "5230050",
+      "type": "now_free",
+      "title": "Wife's Bedroom",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/5230050/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5230050/92ce60ae2297dc6563edc22d72db85154af5a980/library_capsule.jpg?t=1794861877",
+      "details": {
+        "tags": [
+          "Contenu à caractère sexuel",
+          "Bac à sable",
+          "Personnages personnalisés",
+          "Simulation",
+          "LGBTQ+"
+        ],
+        "description": "You hear loud noises from the other side of the house. Looks like your wife has some company over again. They probably won't mind if you watch.",
+        "screenshots": [],
+        "video": null
+      },
+      "firstSeen": "2026-11-16T22:22:06.760Z",
+      "lastSeen": "2026-11-16T22:22:06.760Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
