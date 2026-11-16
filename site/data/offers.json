@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T21:20:26.953Z",
+  "generatedAt": "2026-11-16T16:29:33.948Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "details": {
         "tags": [
           "Pirates",
@@ -119,7 +119,7 @@
       "url": "https://store.steampowered.com/app/1677280/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677280/13d0039949e0565f4abf4a421eaff3f5101046d6/library_capsule.jpg?t=1794506606",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "discount": {
         "price": 1814,
         "percent": 67,
@@ -158,7 +158,7 @@
       "url": "https://store.steampowered.com/app/2605790/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/8da4be0bff9ff5608885734b752e2315c2a8ac01/library_capsule.jpg?t=1794615194",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "discount": {
         "price": 1499,
         "percent": 50,
@@ -183,6 +183,41 @@
       }
     },
     {
+      "id": "steam-2943250-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "2943250",
+      "type": "now_free",
+      "title": "Impawlse",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/2943250/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2943250/de3cf1150e610a67fcb9008b6f4d3ce5d33429b9/library_capsule.jpg?t=1794842947",
+      "details": {
+        "tags": [
+          "Chats",
+          "Mignon",
+          "Arcade",
+          "Simulation de vie",
+          "Simulation"
+        ],
+        "description": "Take care of your kittens, decorate their space, play with them.... It's all about kittens! The ultimate cat experience awaits you!",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2943250/0c7e0261dab14164576399403a6b1de383d19e0f/ss_0c7e0261dab14164576399403a6b1de383d19e0f.600x338.jpg?t=1794842947",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2943250/96542a911ccd01d80b407cb42a01350c5f736d77/ss_96542a911ccd01d80b407cb42a01350c5f736d77.600x338.jpg?t=1794842947",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2943250/4f76417ad85331f1610dce8f6b97abe6d83dc6bc/ss_4f76417ad85331f1610dce8f6b97abe6d83dc6bc.600x338.jpg?t=1794842947",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2943250/5c93d24443d3cafa894075dc1223a8442cc5a31b/ss_5c93d24443d3cafa894075dc1223a8442cc5a31b.600x338.jpg?t=1794842947"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-16T16:29:33.948Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z"
+    },
+    {
       "id": "steam-307960-free_weekend-2026-11-12",
       "store": "steam",
       "storeId": "307960",
@@ -197,7 +232,7 @@
       "url": "https://store.steampowered.com/app/307960/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/307960/library_600x900.jpg?t=1794512204",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "discount": null,
       "details": {
         "tags": [
@@ -250,7 +285,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z"
+      "lastSeen": "2026-11-16T16:29:33.948Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -285,7 +320,75 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z"
+      "lastSeen": "2026-11-16T16:29:33.948Z"
+    },
+    {
+      "id": "steam-4839860-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "4839860",
+      "type": "now_free",
+      "title": "A Love Like Broken Glass - Fracturing",
+      "isDlc": true,
+      "baseGame": {
+        "title": "A Love Like Broken Glass",
+        "url": "https://store.steampowered.com/app/4624020/"
+      },
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4839860/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839860/0598f9bb1326970e2ee8cb64f389ff6442034953/header.jpg?t=1794838997",
+      "details": {
+        "tags": [
+          "Indépendant",
+          "Casual",
+          "RPG",
+          "Simulation de rencontres",
+          "Roman graphique"
+        ],
+        "description": "What happens after your happily ever after? How close is too close to the man of your dreams? And what's it gonna take for Lorenn to let you love all of him; the way he loves you?",
+        "screenshots": [],
+        "video": null
+      },
+      "firstSeen": "2026-11-16T16:29:33.948Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z"
+    },
+    {
+      "id": "steam-5218930-now_free-2026-11-16",
+      "store": "steam",
+      "storeId": "5218930",
+      "type": "now_free",
+      "title": "Lyfe of the Blade",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/5218930/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218930/d57f96b99f2e41046fbae8ae6f690fc507063e35/library_capsule.jpg?t=1794836104",
+      "details": {
+        "tags": [
+          "Action",
+          "Action et aventure",
+          "Hack 'n' Slash",
+          "3D",
+          "Anime"
+        ],
+        "description": "Un jeu d’action ultime permettant d’annuler tous les mouvements, à chaque frame, pour une liberté de contrôle absolue. Contrôlez « Lyfe » en toute liberté et terrassez vos ennemis !",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218930/691f1a5e1901550445e213bbf0ac2938e3cf2bbd/ss_691f1a5e1901550445e213bbf0ac2938e3cf2bbd.600x338.jpg?t=1794836104",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218930/a65257b2bf6bbf7d2eecf65eae9868fcef8f98a4/ss_a65257b2bf6bbf7d2eecf65eae9868fcef8f98a4.600x338.jpg?t=1794836104",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218930/32231b385cfd633f7959372d253e70bd0ad5d688/ss_32231b385cfd633f7959372d253e70bd0ad5d688.600x338.jpg?t=1794836104",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218930/837fadfce4518c536cc0805166aff7286e73f7f3/ss_837fadfce4518c536cc0805166aff7286e73f7f3.600x338.jpg?t=1794836104"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-16T16:29:33.948Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
@@ -302,7 +405,7 @@
       "url": "https://store.steampowered.com/app/949230/",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/949230/library_600x900.jpg?t=1794506466",
       "firstSeen": "2026-11-14T04:48:59.084Z",
-      "lastSeen": "2026-11-15T21:20:26.953Z",
+      "lastSeen": "2026-11-16T16:29:33.948Z",
       "discount": {
         "price": 3499,
         "percent": 30,
