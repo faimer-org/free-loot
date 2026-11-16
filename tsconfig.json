@@ -15,5 +15,5 @@
     "noUncheckedIndexedAccess": true,
     "skipLibCheck": true
   },
-  "include": ["collector", "tests", "site/js"]
+  "include": ["collector", "cron", "tests", "site/js"]
 }
