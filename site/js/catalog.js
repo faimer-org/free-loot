@@ -1,4 +1,4 @@
-// Liste d'offres avec recherche, filtres, catégories, période, tri et pagination.
+// Liste d'offres avec recherche, filtres, catégories, période, tri et pagination, regroupée par mois.
 // Partagée par les pages Archives et Devenus gratuits, qui la configurent (initCatalog).
 // L'état des filtres est dans l'adresse de la page, pour pouvoir la partager ou y revenir.
 
@@ -14,29 +14,21 @@ import { createSortMenu } from './sortMenu.js';
  * @property {string[]} types
  * @property {string[]} content
  * @property {string[]} tags
- * @property {string} period clé d'une option de période (« tout », « y2026 »…)
+ * @property {string} period clé d'une période (PERIODS)
  * @property {string} sort
  * @property {number} page
  */
 /**
- * @typedef {object} Period
- * @property {string} label nom du menu
- * @property {string} param paramètre d'adresse
- * @property {string} defaultKey option par défaut, absente de l'adresse
- * @property {(offers: Offer[]) => Record<string, string>} options options du menu, construites à partir des offres
- * @property {(offer: Offer, key: string) => boolean} matches
- */
-/**
  * @typedef {object} CatalogConfig
  * @property {() => Promise<Offer[]>} load
- * @property {(offer: Offer) => string | null} dateOf date de référence (ISO) : tri et période
+ * @property {(offer: Offer) => string | null} dateOf date de référence (ISO) : tri, période et mois
  * @property {string[]} types types d'offre possibles ; le filtre de type n'existe que s'il y en a plusieurs
  * @property {Record<string, string>} sortLabels parmi recent, oldest, value, name ; la première est le tri par défaut
  * @property {string} sortLabel nom du menu de tri
- * @property {Period} period
+ * @property {string} periodLabel nom du menu de période
  * @property {string} cardClass
  * @property {(offer: Offer) => HTMLElement[]} cardLines lignes ajoutées en bas de la carte
- * @property {(matches: Offer[], all: Offer[], isDefault: boolean) => void} renderStats
+ * @property {(matches: Offer[]) => void} [renderStats] chiffres au-dessus des filtres, recalculés à chaque changement
  * @property {{ one: string, many: string }} noun « offre » / « offres »
  * @property {{ empty: string, error: string }} messages aucune offre du tout ; chargement impossible
  */
@@ -48,40 +40,58 @@ const CARD_TAGS = 2;
 const SEARCH_DELAY = 150;
 const CONTENT = Object.keys(CONTENT_LABELS);
 
-const yearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, year: 'numeric' });
+/** Paramètre d'adresse de la période, et période par défaut (absente de l'adresse). */
+const PERIOD_PARAM = 'periode';
+const DEFAULT_PERIOD = '3m';
 
-/** Année d'une date ISO, heure de Paris. @param {string | null} iso */
-export function yearOf(iso) {
-  return Number(yearFormat.format(new Date(iso ?? 0)));
+const monthPartsFormat = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric', month: 'numeric' });
+const monthTitleFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: 'UTC', month: 'long', year: 'numeric' });
+
+/** Mois d'une date, heure de Paris, numéroté année × 12 + mois (0 à 11). @param {Date} date */
+function monthIndex(date) {
+  const parts = monthPartsFormat.formatToParts(date);
+  const part = (/** @type {string} */ type) => Number(parts.find((p) => p.type === type)?.value);
+  return part('year') * 12 + part('month') - 1;
 }
 
-/** Options « une par année », de la plus récente à la plus ancienne. @param {Offer[]} offers @param {(offer: Offer) => string | null} dateOf */
-export function yearOptions(offers, dateOf) {
-  /** @type {Record<string, string>} */
-  const options = {};
-  for (const year of [...new Set(offers.map((offer) => yearOf(dateOf(offer))))].sort((a, b) => b - a)) {
-    options[`y${year}`] = String(year);
-  }
-  return options;
+/** « Novembre 2026 ». @param {number} index */
+function monthTitle(index) {
+  const title = monthTitleFormat.format(new Date(Date.UTC(Math.floor(index / 12), index % 12, 15)));
+  return title.charAt(0).toUpperCase() + title.slice(1);
 }
+
+/**
+ * Périodes en mois calendaires : « 3 derniers mois » = le mois en cours et les deux précédents.
+ * @type {Record<string, { label: (year: number) => string, matches: (month: number, now: number) => boolean }>}
+ */
+const PERIODS = {
+  '3m': { label: () => '3 derniers mois', matches: (month, now) => now - month < 3 },
+  '6m': { label: () => '6 derniers mois', matches: (month, now) => now - month < 6 },
+  annee: { label: (year) => `Cette année (${year})`, matches: (month, now) => Math.floor(month / 12) === Math.floor(now / 12) },
+  'annee-derniere': {
+    label: (year) => `L’année dernière (${year - 1})`,
+    matches: (month, now) => Math.floor(month / 12) === Math.floor(now / 12) - 1,
+  },
+  tout: { label: () => 'Depuis le début', matches: () => true },
+};
 
 /** @param {CatalogConfig} config */
 export function initCatalog(config) {
   const form = /** @type {HTMLFormElement} */ (document.getElementById('filters'));
   const searchInput = /** @type {HTMLInputElement} */ (form.elements.namedItem('q'));
   const tagChips = /** @type {HTMLFieldSetElement} */ (document.getElementById('tag-chips'));
-  const results = /** @type {HTMLUListElement} */ (document.getElementById('results'));
+  const results = /** @type {HTMLElement} */ (document.getElementById('results'));
   const message = /** @type {HTMLElement} */ (document.getElementById('message'));
   const resetButton = /** @type {HTMLButtonElement} */ (document.getElementById('reset'));
   const pagination = /** @type {HTMLElement} */ (document.getElementById('pagination'));
-  const stats = /** @type {HTMLElement} */ (document.getElementById('stats'));
+  const stats = document.getElementById('stats');
   const hasTypeFilter = config.types.length > 1;
   const defaultSort = Object.keys(config.sortLabels)[0] ?? 'recent';
 
   /** @type {Offer[]} */
   let offers = [];
-  /** @type {Record<string, string>} */
-  let periodOptions = {};
+  /** Mois de chaque offre (monthIndex de sa date de référence). @type {Map<Offer, number>} */
+  let months = new Map();
   /** @type {State} */
   let state = defaultState();
 
@@ -112,12 +122,13 @@ export function initCatalog(config) {
       return;
     }
 
+    months = new Map(offers.map((offer) => [offer, monthIndex(new Date(config.dateOf(offer) ?? 0))]));
     buildPeriodMenu();
     buildTagChips();
     state = readUrl();
     applyState();
     form.hidden = false;
-    stats.hidden = false;
+    if (stats) stats.hidden = false;
 
     form.addEventListener('change', (event) => {
       if (event.target === searchInput) return;
@@ -152,23 +163,61 @@ export function initCatalog(config) {
 
   function render() {
     preview.hide();
-    const matches = offers.filter(matchesState).sort(comparator(state.sort));
+    const now = monthIndex(new Date());
+    const inPeriod = (PERIODS[state.period] ?? PERIODS[DEFAULT_PERIOD])?.matches ?? (() => true);
+    // Regroupement par mois quel que soit le tri : les mois d'abord (les plus anciens en premier pour
+    // « Plus anciens »), puis le tri choisi à l'intérieur de chaque mois.
+    const month = (/** @type {Offer} */ offer) => months.get(offer) ?? 0;
+    const compare = comparator(state.sort);
+    const direction = state.sort === 'oldest' ? 1 : -1;
+    const matches = offers
+      .filter((offer) => inPeriod(month(offer), now) && matchesState(offer))
+      .sort((a, b) => direction * (month(a) - month(b)) || compare(a, b));
     const pages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
     state.page = Math.min(Math.max(1, state.page), pages);
     const first = (state.page - 1) * PAGE_SIZE;
     const shown = matches.slice(first, first + PAGE_SIZE);
-    const { one, many } = config.noun;
 
-    results.replaceChildren(...shown.map(card));
+    results.replaceChildren(...monthGroups(shown, matches, month));
     message.textContent =
       matches.length === 0
         ? 'Rien ne correspond à ces filtres.'
-        : `${first + 1}–${first + shown.length} sur ${matches.length} ${matches.length > 1 ? many : one}`;
-    const isDefault = isDefaultState(state);
-    resetButton.hidden = isDefault;
+        : `${first + 1}–${first + shown.length} sur ${count(matches.length)}`;
+    resetButton.hidden = isDefaultState(state);
     renderPagination(pages);
-    config.renderStats(matches, offers, isDefault);
+    config.renderStats?.(matches);
     writeUrl();
+  }
+
+  /** « 1 jeu », « 12 jeux ». @param {number} n */
+  function count(n) {
+    return `${n} ${n > 1 ? config.noun.many : config.noun.one}`;
+  }
+
+  /**
+   * Une section par mois de la page affichée ; le nombre est celui du mois entier, toutes pages confondues.
+   * @param {Offer[]} shown @param {Offer[]} matches @param {(offer: Offer) => number} month
+   */
+  function monthGroups(shown, matches, month) {
+    /** @type {Map<number, number>} */
+    const totals = new Map();
+    for (const offer of matches) totals.set(month(offer), (totals.get(month(offer)) ?? 0) + 1);
+    /** @type {{ month: number, offers: Offer[] }[]} */
+    const groups = [];
+    for (const offer of shown) {
+      const last = groups.at(-1);
+      if (last?.month === month(offer)) last.offers.push(offer);
+      else groups.push({ month: month(offer), offers: [offer] });
+    }
+    return groups.map((group) => {
+      const section = el('section', 'month-group');
+      const title = el('h2', 'month-title', monthTitle(group.month));
+      title.append(el('span', 'month-count', count(totals.get(group.month) ?? group.offers.length)));
+      const grid = el('ul', 'grid archive-grid');
+      grid.append(...group.offers.map(card));
+      section.append(title, grid);
+      return section;
+    });
   }
 
   /** @param {Offer} offer */
@@ -176,7 +225,6 @@ export function initCatalog(config) {
     if (!state.stores.includes(offer.store)) return false;
     if (!state.types.includes(offer.type)) return false;
     if (!state.content.includes(offer.isDlc ? 'dlc' : 'game')) return false;
-    if (!config.period.matches(offer, state.period)) return false;
     // Plusieurs catégories : l'offre doit en avoir au moins une.
     if (state.tags.length > 0 && !offerTags(offer).some((tag) => state.tags.includes(tag))) return false;
     const query = normalize(state.q);
@@ -257,11 +305,14 @@ export function initCatalog(config) {
   }
 
   function buildPeriodMenu() {
-    periodOptions = config.period.options(offers);
+    const year = Math.floor(monthIndex(new Date()) / 12);
+    /** @type {Record<string, string>} */
+    const options = {};
+    for (const [key, period] of Object.entries(PERIODS)) options[key] = period.label(year);
     periodMenu = createSortMenu(/** @type {HTMLElement} */ (document.getElementById('period-menu')), {
-      label: config.period.label,
-      options: periodOptions,
-      value: config.period.defaultKey,
+      label: config.periodLabel,
+      options,
+      value: DEFAULT_PERIOD,
       iconId: 'icon-calendar',
       onChange: (period) => update({ period }),
     });
@@ -322,7 +373,7 @@ export function initCatalog(config) {
       types: [...config.types],
       content: [...CONTENT],
       tags: [],
-      period: config.period.defaultKey,
+      period: DEFAULT_PERIOD,
       sort: defaultSort,
       page: 1,
     };
@@ -346,8 +397,7 @@ export function initCatalog(config) {
     if (hasTypeFilter) setList('type', value.types, defaults.types);
     setList('contenu', value.content, defaults.content);
     if (value.tags.length > 0) params.set('categorie', value.tags.join(','));
-    // Une année s'écrit sans son préfixe : « annee=2026 ».
-    if (value.period !== defaults.period) params.set(config.period.param, value.period.replace(/^y(?=\d{4}$)/, ''));
+    if (value.period !== defaults.period) params.set(PERIOD_PARAM, value.period);
     if (value.sort !== defaults.sort) params.set('tri', value.sort);
     return params;
   }
@@ -378,9 +428,8 @@ export function initCatalog(config) {
       const known = new Set([...tagChips.querySelectorAll('input')].map((input) => /** @type {HTMLInputElement} */ (input).value));
       value.tags = tags.split(',').filter((tag) => known.has(tag));
     }
-    const period = params.get(config.period.param);
-    const periodKey = period && /^\d{4}$/.test(period) ? `y${period}` : period;
-    if (periodKey && Object.hasOwn(periodOptions, periodKey)) value.period = periodKey;
+    const period = params.get(PERIOD_PARAM);
+    if (period && Object.hasOwn(PERIODS, period)) value.period = period;
     const sort = params.get('tri');
     if (sort && Object.hasOwn(config.sortLabels, sort)) value.sort = sort;
     value.page = Math.max(1, Number.parseInt(params.get('page') ?? '1', 10) || 1);

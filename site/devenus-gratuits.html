@@ -25,12 +25,6 @@
   <main class="archives">
     <h2 class="sr-only">Jeux devenus gratuits</h2>
 
-    <dl class="stats" id="stats" hidden>
-      <div><dt id="stat-count-label">Jeux, 6 derniers mois</dt><dd id="stat-count">0</dd></div>
-      <div><dt>Ce mois-ci</dt><dd id="stat-month" class="is-gold">0</dd></div>
-      <div><dt>Depuis</dt><dd id="stat-since">—</dd></div>
-    </dl>
-
     <form class="filters archive-filters" id="filters" aria-label="Filtres" hidden>
       <div class="archive-toolbar">
         <label class="search">
@@ -62,7 +56,7 @@
       <p class="message" id="message" aria-live="polite">Chargement des jeux devenus gratuits…</p>
       <button type="button" class="reset" id="reset" hidden>Réinitialiser les filtres</button>
     </div>
-    <ul class="grid archive-grid" id="results"></ul>
+    <div class="month-groups" id="results"></div>
     <nav class="pagination" id="pagination" aria-label="Pages de résultats" hidden></nav>
   </main>
 
