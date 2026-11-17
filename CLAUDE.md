@@ -9,7 +9,7 @@ Les règles communes de l'organisation sont dans le `CLAUDE.md` de l'espace `fai
 - Trois pages :
   - `index.html` (`js/app.js`) : offres en cours et à venir ; un jeu devenu gratuit n'y reste que 7 jours après sa détection (`NOW_FREE_HOME_DAYS`).
   - `devenus-gratuits.html` (`js/nowFree.js`) : jeux devenus gratuits encore gratuits, datés par leur détection (`firstSeen`).
-  - `archives.html` (`js/archives.js`) : offres terminées, datées par leur fin ; seul chiffre affiché : la valeur des jeux à garder.
+  - `archives.html` (`js/archives.js`) : offres terminées, datées par leur fin.
 - `js/catalog.js` : liste commune aux Devenus gratuits et aux Archives (recherche, filtres, catégories, période, tri, pagination, état des filtres dans l'adresse), configurée par chaque page. Résultats regroupés par mois quel que soit le tri (le tri s'applique dans chaque mois). Périodes communes, en mois calendaires (paramètre `periode`) : `3m` (défaut : mois en cours et les deux précédents), `6m`, `annee`, `annee-derniere`, `tout`. Autres partagés : `js/common.js` (cartes, formats), `js/sortMenu.js` (menus déroulants), `js/preview.js` (aperçu au survol), `icons.svg` (logos et icônes, référencés par `<use href="icons.svg#…">`). Icône d'onglet : `favicon.svg`, avec `favicon-32.png` en secours, déclarée dans le `<head>` de chaque page.
 - Données publiées : `site/data/` (commitées par l'Action). État interne : `data/state.json`.
 - Préfixe `localStorage` : `fl-`.

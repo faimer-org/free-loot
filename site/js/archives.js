@@ -22,7 +22,6 @@ initCatalog({
   periodLabel: 'Fin de l’offre',
   cardClass: 'card archive-card',
   cardLines: (offer) => [dateRange(offer), priceLine(offer)],
-  renderStats,
   noun: { one: 'offre', many: 'offres' },
   messages: {
     empty: 'Aucune offre archivée pour l’instant : les offres terminées apparaîtront ici.',
@@ -82,17 +81,4 @@ function priceLine(offer) {
     price.append(el('span', '', 'Prix d’origine inconnu'));
   }
   return price;
-}
-
-/** Valeur des offres affichées (période et filtres compris). @param {Offer[]} matches */
-function renderStats(matches) {
-  // Un week-end gratuit ne laisse pas le jeu : seule compte la valeur des jeux à garder.
-  const value = matches
-    .filter((offer) => offer.type !== 'free_weekend' && offer.currency === 'EUR')
-    .reduce((sum, offer) => sum + (offer.originalPrice ?? 0), 0);
-  /** @type {HTMLElement} */ (document.getElementById('stat-value')).textContent = new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  }).format(value / 100);
 }

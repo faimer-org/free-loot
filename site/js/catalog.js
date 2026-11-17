@@ -28,7 +28,6 @@ import { createSortMenu } from './sortMenu.js';
  * @property {string} periodLabel nom du menu de période
  * @property {string} cardClass
  * @property {(offer: Offer) => HTMLElement[]} cardLines lignes ajoutées en bas de la carte
- * @property {(matches: Offer[]) => void} [renderStats] chiffres au-dessus des filtres, recalculés à chaque changement
  * @property {{ one: string, many: string }} noun « offre » / « offres »
  * @property {{ empty: string, error: string }} messages aucune offre du tout ; chargement impossible
  */
@@ -84,7 +83,6 @@ export function initCatalog(config) {
   const message = /** @type {HTMLElement} */ (document.getElementById('message'));
   const resetButton = /** @type {HTMLButtonElement} */ (document.getElementById('reset'));
   const pagination = /** @type {HTMLElement} */ (document.getElementById('pagination'));
-  const stats = document.getElementById('stats');
   const hasTypeFilter = config.types.length > 1;
   const defaultSort = Object.keys(config.sortLabels)[0] ?? 'recent';
 
@@ -128,7 +126,6 @@ export function initCatalog(config) {
     state = readUrl();
     applyState();
     form.hidden = false;
-    if (stats) stats.hidden = false;
 
     form.addEventListener('change', (event) => {
       if (event.target === searchInput) return;
@@ -185,7 +182,6 @@ export function initCatalog(config) {
         : `${first + 1}–${first + shown.length} sur ${count(matches.length)}`;
     resetButton.hidden = isDefaultState(state);
     renderPagination(pages);
-    config.renderStats?.(matches);
     writeUrl();
   }
 
