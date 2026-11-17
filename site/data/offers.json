@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T22:54:22.240Z",
+  "generatedAt": "2026-11-17T00:30:36.102Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z",
+      "lastSeen": "2026-11-17T00:30:36.102Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z",
+      "lastSeen": "2026-11-17T00:30:36.102Z",
       "details": {
         "tags": [
           "Pirates",
@@ -176,7 +176,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2204560/1395983723/c615143137c50e643b8ef2b0910e42519c19d514/1762786459/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-2605790-free_weekend-2026-11-12",
@@ -250,7 +250,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -320,7 +320,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4127470/1442818048/7dd6ba7021cdfc0c33aeeeb037ac08fbdc7c8002/1761151175/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4182060-now_free-2026-11-16",
@@ -355,7 +355,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4182060/2097959363/5a7403f3a15d6d2ebf1687692824da1480b23108/1767541848/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4449700-now_free-2026-11-14",
@@ -390,7 +390,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4514600-now_free-2026-11-16",
@@ -420,7 +420,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4764310-now_free-2026-11-16",
@@ -450,7 +450,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -485,7 +485,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-4839860-now_free-2026-11-16",
@@ -518,7 +518,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-5218930-now_free-2026-11-16",
@@ -553,7 +553,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-5230050-now_free-2026-11-16",
@@ -583,7 +583,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-16T22:54:22.240Z"
+      "lastSeen": "2026-11-17T00:30:36.102Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
