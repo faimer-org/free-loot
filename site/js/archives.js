@@ -1,6 +1,6 @@
 // Page Archives : offres terminées (offers.json et historique annuel).
 
-import { initCatalog, yearOf, yearOptions } from './catalog.js';
+import { initCatalog } from './catalog.js';
 import { el, formatMoney, icon, TIME_ZONE, TYPE_LABELS } from './common.js';
 import { offerStatus } from './status.js';
 
@@ -8,10 +8,9 @@ import { offerStatus } from './status.js';
 
 const dayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, day: 'numeric', month: 'short' });
 const dayYearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, day: 'numeric', month: 'short', year: 'numeric' });
-const monthYearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, month: 'short', year: 'numeric' });
 const yearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, year: 'numeric' });
 
-/** Date de fin : tri et année. @param {Offer} offer */
+/** Date de fin : tri, période et mois. @param {Offer} offer */
 const endOf = (offer) => offer.endDate;
 
 initCatalog({
@@ -20,13 +19,7 @@ initCatalog({
   types: Object.keys(TYPE_LABELS),
   sortLabels: { recent: 'Plus récentes', oldest: 'Plus anciennes', value: 'Valeur la plus haute', name: 'Nom' },
   sortLabel: 'Trier les archives',
-  period: {
-    label: 'Année de fin',
-    param: 'annee',
-    defaultKey: 'tout',
-    options: (offers) => ({ tout: 'Toutes les années', ...yearOptions(offers, endOf) }),
-    matches: (offer, key) => key === 'tout' || `y${yearOf(endOf(offer))}` === key,
-  },
+  periodLabel: 'Fin de l’offre',
   cardClass: 'card archive-card',
   cardLines: (offer) => [dateRange(offer), priceLine(offer)],
   renderStats,
@@ -91,12 +84,8 @@ function priceLine(offer) {
   return price;
 }
 
-/** @param {Offer[]} matches @param {Offer[]} all @param {boolean} isDefault */
-function renderStats(matches, all, isDefault) {
-  /** @type {HTMLElement} */ (document.getElementById('stat-count')).textContent = String(matches.length);
-  /** @type {HTMLElement} */ (document.getElementById('stat-count-label')).textContent = isDefault
-    ? 'Offres archivées'
-    : 'Offres trouvées';
+/** Valeur des offres affichées (période et filtres compris). @param {Offer[]} matches */
+function renderStats(matches) {
   // Un week-end gratuit ne laisse pas le jeu : seule compte la valeur des jeux à garder.
   const value = matches
     .filter((offer) => offer.type !== 'free_weekend' && offer.currency === 'EUR')
@@ -106,8 +95,4 @@ function renderStats(matches, all, isDefault) {
     currency: 'EUR',
     maximumFractionDigits: 0,
   }).format(value / 100);
-  const oldest = all.reduce((min, offer) => Math.min(min, Date.parse(offer.startDate ?? offer.firstSeen) || min), Infinity);
-  /** @type {HTMLElement} */ (document.getElementById('stat-since')).textContent = Number.isFinite(oldest)
-    ? monthYearFormat.format(oldest)
-    : '—';
 }

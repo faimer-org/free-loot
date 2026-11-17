@@ -26,9 +26,7 @@
     <h2 class="sr-only">Offres terminées</h2>
 
     <dl class="stats" id="stats" hidden>
-      <div><dt id="stat-count-label">Offres archivées</dt><dd id="stat-count">0</dd></div>
       <div><dt>Valeur des jeux à garder</dt><dd id="stat-value" class="is-gold">0 €</dd></div>
-      <div><dt>Depuis</dt><dd id="stat-since">—</dd></div>
     </dl>
 
     <form class="filters archive-filters" id="filters" aria-label="Filtres" hidden>
@@ -68,7 +66,7 @@
       <p class="message" id="message" aria-live="polite">Chargement des archives…</p>
       <button type="button" class="reset" id="reset" hidden>Réinitialiser les filtres</button>
     </div>
-    <ul class="grid archive-grid" id="results"></ul>
+    <div class="month-groups" id="results"></div>
     <nav class="pagination" id="pagination" aria-label="Pages de résultats" hidden></nav>
   </main>
 
