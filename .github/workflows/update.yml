@@ -1,12 +1,8 @@
 name: Mise à jour des offres
 
 on:
-  schedule:
-    # Heure de Paris. Minute décalée de l'heure pile, où GitHub retarde le plus les exécutions planifiées.
-    - cron: '45 7 * * *'
-      timezone: 'Europe/Paris'
-    - cron: '45 17 * * *'
-      timezone: 'Europe/Paris'
+  # Lancé à 7 h 45 et 17 h 45 (heure de Paris) par le Worker Cloudflare de cron/ : le schedule
+  # de GitHub partait avec plusieurs heures de retard.
   workflow_dispatch:
   push:
     branches: [main]
