@@ -38,9 +38,8 @@ Exclus : free-to-play permanents, démos, remises qui ne descendent pas à 0.
 ## Fonctionnement
 
 ```
-Worker Cloudflare cron/ (7 h 45 et 17 h 45, heure de Paris) ─ workflow_dispatch ─┐
-GitHub Action, schedule de secours aux mêmes heures, souvent en retard ──────────┤
-GitHub Action (update.yml) ◄─────────────────────────────────────────────────────┘
+Worker Cloudflare cron/ (7 h 45 et 17 h 45, heure de Paris)
+  └─ workflow_dispatch → GitHub Action (update.yml)
   └─ collector/main.ts
        ├─ Epic   freeGamesPromotions          → promotions gratuites en cours et à venir
        ├─ Steam  IStoreService/GetAppList     → apps modifiées depuis la dernière exécution (clé requise)
@@ -87,14 +86,14 @@ La clé n'existe que dans l'environnement de l'étape de collecte : elle n'est �
 
 ## Déclenchement par Cloudflare
 
-Les exécutions planifiées de GitHub partaient avec 4 à 10 h de retard (relevé du 14 au 16 novembre 2026). Un Worker Cloudflare (`cron/`, compte gratuit) lance le workflow à l'heure via l'API `workflow_dispatch` ; le `schedule` de `update.yml` reste en secours. Un déclenchement en double est sans effet : `concurrency` met les exécutions en file et la seconde ne commite rien.
+Les exécutions planifiées de GitHub partaient avec 4 à 10 h de retard (relevé du 14 au 16 novembre 2026). Un Worker Cloudflare (`cron/`, compte gratuit) lance le workflow à l'heure via l'API `workflow_dispatch` (premiers déclenchements à l'heure le 17 novembre 2026). Le `schedule` de `update.yml` a ensuite été retiré : **le Worker est le seul déclencheur planifié**. S'il tombe en panne, plus aucune collecte automatique ; en attendant, lancer le workflow à la main (`gh workflow run update.yml --repo faimer-org/free-loot`, ou *Actions → Run workflow*).
 
 - Cron Trigger en UTC (`45 5,6,15,16 * * *`) : `cron/schedule.ts` ne garde que l'exécution qui tombe à 7 h 45 ou 17 h 45 à Paris, été comme hiver (testé dans `tests/cron.test.ts`).
 - Pas d'adresse publique (`workers_dev = false`) : le Worker ne fait rien d'autre que répondre à son déclencheur.
 - Un refus de GitHub lève une exception : l'exécution apparaît en échec dans *Workers → free-loot-cron → Logs*.
 - Modifier `cron/` ne relance pas le workflow (`paths-ignore`).
 
-Jeton : *fine-grained*, propriétaire `faimer-org`, dépôt `free-loot` seul, permission **Actions : Read and write** et rien d'autre. Il n'est stocké que dans Cloudflare, en secret `GITHUB_TOKEN`. **Il expire le 17 novembre 2027** : le renouveler avant (puis `secret put` à nouveau et mettre à jour cette date), sinon le Worker échoue en 401 et seul le `schedule` en retard subsiste.
+Jeton : *fine-grained*, propriétaire `faimer-org`, dépôt `free-loot` seul, permission **Actions : Read and write** et rien d'autre. Il n'est stocké que dans Cloudflare, en secret `GITHUB_TOKEN`. **Il expire le 17 novembre 2027** : le renouveler avant (puis `secret put` à nouveau et mettre à jour cette date), sinon le Worker échoue en 401 et les offres ne sont plus mises à jour.
 
 Déploiement, depuis `cron/` (Wrangler n'est pas une dépendance du projet) :
 
@@ -109,6 +108,6 @@ npx wrangler@4.156.2 deploy
 - **Free Weekend** : le champ `free_weekend` de `GetItems` est confirmé (4 Free Weekends détectés le 2026-11-14). On ne sait pas si chaque Free Weekend fait apparaître l'app dans `GetAppList` : ceux-ci y figuraient sur une fenêtre de 14 jours.
 - **Devenu gratuit** : repose sur l'hypothèse que `price_change_number` est un compteur global croissant. La collecte journalise sa plage de valeurs pour la vérifier.
 - **Débit** : limites Steam non documentées ; environ 200 appels par 5 minutes pour `appdetails` selon la communauté.
-- **Planification** : GitHub peut retarder une exécution planifiée, voire l'abandonner en cas de forte charge ; d'où le déclenchement par Cloudflare. Ponctualité des Cron Triggers Cloudflare et prise en charge du fuseau `Europe/Paris` par `Intl` dans le runtime Workers non encore observées en production.
+- **Planification** : le `schedule` de GitHub partait avec 4 à 10 h de retard ; remplacé par le Worker Cloudflare, ponctuel à la minute les 17 novembre 2026 à 7 h 45 et 17 h 45 (fuseau `Europe/Paris` bien pris en charge par `Intl` dans le runtime Workers). Aucune alerte en cas d'échec du Worker : seuls ses journaux Cloudflare le montrent.
 - **Tags des offres Epic** : le flux Epic ne donne que des identifiants de tags, et son API GraphQL est derrière une vérification anti-robot. Les tags sont repris du jeu Steam de même nom exact (casse, ponctuation, accents et ™ ® ignorés) : pas de tags si le jeu n'est pas sur Steam ou s'il y porte un autre nom ; un homonyme donnerait des tags faux. 3 offres Epic sur 3 trouvées le 2026-11-14.
 - **API de détails** : `GetTagList`, `storesearch` et les champs `tags`, `screenshots`, `trailers` de `GetItems` ne sont pas documentés par Valve ; testés sans clé le 2026-11-14. Les adresses des micro-bandes-annonces (`store_trailers/…/microtrailer.mp4`) sont reconstituées à partir de la redirection observée.
