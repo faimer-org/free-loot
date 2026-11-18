@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T06:46:09.968Z",
+  "generatedAt": "2026-11-18T16:45:44.990Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T16:45:44.990Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T16:45:44.990Z",
       "details": {
         "tags": [
           "Pirates",
@@ -69,6 +69,34 @@
         ],
         "video": null
       }
+    },
+    {
+      "id": "epic-bda8d2133655435982b9118972792328-0623017cf9f341efbe07557f46beb4e8-free_to_keep-2026-11-26",
+      "store": "epic",
+      "storeId": "bda8d2133655435982b9118972792328:0623017cf9f341efbe07557f46beb4e8",
+      "type": "free_to_keep",
+      "title": "Firestone – Idle Clicker Online RPG",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": "EUR",
+      "startDate": "2026-11-26T16:00:00.000Z",
+      "endDate": "2026-12-03T16:00:00.000Z",
+      "url": "https://store.epicgames.com/fr/p/firestone-online-idle-rpg-bfd04b",
+      "image": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-7yzhh.jpg",
+      "details": {
+        "tags": [],
+        "description": "*Firestone: Online Idle RPG* est un jeu fantastique multijoueur. Collectionnez des héros🧙‍♂️, améliorez leur équipement et leurs compétences et envoyez-les dans des batailles AFK ou battez des boss monstrueux ! Discutez avec des amis de guilde ou engagez-vous dans PVP⚔️.",
+        "screenshots": [
+          "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-dv7oz.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-1c72f.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-1hym4.png?h=338&quality=medium&resize=1&w=600",
+          "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-1fxfh.png?h=338&quality=medium&resize=1&w=600"
+        ],
+        "video": null
+      },
+      "firstSeen": "2026-11-18T16:45:44.990Z",
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "epic-df37f065c3f14eadbf011177396e2966-d37f3694e7a04edb8347f3cb6320f9d3-free_to_keep-2026-11-19",
@@ -137,7 +165,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/1571190/364377/2bf229be76d65cbd4c83b07730b4fca2e50b9660/1750702477/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-1677280-free_weekend-2026-11-12",
@@ -211,7 +239,42 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2204560/1395983723/c615143137c50e643b8ef2b0910e42519c19d514/1762786459/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
+    },
+    {
+      "id": "steam-2319240-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "2319240",
+      "type": "now_free",
+      "title": "PlanetSprite",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/2319240/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2319240/d213164ecc73ba0a3dc69925798ffc896af3b5e2/library_capsule.jpg?t=1794995006",
+      "details": {
+        "tags": [
+          "Simulation de ferme",
+          "Simulation de vie",
+          "Massivement multijoueur",
+          "MMORPG",
+          "Réconfortant"
+        ],
+        "description": "A cozy farming and life MMO. Grow crops, raise animals, tame creatures, fish, ride over 30 mounts, fight bosses with friends and join festivals through four seasons, all in one shared world. Free to play.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2319240/df4bca0a6b9d4b781780d9ddb80f3b103c156e4e/ss_df4bca0a6b9d4b781780d9ddb80f3b103c156e4e.600x338.jpg?t=1794995006",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2319240/3b85b997e16a1d902d15ea2af30d2292b2102bbd/ss_3b85b997e16a1d902d15ea2af30d2292b2102bbd.600x338.jpg?t=1794995006",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2319240/15492420cbf1322f490cfd24da194da9264b21cd/ss_15492420cbf1322f490cfd24da194da9264b21cd.600x338.jpg?t=1794995006",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2319240/46b9ddb10eacd0bd5d348d5771aeb18dfdb96fb0/ss_46b9ddb10eacd0bd5d348d5771aeb18dfdb96fb0.600x338.jpg?t=1794995006"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/2319240/2080427509/bb1586b35810e76e7f2fbfdf2c59adefd05cb166/1794990236/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T16:45:44.990Z",
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-2457200-now_free-2026-11-18",
@@ -244,7 +307,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2457200/621209/1dcf0afe41fafcb4643effcef8acca024dd6301e/1750921231/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-2605790-free_weekend-2026-11-12",
@@ -318,7 +381,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-2974050-now_free-2026-11-17",
@@ -353,7 +416,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2974050/696065/c0b3a0317afabea05aefc2b6ae996d9bec385a13/1750954421/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -418,7 +481,7 @@
         "video": null
       },
       "firstSeen": "2026-11-17T16:30:15.932Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-3526260-now_free-2026-11-18",
@@ -453,7 +516,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/3526260/828667/90a998b2def36fc3e5f437967c87f22463f4c9d1/1750858277/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4127470-now_free-2026-11-16",
@@ -469,7 +532,7 @@
       "startDate": null,
       "endDate": null,
       "url": "https://store.steampowered.com/app/4127470/",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/848ec6dae4538ed2748dacf36b54f40f4955acd6/library_capsule.jpg?t=1794864675",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/848ec6dae4538ed2748dacf36b54f40f4955acd6/library_capsule.jpg?t=1795011129",
       "details": {
         "tags": [
           "Aventure",
@@ -480,15 +543,15 @@
         ],
         "description": "Trapped in a dying city, Aurora must repair a radio to escape. Stay out of sight, watch your noise, manage your weapons and make choices that will determine how your story ends.",
         "screenshots": [
-          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/a098a959031bf7e79babc2b27d063762218d6a08/ss_a098a959031bf7e79babc2b27d063762218d6a08.600x338.jpg?t=1794864675",
-          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e10c0c077075e817118923a414ce9a88c5f63203/ss_e10c0c077075e817118923a414ce9a88c5f63203.600x338.jpg?t=1794864675",
-          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/c50ab7965f869d10ce67c7fcbda3485b2ec814f5/ss_c50ab7965f869d10ce67c7fcbda3485b2ec814f5.600x338.jpg?t=1794864675",
-          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e2796c0b753543e57d15fbca10b1bd90b1d69d3f/ss_e2796c0b753543e57d15fbca10b1bd90b1d69d3f.600x338.jpg?t=1794864675"
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/a098a959031bf7e79babc2b27d063762218d6a08/ss_a098a959031bf7e79babc2b27d063762218d6a08.600x338.jpg?t=1795011129",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e10c0c077075e817118923a414ce9a88c5f63203/ss_e10c0c077075e817118923a414ce9a88c5f63203.600x338.jpg?t=1795011129",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/c50ab7965f869d10ce67c7fcbda3485b2ec814f5/ss_c50ab7965f869d10ce67c7fcbda3485b2ec814f5.600x338.jpg?t=1795011129",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127470/e2796c0b753543e57d15fbca10b1bd90b1d69d3f/ss_e2796c0b753543e57d15fbca10b1bd90b1d69d3f.600x338.jpg?t=1795011129"
         ],
         "video": "https://video.fastly.steamstatic.com/store_trailers/4127470/1442818048/7dd6ba7021cdfc0c33aeeeb037ac08fbdc7c8002/1761151175/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4182060-now_free-2026-11-16",
@@ -523,7 +586,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4182060/2097959363/5a7403f3a15d6d2ebf1687692824da1480b23108/1767541848/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4449700-now_free-2026-11-14",
@@ -558,7 +621,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4492520-now_free-2026-11-17",
@@ -593,7 +656,7 @@
         "video": null
       },
       "firstSeen": "2026-11-17T06:46:07.196Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4514600-now_free-2026-11-16",
@@ -623,7 +686,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4764310-now_free-2026-11-16",
@@ -653,7 +716,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -688,7 +751,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4839860-now_free-2026-11-16",
@@ -721,7 +784,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4842560-now_free-2026-11-18",
@@ -754,7 +817,7 @@
         "video": null
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4952950-now_free-2026-11-18",
@@ -789,7 +852,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4952950/1038294877/f8a87cf4f0f9158c18e69892a288981f76295823/1789935419/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-4962090-now_free-2026-11-18",
@@ -824,7 +887,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4962090/312516610/3a31d38764e055b692306d799add314d5b94a6e0/1785226376/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-5162870-now_free-2026-11-17",
@@ -859,7 +922,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5162870/2062537242/6f0974e9c0eac162947df0dbf9e2d90b61615bf2/1789498041/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-5218930-now_free-2026-11-16",
@@ -894,7 +957,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-5230050-now_free-2026-11-16",
@@ -924,7 +987,41 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-18T06:46:09.968Z"
+      "lastSeen": "2026-11-18T16:45:44.990Z"
+    },
+    {
+      "id": "steam-938260-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "938260",
+      "type": "now_free",
+      "title": "To Burn in Memory (Anniversary Edition)",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/938260/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/938260/portrait.png?t=1795016107",
+      "details": {
+        "tags": [
+          "Indépendant",
+          "Aventure",
+          "Fiction interactive",
+          "Scénario riche",
+          "Historique"
+        ],
+        "description": "To Burn in Memory. Ahistorical and atemporal Interactive Fiction. Explore a city that never existed, and uncover its secret history through the memories of those caught in the chaos of a Europe spiraling ever faster into war.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/938260/ss_b2b9670b670f8b694e5911f929bbd4818b4ea1b9.600x338.jpg?t=1795016107",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/938260/ss_aa9d65931b255ad18be95f183af453c2d415a5e4.600x338.jpg?t=1795016107",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/938260/ss_11aff916c301f3e952cb71eb46661be88eb0bc57.600x338.jpg?t=1795016107"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/938260/186007/5b4f35fa3a3a7ad5df6187162e1289d61f9aa351/1751166377/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T16:45:44.990Z",
+      "lastSeen": "2026-11-18T16:45:44.990Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
