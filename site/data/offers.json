@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T19:40:22.812Z",
+  "generatedAt": "2026-11-18T06:46:09.968Z",
   "historyYears": [],
   "offers": [
     {
@@ -17,7 +17,7 @@
       "url": "https://store.epicgames.com/fr/p/knightica-3be45c",
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1xc3d.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z",
       "details": {
         "tags": [
           "Autobattler",
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z",
       "details": {
         "tags": [
           "Pirates",
@@ -103,6 +103,41 @@
         ],
         "video": null
       }
+    },
+    {
+      "id": "steam-1571190-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "1571190",
+      "type": "now_free",
+      "title": "Royal Revolt II",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/1571190/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571190/library_600x900.jpg?t=1794958425",
+      "details": {
+        "tags": [
+          "Action et RPG",
+          "Défense de tours",
+          "Stratégie",
+          "Massivement multijoueur",
+          "Action"
+        ],
+        "description": "Royal Revolt 2 est un Tower Defense inversé JcJ et asynchrone rempli de batailles trépidantes dans un univers médiéval magique. Pouvez-vous préparer vos défenses afin de résister aux assauts des autres rois et reines ? Le gant est jeté... Oserez-vous relever le défi ?",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571190/ss_73858e53467bfd46a7fe024d5aa1a3ce999f3cd9.600x338.jpg?t=1794958425",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571190/ss_04e0dff7e2e44efa482aa4117777ee529e7b971f.600x338.jpg?t=1794958425",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571190/ss_369d97dbed6ac82ca937aca95678c1ffcc9ae29f.600x338.jpg?t=1794958425",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571190/ss_bb22debbb14e274ed00f2360c7255ed509d6878e.600x338.jpg?t=1794958425"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/1571190/364377/2bf229be76d65cbd4c83b07730b4fca2e50b9660/1750702477/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-1677280-free_weekend-2026-11-12",
@@ -176,7 +211,40 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2204560/1395983723/c615143137c50e643b8ef2b0910e42519c19d514/1762786459/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
+    },
+    {
+      "id": "steam-2457200-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "2457200",
+      "type": "now_free",
+      "title": "Gradient Flow",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/2457200/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2457200/library_600x900.jpg?t=1794974345",
+      "details": {
+        "tags": [
+          "Course",
+          "3ᵉ personne",
+          "3D"
+        ],
+        "description": "Gradient Flow Is A Free-to-Play Minimalist Racing Game. Choose from single-player time attack or online multiplayer modes to challenge your skills. Create and share your own racetracks with the community!",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2457200/ss_1455369afba0265ae79954d2e7b93bf8b7524e6a.600x338.jpg?t=1794974345",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2457200/ss_20c2d6a131282ef4a199774b461fb0350c12146c.600x338.jpg?t=1794974345",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2457200/ss_3577a8286c8f3016bd4a939a0521695850d5bcd9.600x338.jpg?t=1794974345",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2457200/ss_d1a299ad449088f5dafb8b2890f78bcece845a6c.600x338.jpg?t=1794974345"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/2457200/621209/1dcf0afe41fafcb4643effcef8acca024dd6301e/1750921231/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-2605790-free_weekend-2026-11-12",
@@ -250,7 +318,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-2974050-now_free-2026-11-17",
@@ -285,7 +353,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2974050/696065/c0b3a0317afabea05aefc2b6ae996d9bec385a13/1750954421/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -350,7 +418,42 @@
         "video": null
       },
       "firstSeen": "2026-11-17T16:30:15.932Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
+    },
+    {
+      "id": "steam-3526260-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "3526260",
+      "type": "now_free",
+      "title": "Kinetic Canvas",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/3526260/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526260/2c64ffd60082f708a0d25fc39bd4ac32e09cef90/library_600x900.jpg?t=1794946642",
+      "details": {
+        "tags": [
+          "Détente",
+          "Casual",
+          "Abstrait",
+          "Coloré",
+          "Minimaliste"
+        ],
+        "description": "A simple, beautiful, meditative artistic experience. Create stunning waves of animated light patterns with a simple click of the mouse.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526260/ss_c0bd2084f52f2c66fa4f7b026122e591e6b23931.600x338.jpg?t=1794946642",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526260/ss_0ac93a682395050ac2ae32abbf40a82b13dee655.600x338.jpg?t=1794946642",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526260/ss_4743525cd464994d2d4c87dab747870f26020733.600x338.jpg?t=1794946642",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526260/ss_87275065b9bf95b835cb4b447eba5ca445e2246e.600x338.jpg?t=1794946642"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/3526260/828667/90a998b2def36fc3e5f437967c87f22463f4c9d1/1750858277/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4127470-now_free-2026-11-16",
@@ -385,7 +488,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4127470/1442818048/7dd6ba7021cdfc0c33aeeeb037ac08fbdc7c8002/1761151175/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4182060-now_free-2026-11-16",
@@ -420,7 +523,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4182060/2097959363/5a7403f3a15d6d2ebf1687692824da1480b23108/1767541848/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4449700-now_free-2026-11-14",
@@ -455,7 +558,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4492520-now_free-2026-11-17",
@@ -490,7 +593,7 @@
         "video": null
       },
       "firstSeen": "2026-11-17T06:46:07.196Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4514600-now_free-2026-11-16",
@@ -520,7 +623,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4764310-now_free-2026-11-16",
@@ -550,7 +653,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -585,7 +688,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-4839860-now_free-2026-11-16",
@@ -618,7 +721,110 @@
         "video": null
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
+    },
+    {
+      "id": "steam-4842560-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "4842560",
+      "type": "now_free",
+      "title": "Once Upon a Throne of Thorns - Adult Patch",
+      "isDlc": true,
+      "baseGame": {
+        "title": "Once Upon a Throne of Thorns",
+        "url": "https://store.steampowered.com/app/4192830/"
+      },
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4842560/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4842560/0c85c07128c4f2615427ec66fd230669de778d73/header.jpg?t=1794952565",
+      "details": {
+        "tags": [
+          "Casual",
+          "Roman graphique",
+          "Anime",
+          "Stylisé",
+          "Indépendant"
+        ],
+        "description": "Adult patch of the BL visual novel Once Upon a Throne of Thorns.",
+        "screenshots": [],
+        "video": null
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
+    },
+    {
+      "id": "steam-4952950-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "4952950",
+      "type": "now_free",
+      "title": "Battle Of Dots: Last Stand",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4952950/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4952950/a25d0a40e1110dbbf3df005d079932ed97282bde/library_capsule.jpg?t=1794953952",
+      "details": {
+        "tags": [
+          "Médiéval",
+          "Stratégie en temps réel",
+          "Stratégie",
+          "Simulation de guerre",
+          "Action"
+        ],
+        "description": "Battle of Dots: Last Stand is a tactical strategy game where you command dot armies in real-time battles. Control units, create formations, and adapt to enemy tactics. Build your army, master the battlefield, and fight unique battles against smart AI. Currently in Alpha.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4952950/e5e4a90c0d25e5faf71b2278154f994e7053c01d/ss_e5e4a90c0d25e5faf71b2278154f994e7053c01d.600x338.jpg?t=1794953952",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4952950/c22d0a4d9e5f9238ba4ec08ea577c28a707c1150/ss_c22d0a4d9e5f9238ba4ec08ea577c28a707c1150.600x338.jpg?t=1794953952",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4952950/d208c8c3ad27bc253914c264f69af01d43696232/ss_d208c8c3ad27bc253914c264f69af01d43696232.600x338.jpg?t=1794953952",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4952950/607be8d89c4eb707645c1378c03cd156c7010c62/ss_607be8d89c4eb707645c1378c03cd156c7010c62.600x338.jpg?t=1794953952"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4952950/1038294877/f8a87cf4f0f9158c18e69892a288981f76295823/1789935419/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
+    },
+    {
+      "id": "steam-4962090-now_free-2026-11-18",
+      "store": "steam",
+      "storeId": "4962090",
+      "type": "now_free",
+      "title": "TasteJump",
+      "isDlc": false,
+      "baseGame": null,
+      "originalPrice": null,
+      "currency": null,
+      "discount": null,
+      "startDate": null,
+      "endDate": null,
+      "url": "https://store.steampowered.com/app/4962090/",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4962090/3aa0fa93a229401e15320f14f48cacc846d46851/library_capsule.jpg?t=1794948714",
+      "details": {
+        "tags": [
+          "Aventure",
+          "Action",
+          "Casual",
+          "Action et aventure",
+          "Simulation de marche"
+        ],
+        "description": "TasteJump is a 3D climbing platformer across five distinct height zones — from dense jungle to icy peaks — wrapped in permanent, magical moonlight. Every jump counts, every misstep sends you back down.",
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4962090/63287625c6db9b8820f84b8d1ee2b5b0023264cb/ss_63287625c6db9b8820f84b8d1ee2b5b0023264cb.600x338.jpg?t=1794948714",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4962090/ef7df3d1d026922521d368429ca594796bd6e672/ss_ef7df3d1d026922521d368429ca594796bd6e672.600x338.jpg?t=1794948714",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4962090/4655299d26ae42518c095915ea2fdb10b285022f/ss_4655299d26ae42518c095915ea2fdb10b285022f.600x338.jpg?t=1794948714",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4962090/1baa29b83e2dca28307cd7052345f74defbb1126/ss_1baa29b83e2dca28307cd7052345f74defbb1126.600x338.jpg?t=1794948714"
+        ],
+        "video": "https://video.fastly.steamstatic.com/store_trailers/4962090/312516610/3a31d38764e055b692306d799add314d5b94a6e0/1785226376/microtrailer.mp4"
+      },
+      "firstSeen": "2026-11-18T06:46:09.968Z",
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-5162870-now_free-2026-11-17",
@@ -653,7 +859,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5162870/2062537242/6f0974e9c0eac162947df0dbf9e2d90b61615bf2/1789498041/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-5218930-now_free-2026-11-16",
@@ -688,7 +894,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-5230050-now_free-2026-11-16",
@@ -718,7 +924,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-17T19:40:22.812Z"
+      "lastSeen": "2026-11-18T06:46:09.968Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
