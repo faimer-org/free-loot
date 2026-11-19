@@ -412,12 +412,13 @@ svg { flex-shrink: 0; }
 .page-footer p { margin: 4px 0; }
 
 /* Onglets entre les pages */
-.tabs { display: flex; justify-content: center; gap: 22px; margin-top: 16px; }
+.tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 16px; }
 
 .tabs a {
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   color: var(--muted);
+  white-space: nowrap;
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 0.15s, border-color 0.15s;
@@ -426,6 +427,19 @@ svg { flex-shrink: 0; }
 .tabs a:hover { color: var(--text); }
 .tabs a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
 .tabs a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+
+/* Nouveautés pas encore vues sur la page de l'onglet */
+.tab-new {
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: 2px;
+}
 
 /* Page Archives */
 .archive-filters { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 12px; padding: 12px; }
