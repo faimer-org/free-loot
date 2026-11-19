@@ -10,11 +10,11 @@ import {
   tagsElement,
   TIME_ZONE,
   titleElement,
-  TYPE_LABELS,
 } from './common.js';
 import { initPreview } from './preview.js';
 import { createSortMenu } from './sortMenu.js';
 import { offerStatus } from './status.js';
+import { isHomeOffer, markTabs } from './tabs.js';
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 /** @typedef {import('../../collector/offer.ts').Store} Store */
@@ -28,18 +28,18 @@ const STORAGE_KEY = 'fl-filters';
 const SORT_LABELS = { ending: 'Fin la plus proche', value: 'Valeur la plus haute', recent: 'Ajout le plus récent', name: 'Nom' };
 const STATUS_RANK = { active: 0, upcoming: 1 };
 /** Mention sous le prix barré, selon ce que l'offre donne vraiment. @type {Record<string, string>} */
-const PRICE_LABELS = { free_to_keep: 'Gratuit à vie', free_weekend: 'Gratuit ce week-end', now_free: 'Gratuit' };
+const PRICE_LABELS = { free_to_keep: 'Gratuit à vie', free_weekend: 'Gratuit ce week-end' };
+/** Types affichés ici ; les jeux devenus gratuits ont leur propre page. */
+const TYPES = ['free_to_keep', 'free_weekend'];
 /** Statuts affichés ici ; les offres terminées sont sur la page Archives. */
 const STATUSES = ['active', 'upcoming'];
-/** Un jeu devenu gratuit reste ici ce nombre de jours, puis seulement sur la page Devenus gratuits. */
-const NOW_FREE_HOME_DAYS = 7;
 /** Tags affichés sur une carte (le collecteur en garde davantage pour l'aperçu). */
 const CARD_TAGS = 3;
 
 /** @returns {Filters} */
 const defaultFilters = () => ({
   store: '',
-  types: Object.keys(TYPE_LABELS),
+  types: [...TYPES],
   content: ['game', 'dlc'],
   status: [...STATUSES],
   sort: { steam: 'ending', epic: 'ending' },
@@ -104,7 +104,9 @@ async function init() {
     const response = await fetch('data/offers.json', { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    offers = Array.isArray(data.offers) ? data.offers : [];
+    const now = Date.now();
+    offers = (Array.isArray(data.offers) ? data.offers : []).filter((/** @type {Offer} */ offer) => isHomeOffer(offer, now));
+    markTabs(data, 'home');
     updated.textContent = data.generatedAt ? `Mis à jour ${relativeDay(new Date(data.generatedAt))}` : 'Date de mise à jour inconnue';
     message.textContent = '';
   } catch {
@@ -131,7 +133,6 @@ function render(filters) {
   const visible = offers
     .map((offer) => ({ offer, status: offerStatus(offer, now) }))
     .filter(({ offer, status }) =>
-      !isOldNowFree(offer, now) &&
       filters.types.includes(offer.type) &&
       filters.content.includes(offer.isDlc ? 'dlc' : 'game') &&
       filters.status.includes(status),
@@ -195,9 +196,7 @@ function card(offer, status, now) {
   const discount = discountElement(offer, status, now);
   if (discount) body.append(discount);
 
-  body.append(dateLine(offer, status));
-  // Devenu gratuit : pas de fin, donc ni compte à rebours ni mention « En cours ».
-  if (!isPermanent(offer)) body.append(countdown(offer, status, now));
+  body.append(dateLine(offer, status), countdown(offer, status, now));
 
   item.append(coverElement(offer), body);
   return item;
@@ -219,25 +218,8 @@ function dateLine(offer, status) {
   };
   if (status === 'upcoming' && offer.startDate) withDate('Dès le ', offer.startDate);
   else if (offer.endDate) withDate('Jusqu’au ', offer.endDate);
-  else line.append(isPermanent(offer) ? 'Définitif' : 'Sans date de fin connue');
+  else line.append('Sans date de fin connue');
   return line;
-}
-
-/**
- * Jeu devenu gratuit sans date de fin : la gratuité est définitive.
- * @param {Offer} offer
- */
-function isPermanent(offer) {
-  return offer.type === 'now_free' && !offer.endDate;
-}
-
-/**
- * Jeu devenu gratuit détecté il y a plus de NOW_FREE_HOME_DAYS jours : il n'a plus sa place parmi les nouveautés.
- * @param {Offer} offer
- * @param {number} now
- */
-function isOldNowFree(offer, now) {
-  return offer.type === 'now_free' && now - Date.parse(offer.firstSeen) > NOW_FREE_HOME_DAYS * DAY;
 }
 
 /**
@@ -443,7 +425,9 @@ function loadFilters() {
     Array.isArray(value) ? value.filter((item) => allowed.includes(item)) : null;
 
   if (['', ...STORES].includes(stored.store)) filters.store = stored.store;
-  filters.types = list(stored.types, Object.keys(TYPE_LABELS)) ?? filters.types;
+  // « now_free », d'avant la page Devenus gratuits, est ignoré ; si c'était le seul type coché, on revient au défaut.
+  const types = list(stored.types, TYPES);
+  if (types && (types.length > 0 || stored.types.length === 0)) filters.types = types;
   filters.content = list(stored.content, ['game', 'dlc']) ?? filters.content;
   filters.status = list(stored.status, STATUSES) ?? filters.status;
   for (const store of STORES) {

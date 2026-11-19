@@ -3,7 +3,7 @@
 
 import { initCatalog } from './catalog.js';
 import { el, icon, TIME_ZONE } from './common.js';
-import { offerStatus } from './status.js';
+import { isNowFreeOffer, markTabs } from './tabs.js';
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 
@@ -34,10 +34,9 @@ async function loadNowFree() {
   const response = await fetch('data/offers.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const data = await response.json();
+  markTabs(data, 'nowFree');
   const now = Date.now();
-  return (Array.isArray(data.offers) ? data.offers : []).filter(
-    (/** @type {Offer} */ offer) => offer.type === 'now_free' && offerStatus(offer, now) !== 'expired',
-  );
+  return (Array.isArray(data.offers) ? data.offers : []).filter((/** @type {Offer} */ offer) => isNowFreeOffer(offer, now));
 }
 
 /** « Gratuit depuis le 14 nov. 2026 ». @param {Offer} offer */

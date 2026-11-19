@@ -3,6 +3,7 @@
 import { initCatalog } from './catalog.js';
 import { el, formatMoney, icon, TIME_ZONE, TYPE_LABELS } from './common.js';
 import { offerStatus } from './status.js';
+import { markTabs } from './tabs.js';
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 
@@ -34,6 +35,7 @@ async function loadArchived() {
   const response = await fetch('data/offers.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const data = await response.json();
+  markTabs(data, null);
   const now = Date.now();
   /** @type {Offer[]} */
   const recent = (Array.isArray(data.offers) ? data.offers : []).filter(

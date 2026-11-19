@@ -11,9 +11,11 @@ Les jeux et DLC offerts en ce moment sur Steam et l'Epic Games Store, réunis su
 
 Pour chaque offre : la jaquette, qui mène à la page du magasin, les catégories, le prix d'origine, les dates et le temps restant ; au survol, un aperçu en vidéo ou en images. On peut filtrer par magasin, type d'offre, jeu ou DLC et statut, et trier par fin la plus proche, valeur, ajout le plus récent ou nom.
 
-Les jeux **devenus gratuits** restent une semaine sur la page des offres en cours, puis ont leur propre onglet : ils y restent tant qu'ils sont gratuits, avec recherche, filtres par catégorie et période (6 derniers mois par défaut, 12 derniers mois, une année ou depuis le début).
+Les jeux **devenus gratuits** ont leur propre onglet : ils y restent tant qu'ils sont gratuits, avec recherche, filtres par catégorie et période (6 derniers mois par défaut, 12 derniers mois, une année ou depuis le début).
 
 Les offres passées restent consultables dans les **Archives** : recherche par nom, filtres par magasin, type, catégorie et année. Un jeu devenu gratuit qui redevient payant y passe aussi.
+
+Un badge « NEW » signale les onglets *Offres en cours* et *Devenus gratuits* tant qu'ils contiennent des jeux arrivés depuis votre dernière visite.
 
 Fonctionne dans le navigateur, sans compte ni installation ; vos filtres restent enregistrés sur votre appareil. Vérifiez toujours le prix sur la page du magasin avant de valider.
 
