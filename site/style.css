@@ -51,18 +51,9 @@ svg { flex-shrink: 0; }
 /* En-tête */
 .page-header { padding: 32px 0 8px; text-align: center; }
 
-.page-header h1 {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0;
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.page-header h1 span, .gem { color: var(--gold); }
-.gem { width: 32px; height: 32px; }
+/* Logo en image (PNG transparent, 2x) ; le texte alternatif sert de titre. */
+.page-header h1 { margin: 0; line-height: 0; }
+.logo { width: 400px; max-width: 100%; height: auto; }
 .subtitle { margin: 4px 0 0; color: var(--muted); }
 
 .updated {
@@ -644,7 +635,7 @@ svg { flex-shrink: 0; }
 }
 
 @media (max-width: 520px) {
-  .page-header h1 { font-size: 1.8rem; }
+  .logo { width: 300px; }
   .chips { padding: 0 8px; border-left: 0; justify-content: center; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .card-body { padding: 8px; }
