@@ -22,8 +22,11 @@ const IGNORED_TAGS = new Set([
   493, // Accès anticipé
 ]);
 
-/** Nudité ou contenu sexuel : pas de capture ni de vidéo pour ces jeux. Violence et contenu adulte général restent affichés. */
-const HIDE_MEDIA_DESCRIPTORS = new Set([1, 3, 4]);
+/**
+ * Nudité ou contenu sexuel : pour ces jeux, seulement les captures « tout public » et pas de vidéo (Steam ne classe pas
+ * les bandes-annonces). Violence et contenu adulte général restent affichés en entier.
+ */
+const SENSITIVE_DESCRIPTORS = new Set([1, 3, 4]);
 
 const DETAILS_REQUEST = {
   include_basic_info: true,
@@ -99,12 +102,12 @@ export async function fetchSteamDetails(appids: number[], tagNames: Map<number, 
 }
 
 export function steamDetails(item: StoreItem, tagNames: Map<number, string>): Details {
-  const hideMedia = (item.content_descriptorids ?? []).some((id) => HIDE_MEDIA_DESCRIPTORS.has(id));
+  const sensitive = (item.content_descriptorids ?? []).some((id) => SENSITIVE_DESCRIPTORS.has(id));
   return {
     tags: steamTags(item, tagNames),
     description: cleanDescription(item.basic_info?.short_description),
-    screenshots: hideMedia ? [] : screenshots(item),
-    video: hideMedia ? null : microtrailer(item),
+    screenshots: screenshots(item, sensitive),
+    video: sensitive ? null : microtrailer(item),
   };
 }
 
@@ -117,11 +120,13 @@ export function steamTags(item: StoreItem, tagNames: Map<number, string>): strin
     .slice(0, MAX_TAGS);
 }
 
-/** Captures « tout public » si le jeu en a, sinon celles marquées « contenu adulte » (violence comprise). */
-function screenshots(item: StoreItem): string[] {
-  const all = item.screenshots?.all_ages_screenshots?.length
-    ? item.screenshots.all_ages_screenshots
-    : (item.screenshots?.mature_content_screenshots ?? []);
+/**
+ * Captures « tout public » si le jeu en a, sinon celles marquées « contenu adulte » (violence comprise), sauf pour un jeu
+ * signalé pour nudité ou contenu sexuel (`allAgesOnly`).
+ */
+function screenshots(item: StoreItem, allAgesOnly: boolean): string[] {
+  const allAges = item.screenshots?.all_ages_screenshots ?? [];
+  const all = allAges.length > 0 || allAgesOnly ? allAges : (item.screenshots?.mature_content_screenshots ?? []);
   return [...all]
     .sort((a, b) => (a.ordinal ?? 0) - (b.ordinal ?? 0))
     .slice(0, MAX_SCREENSHOTS)
