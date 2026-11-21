@@ -115,16 +115,44 @@ export function initPreview(root, findOffer) {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') hide();
   });
-  // À la souris, le défilement ferme l'aperçu (le curseur n'est plus sur la carte) ; au clavier, il la suit.
+  // Dernière position de la souris dans la fenêtre : après un défilement, la carte sous le curseur
+  // a pu changer (ou rester la même) sans qu'aucun pointerover ne soit émis.
+  /** @type {{ x: number, y: number } | null} */
+  let pointer = null;
+  document.addEventListener(
+    'pointermove',
+    (event) => {
+      if (event.pointerType === 'mouse') pointer = { x: event.clientX, y: event.clientY };
+    },
+    { passive: true },
+  );
+  document.addEventListener('pointerout', (event) => {
+    if (!event.relatedTarget) pointer = null; // sortie de la fenêtre
+  });
+
+  // À la souris, le défilement ferme l'aperçu ; une fois arrêté (aucun défilement pendant OPEN_DELAY),
+  // celui de la carte sous le curseur s'ouvre. Au clavier, l'aperçu suit la carte.
   window.addEventListener(
     'scroll',
     () => {
-      if (viaFocus && current && !panel.hidden) place(current);
-      else hide();
+      if (viaFocus && current && !panel.hidden) {
+        place(current);
+        return;
+      }
+      hide();
+      if (pointer && canHover.matches) openTimer = window.setTimeout(openUnderPointer, OPEN_DELAY);
     },
     { passive: true, capture: true },
   );
   window.addEventListener('resize', () => hide());
+
+  function openUnderPointer() {
+    if (!pointer) return;
+    const card = cardOf(document.elementFromPoint(pointer.x, pointer.y));
+    if (!card || !root.contains(card) || card.classList.contains('is-clicked')) return;
+    current = card;
+    show(card);
+  }
 
   /** @param {HTMLElement} card */
   function show(card) {
