@@ -1,4 +1,4 @@
-// Éléments partagés par la page des offres et la page Archives.
+// Éléments partagés par les trois pages.
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
 /** @typedef {import('../../collector/offer.ts').Store} Store */
@@ -10,6 +10,26 @@ export const TYPE_LABELS = { free_to_keep: 'À garder', free_weekend: 'Week-end 
 export const CONTENT_LABELS = { game: 'Jeux', dlc: 'DLC' };
 
 export const TIME_ZONE = 'Europe/Paris';
+
+const DAY = 86_400_000;
+const timeFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+const longDayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, day: 'numeric', month: 'long' });
+const isoDayFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit' });
+
+/** « 21 h 43 ». @param {Date} date */
+export function formatTime(date) {
+  const [hour, minute] = timeFormat.format(date).split(':');
+  return `${Number(hour)} h ${minute}`;
+}
+
+/** « aujourd'hui à 14 h 49 », « hier à … » ou « le 12 novembre à … ». @param {Date} date */
+export function relativeDay(date) {
+  const day = isoDayFormat.format(date);
+  const now = Date.now();
+  if (day === isoDayFormat.format(now)) return `aujourd’hui à ${formatTime(date)}`;
+  if (day === isoDayFormat.format(now - DAY)) return `hier à ${formatTime(date)}`;
+  return `le ${longDayFormat.format(date)} à ${formatTime(date)}`;
+}
 
 /**
  * @param {string} tag

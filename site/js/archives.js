@@ -2,6 +2,7 @@
 
 import { initCatalog } from './catalog.js';
 import { el, formatMoney, icon, TIME_ZONE, TYPE_LABELS } from './common.js';
+import { showUpdated } from './header.js';
 import { offerStatus } from './status.js';
 import { markTabs } from './tabs.js';
 
@@ -36,6 +37,7 @@ async function loadArchived() {
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const data = await response.json();
   markTabs(data, null);
+  showUpdated(data);
   const now = Date.now();
   /** @type {Offer[]} */
   const recent = (Array.isArray(data.offers) ? data.offers : []).filter(

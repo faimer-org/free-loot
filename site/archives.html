@@ -15,10 +15,11 @@
   <header class="page-header">
     <h1><img class="logo" src="assets/logo.png" alt="Free Loot" width="560" height="113"></h1>
     <p class="subtitle">Les jeux offerts sur Steam et l'Epic Games Store</p>
+    <p class="updated" id="updated">Chargement…</p>
     <nav class="tabs" aria-label="Pages">
-      <a href="./">Offres en cours</a>
-      <a href="devenus-gratuits.html">Devenus gratuits</a>
-      <a href="archives.html" aria-current="page">Archives</a>
+      <a href="./"><svg aria-hidden="true"><use href="icons.svg#icon-gift"/></svg>Offres en cours</a>
+      <a href="devenus-gratuits.html"><svg aria-hidden="true"><use href="icons.svg#icon-tag"/></svg>Devenus gratuits</a>
+      <a href="archives.html" aria-current="page"><svg aria-hidden="true"><use href="icons.svg#icon-archive"/></svg>Archives</a>
     </nav>
   </header>
 
@@ -31,15 +32,17 @@
           <span class="sr-only">Rechercher un jeu</span>
           <svg aria-hidden="true"><use href="icons.svg#icon-search"/></svg>
           <input type="search" name="q" placeholder="Rechercher un jeu" autocomplete="off">
+          <button type="button" class="search-clear" id="search-clear" aria-label="Effacer la recherche"><svg aria-hidden="true"><use href="icons.svg#icon-close"/></svg></button>
         </label>
         <div class="sort" id="period-menu"></div>
         <div class="sort" id="sort-menu"></div>
       </div>
-      <div class="archive-chips">
+      <div class="filter-groups">
         <fieldset class="chips">
           <legend>Magasin</legend>
-          <label class="chip"><input type="checkbox" name="store" value="steam" checked><span>Steam</span></label>
-          <label class="chip"><input type="checkbox" name="store" value="epic" checked><span>Epic</span></label>
+          <label class="chip"><input type="radio" name="store" value="" checked><span>Tout</span></label>
+          <label class="chip"><input type="radio" name="store" value="steam"><span>Steam</span></label>
+          <label class="chip"><input type="radio" name="store" value="epic"><span>Epic</span></label>
         </fieldset>
         <fieldset class="chips">
           <legend>Type</legend>
