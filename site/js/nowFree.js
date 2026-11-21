@@ -3,6 +3,7 @@
 
 import { initCatalog } from './catalog.js';
 import { el, icon, TIME_ZONE } from './common.js';
+import { showUpdated } from './header.js';
 import { isNowFreeOffer, markTabs } from './tabs.js';
 
 /** @typedef {import('../../collector/offer.ts').Offer} Offer */
@@ -35,6 +36,7 @@ async function loadNowFree() {
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const data = await response.json();
   markTabs(data, 'nowFree');
+  showUpdated(data);
   const now = Date.now();
   return (Array.isArray(data.offers) ? data.offers : []).filter((/** @type {Offer} */ offer) => isNowFreeOffer(offer, now));
 }

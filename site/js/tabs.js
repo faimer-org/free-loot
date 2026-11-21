@@ -63,15 +63,16 @@ export function markTabs(data, current) {
   saveSeen(seen);
 }
 
-/** @param {TabPage} page */
+/** Sur l'onglet de l'en-tête et sur celui de la barre compacte. @param {TabPage} page */
 function addBadge(page) {
-  const tab = document.querySelector(`.tabs a[href="${TAB_HREFS[page]}"]`);
-  if (!tab || tab.querySelector('.tab-new')) return;
-  const badge = el('span', 'tab-new');
-  badge.append(el('span', '', 'NEW'));
-  badge.firstElementChild?.setAttribute('aria-hidden', 'true');
-  badge.append(el('span', 'sr-only', ' (nouveautés)'));
-  tab.append(badge);
+  for (const tab of document.querySelectorAll(`.tabs a[href="${TAB_HREFS[page]}"]`)) {
+    if (tab.querySelector('.tab-new')) continue;
+    const badge = el('span', 'tab-new');
+    badge.append(el('span', '', 'NEW'));
+    badge.firstElementChild?.setAttribute('aria-hidden', 'true');
+    badge.append(el('span', 'sr-only', ' (nouveautés)'));
+    tab.append(badge);
+  }
 }
 
 /**

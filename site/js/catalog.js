@@ -3,6 +3,7 @@
 // L'état des filtres est dans l'adresse de la page, pour pouvoir la partager ou y revenir.
 
 import { baseGameElement, CONTENT_LABELS, coverElement, el, icon, offerTags, STORE_LABELS, STORES, tagsElement, TIME_ZONE, titleElement } from './common.js';
+import { initHeader, showUpdateError } from './header.js';
 import { initPreview } from './preview.js';
 import { createSortMenu } from './sortMenu.js';
 
@@ -10,7 +11,7 @@ import { createSortMenu } from './sortMenu.js';
 /**
  * @typedef {object} State
  * @property {string} q
- * @property {string[]} stores
+ * @property {string} store magasin choisi, '' pour tous
  * @property {string[]} types
  * @property {string[]} content
  * @property {string[]} tags
@@ -82,6 +83,7 @@ export function initCatalog(config) {
   const results = /** @type {HTMLElement} */ (document.getElementById('results'));
   const message = /** @type {HTMLElement} */ (document.getElementById('message'));
   const resetButton = /** @type {HTMLButtonElement} */ (document.getElementById('reset'));
+  const clearButton = /** @type {HTMLButtonElement} */ (document.getElementById('search-clear'));
   const pagination = /** @type {HTMLElement} */ (document.getElementById('pagination'));
   const hasTypeFilter = config.types.length > 1;
   const defaultSort = Object.keys(config.sortLabels)[0] ?? 'recent';
@@ -106,12 +108,16 @@ export function initCatalog(config) {
     offers.find((offer) => offer.id === id),
   );
 
+  // Critères modifiés : ceux que l'adresse garde (recherche, magasin, type, contenu, catégories, période, tri).
+  const header = initHeader({ form, changes: () => [...toParams(state).keys()].length, reset: resetState });
+
   init();
 
   async function init() {
     try {
       offers = await config.load();
     } catch {
+      showUpdateError();
       message.textContent = config.messages.error;
       return;
     }
@@ -136,12 +142,18 @@ export function initCatalog(config) {
       window.clearTimeout(searchTimer);
       searchTimer = window.setTimeout(() => update({ q: searchInput.value }), SEARCH_DELAY);
     });
-    form.addEventListener('submit', (event) => event.preventDefault());
-    resetButton.addEventListener('click', () => {
-      state = defaultState();
-      applyState();
-      render();
+    // La croix ne prend pas le focus à la souris ou au doigt : pas de clavier qui surgit sur mobile.
+    clearButton.addEventListener('mousedown', (event) => event.preventDefault());
+    clearButton.addEventListener('click', () => {
+      const fromKeyboard = document.activeElement === clearButton;
+      window.clearTimeout(searchTimer);
+      searchInput.value = '';
+      update({ q: '' });
+      // Au clavier, le focus revient au champ puisque la croix disparaît.
+      if (fromKeyboard) searchInput.focus();
     });
+    form.addEventListener('submit', (event) => event.preventDefault());
+    resetButton.addEventListener('click', resetState);
     pagination.addEventListener('click', (event) => {
       const button = /** @type {HTMLElement} */ (event.target).closest('button[data-page]');
       if (!(button instanceof HTMLButtonElement) || button.disabled) return;
@@ -149,6 +161,12 @@ export function initCatalog(config) {
       document.querySelector('.results-head')?.scrollIntoView({ block: 'start' });
     });
 
+    render();
+  }
+
+  function resetState() {
+    state = defaultState();
+    applyState();
     render();
   }
 
@@ -183,6 +201,7 @@ export function initCatalog(config) {
     resetButton.hidden = isDefaultState(state);
     renderPagination(pages);
     writeUrl();
+    header.refresh();
   }
 
   /** « 1 jeu », « 12 jeux ». @param {number} n */
@@ -218,7 +237,7 @@ export function initCatalog(config) {
 
   /** @param {Offer} offer */
   function matchesState(offer) {
-    if (!state.stores.includes(offer.store)) return false;
+    if (state.store && offer.store !== state.store) return false;
     if (!state.types.includes(offer.type)) return false;
     if (!state.content.includes(offer.isDlc ? 'dlc' : 'game')) return false;
     // Plusieurs catégories : l'offre doit en avoir au moins une.
@@ -343,7 +362,7 @@ export function initCatalog(config) {
   function readForm() {
     const data = new FormData(form);
     return {
-      stores: data.getAll('store').map(String),
+      store: String(data.get('store') ?? ''),
       ...(hasTypeFilter ? { types: data.getAll('type').map(String) } : {}),
       content: data.getAll('content').map(String),
       tags: data.getAll('tag').map(String),
@@ -352,9 +371,13 @@ export function initCatalog(config) {
 
   function applyState() {
     searchInput.value = state.q;
+    for (const input of form.querySelectorAll('input[name="store"]')) {
+      const radio = /** @type {HTMLInputElement} */ (input);
+      radio.checked = radio.value === state.store;
+    }
     for (const input of form.querySelectorAll('input[type="checkbox"]')) {
       const box = /** @type {HTMLInputElement} */ (input);
-      const list = { store: state.stores, type: state.types, content: state.content, tag: state.tags }[box.name] ?? [];
+      const list = { type: state.types, content: state.content, tag: state.tags }[box.name] ?? [];
       box.checked = list.includes(box.value);
     }
     periodMenu?.set(state.period);
@@ -365,7 +388,7 @@ export function initCatalog(config) {
   function defaultState() {
     return {
       q: '',
-      stores: [...STORES],
+      store: '',
       types: [...config.types],
       content: [...CONTENT],
       tags: [],
@@ -389,7 +412,7 @@ export function initCatalog(config) {
     const setList = (key, list, all) => {
       if (list.length !== all.length || !all.every((item) => list.includes(item))) params.set(key, list.join(',') || 'aucun');
     };
-    setList('magasin', value.stores, defaults.stores);
+    if (value.store) params.set('magasin', value.store);
     if (hasTypeFilter) setList('type', value.types, defaults.types);
     setList('contenu', value.content, defaults.content);
     if (value.tags.length > 0) params.set('categorie', value.tags.join(','));
@@ -416,7 +439,9 @@ export function initCatalog(config) {
       return raw === 'aucun' ? [] : raw.split(',').filter((item) => allowed.includes(item));
     };
     value.q = params.get('q') ?? '';
-    value.stores = list('magasin', STORES) ?? value.stores;
+    // Un seul magasin ; une ancienne adresse à plusieurs magasins (« steam,epic ») revient à tous.
+    const stores = list('magasin', STORES);
+    if (stores?.length === 1 && stores[0]) value.store = stores[0];
     if (hasTypeFilter) value.types = list('type', config.types) ?? value.types;
     value.content = list('contenu', CONTENT) ?? value.content;
     const tags = params.get('categorie');

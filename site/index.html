@@ -17,34 +17,36 @@
     <p class="subtitle">Les jeux offerts sur Steam et l'Epic Games Store</p>
     <p class="updated" id="updated">Chargement…</p>
     <nav class="tabs" aria-label="Pages">
-      <a href="./" aria-current="page">Offres en cours</a>
-      <a href="devenus-gratuits.html">Devenus gratuits</a>
-      <a href="archives.html">Archives</a>
+      <a href="./" aria-current="page"><svg aria-hidden="true"><use href="icons.svg#icon-gift"/></svg>Offres en cours</a>
+      <a href="devenus-gratuits.html"><svg aria-hidden="true"><use href="icons.svg#icon-tag"/></svg>Devenus gratuits</a>
+      <a href="archives.html"><svg aria-hidden="true"><use href="icons.svg#icon-archive"/></svg>Archives</a>
     </nav>
   </header>
 
   <form class="filters" id="filters" aria-label="Filtres">
-    <fieldset class="chips">
-      <legend class="sr-only">Magasin</legend>
-      <label class="chip"><input type="radio" name="store" value="" checked><span>Tout</span></label>
-      <label class="chip"><input type="radio" name="store" value="steam"><span>Steam</span></label>
-      <label class="chip"><input type="radio" name="store" value="epic"><span>Epic</span></label>
-    </fieldset>
-    <fieldset class="chips">
-      <legend class="sr-only">Type d'offre</legend>
-      <label class="chip"><input type="checkbox" name="type" value="free_to_keep" checked><span>À garder</span></label>
-      <label class="chip"><input type="checkbox" name="type" value="free_weekend" checked><span>Week-end gratuit</span></label>
-    </fieldset>
-    <fieldset class="chips">
-      <legend class="sr-only">Contenu</legend>
-      <label class="chip"><input type="checkbox" name="content" value="game" checked><span>Jeux</span></label>
-      <label class="chip"><input type="checkbox" name="content" value="dlc" checked><span>DLC</span></label>
-    </fieldset>
-    <fieldset class="chips">
-      <legend class="sr-only">Statut</legend>
-      <label class="chip"><input type="checkbox" name="status" value="active" checked><span>En cours</span></label>
-      <label class="chip"><input type="checkbox" name="status" value="upcoming" checked><span>À venir</span></label>
-    </fieldset>
+    <div class="filter-groups">
+      <fieldset class="chips">
+        <legend>Magasin</legend>
+        <label class="chip"><input type="radio" name="store" value="" checked><span>Tout</span></label>
+        <label class="chip"><input type="radio" name="store" value="steam"><span>Steam</span></label>
+        <label class="chip"><input type="radio" name="store" value="epic"><span>Epic</span></label>
+      </fieldset>
+      <fieldset class="chips">
+        <legend>Type d'offre</legend>
+        <label class="chip"><input type="checkbox" name="type" value="free_to_keep" checked><span>À garder</span></label>
+        <label class="chip"><input type="checkbox" name="type" value="free_weekend" checked><span>Week-end gratuit</span></label>
+      </fieldset>
+      <fieldset class="chips">
+        <legend>Contenu</legend>
+        <label class="chip"><input type="checkbox" name="content" value="game" checked><span>Jeux</span></label>
+        <label class="chip"><input type="checkbox" name="content" value="dlc" checked><span>DLC</span></label>
+      </fieldset>
+      <fieldset class="chips">
+        <legend>Statut</legend>
+        <label class="chip"><input type="checkbox" name="status" value="active" checked><span>En cours</span></label>
+        <label class="chip"><input type="checkbox" name="status" value="upcoming" checked><span>À venir</span></label>
+      </fieldset>
+    </div>
   </form>
 
   <main>

@@ -3,6 +3,7 @@ import {
   coverElement,
   el,
   formatMoney,
+  formatTime,
   icon,
   offerTags,
   STORE_LABELS,
@@ -11,6 +12,7 @@ import {
   TIME_ZONE,
   titleElement,
 } from './common.js';
+import { initHeader, showUpdated, showUpdateError } from './header.js';
 import { initPreview } from './preview.js';
 import { createSortMenu } from './sortMenu.js';
 import { offerStatus } from './status.js';
@@ -45,7 +47,6 @@ const defaultFilters = () => ({
   sort: { steam: 'ending', epic: 'ending' },
 });
 
-const DAY = 86_400_000;
 const HOUR = 3_600_000;
 /** Part du temps restant sous laquelle la barre passe à l'orange, puis au rouge. */
 const LEVEL_MID = 0.5;
@@ -53,14 +54,10 @@ const LEVEL_LOW = 0.2;
 
 const dayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, weekday: 'short', day: 'numeric', month: 'short' });
 const dayYearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-const longDayFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, day: 'numeric', month: 'long' });
-const timeFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
 const yearFormat = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, year: 'numeric' });
-const isoDayFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit' });
 
 const form = /** @type {HTMLFormElement} */ (document.getElementById('filters'));
 const message = /** @type {HTMLElement} */ (document.getElementById('message'));
-const updated = /** @type {HTMLElement} */ (document.getElementById('updated'));
 
 /** @type {Record<Store, StoreSection>} */
 const sections = /** @type {Record<Store, StoreSection>} */ (
@@ -93,10 +90,13 @@ const preview = initPreview(/** @type {HTMLElement} */ (document.querySelector('
   offers.find((offer) => offer.id === id),
 );
 
+const header = initHeader({ form, changes: countChanges, reset: resetFilters });
+
 init();
 
 async function init() {
   applyFilters(loadFilters());
+  header.refresh();
   form.addEventListener('change', onChange);
   message.textContent = 'Chargement des offres…';
 
@@ -107,11 +107,10 @@ async function init() {
     const now = Date.now();
     offers = (Array.isArray(data.offers) ? data.offers : []).filter((/** @type {Offer} */ offer) => isHomeOffer(offer, now));
     markTabs(data, 'home');
-    updated.textContent = data.generatedAt ? `Mis à jour ${relativeDay(new Date(data.generatedAt))}` : 'Date de mise à jour inconnue';
+    showUpdated(data);
     message.textContent = '';
   } catch {
-    updated.textContent = 'Données indisponibles';
-    updated.classList.add('is-error');
+    showUpdateError();
     message.textContent = 'Impossible de charger les offres.';
     return;
   }
@@ -124,6 +123,27 @@ function onChange() {
   const filters = readFilters();
   saveFilters(filters);
   render(filters);
+  header.refresh();
+}
+
+/** Critères du formulaire différents du défaut (les tris, propres à chaque magasin, n'en font pas partie). */
+function countChanges() {
+  const filters = readFilters();
+  const defaults = defaultFilters();
+  /** @param {string[]} a @param {string[]} b */
+  const differs = (a, b) => a.length !== b.length || !a.every((item) => b.includes(item));
+  return (
+    Number(filters.store !== defaults.store) +
+    Number(differs(filters.types, defaults.types)) +
+    Number(differs(filters.content, defaults.content)) +
+    Number(differs(filters.status, defaults.status))
+  );
+}
+
+/** Filtres par défaut ; les tris choisis restent. */
+function resetFilters() {
+  applyFilters({ ...defaultFilters(), sort: readFilters().sort });
+  onChange();
 }
 
 /** @param {Filters} filters */
@@ -337,21 +357,6 @@ function discountElement(offer, status, now) {
 function formatDate(date) {
   const sameYear = yearFormat.format(date) === yearFormat.format(new Date());
   return `${(sameYear ? dayFormat : dayYearFormat).format(date)} ${formatTime(date)}`;
-}
-
-/** « 21 h 43 ». @param {Date} date */
-function formatTime(date) {
-  const [hour, minute] = timeFormat.format(date).split(':');
-  return `${Number(hour)} h ${minute}`;
-}
-
-/** « aujourd'hui à 14 h 49 », « hier à … » ou « le 12 novembre à … ». @param {Date} date */
-function relativeDay(date) {
-  const day = isoDayFormat.format(date);
-  const now = Date.now();
-  if (day === isoDayFormat.format(now)) return `aujourd’hui à ${formatTime(date)}`;
-  if (day === isoDayFormat.format(now - DAY)) return `hier à ${formatTime(date)}`;
-  return `le ${longDayFormat.format(date)} à ${formatTime(date)}`;
 }
 
 /** Chaque seconde : comptes à rebours et barres ; re-rend la liste si une offre change de statut. */
