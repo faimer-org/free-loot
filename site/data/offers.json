@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T04:24:24.921Z",
+  "generatedAt": "2026-11-21T04:26:13.056Z",
   "historyYears": [],
   "offers": [
     {
@@ -51,7 +51,7 @@
       "url": "https://store.epicgames.com/fr/p/mark-of-the-deep-f7dc08",
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-1lope.png",
       "firstSeen": "2026-11-14T04:32:29.368Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z",
+      "lastSeen": "2026-11-21T04:26:13.056Z",
       "details": {
         "tags": [
           "Pirates",
@@ -96,7 +96,7 @@
         "video": null
       },
       "firstSeen": "2026-11-19T16:45:27.925Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "epic-bda8d2133655435982b9118972792328-0623017cf9f341efbe07557f46beb4e8-free_to_keep-2026-11-26",
@@ -124,7 +124,7 @@
         "video": null
       },
       "firstSeen": "2026-11-18T16:45:44.990Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "epic-df37f065c3f14eadbf011177396e2966-d37f3694e7a04edb8347f3cb6320f9d3-free_to_keep-2026-11-19",
@@ -188,11 +188,16 @@
           "RPG"
         ],
         "description": "Aimez, luttez, planifiez et atteignez la grandeur. Déterminez l'héritage de votre maison noble dans le jeu de grande stratégie tentaculaire de Crusader Kings III. La mort n'est qu'un début quand vous guidez votre dynastie dans cette riche simulation médiévale plus grande que nature.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158310/5a5cc7c6cb732c954fb004bc13f5f82d99653825/ss_5a5cc7c6cb732c954fb004bc13f5f82d99653825.600x338.jpg?t=1795167672",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158310/dfd4b10facb1199ce544cfddb2f0465d588d38b6/ss_dfd4b10facb1199ce544cfddb2f0465d588d38b6.600x338.jpg?t=1795167672",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158310/2876207d25b4061a0ffd31deae7e80b6b8dc511f/ss_2876207d25b4061a0ffd31deae7e80b6b8dc511f.600x338.jpg?t=1795167672",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158310/a561e2e3d5f9a861f50fd27ada7840892a3c09a0/ss_a561e2e3d5f9a861f50fd27ada7840892a3c09a0.600x338.jpg?t=1795167672"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1166130-now_free-2026-11-20",
@@ -227,7 +232,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/1166130/1379394949/9e0c08337af59b5fdde1a30a549f1913fa4b998a/1795069257/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1200300-now_free-2026-11-20",
@@ -261,7 +266,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/1200300/266725/6cd171b1551c2bd48c5ee0a9287677d3d9c568b0/1751203093/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1501470-now_free-2026-11-19",
@@ -296,7 +301,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/1501470/370004/6fb40dded70d1e480fcaf105330ca51454f8c46a/1750995964/microtrailer.mp4"
       },
       "firstSeen": "2026-11-19T03:31:52.387Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1525040-now_free-2026-11-20",
@@ -322,11 +327,14 @@
           "Nudité"
         ],
         "description": "Adult Interactive Fiction. Tasked by the chief editor of the Scandals Section, you must put your wits and cunning to work to break a story about sex, secrets, and corruption.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1525040/ss_bb6e683dcceb50b567d7fd8b5a89c6da7a279e50.600x338.jpg?t=1795191613",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1525040/ss_e44a806521f8441dc8a07b4c2245177d57eea031.600x338.jpg?t=1795191613"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1571190-now_free-2026-11-18",
@@ -361,7 +369,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/1571190/364377/2bf229be76d65cbd4c83b07730b4fca2e50b9660/1750702477/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-1677280-free_weekend-2026-11-12",
@@ -434,7 +442,7 @@
         "video": null
       },
       "firstSeen": "2026-11-20T23:47:05.008Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2204560-now_free-2026-11-16",
@@ -469,7 +477,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2204560/1395983723/c615143137c50e643b8ef2b0910e42519c19d514/1762786459/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2215370-now_free-2026-11-20",
@@ -502,7 +510,7 @@
         "video": null
       },
       "firstSeen": "2026-11-20T23:47:05.008Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2319240-now_free-2026-11-18",
@@ -537,7 +545,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2319240/2080427509/bb1586b35810e76e7f2fbfdf2c59adefd05cb166/1794990236/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T16:45:44.990Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2457200-now_free-2026-11-18",
@@ -570,7 +578,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2457200/621209/1dcf0afe41fafcb4643effcef8acca024dd6301e/1750921231/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2605790-free_weekend-2026-11-12",
@@ -644,7 +652,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2943250/652725303/87cd6002f83c3303aac0d6ba60cdf0331a29d045/1750890963/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-2974050-now_free-2026-11-17",
@@ -679,7 +687,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/2974050/696065/c0b3a0317afabea05aefc2b6ae996d9bec385a13/1750954421/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3005690-now_free-2026-11-19",
@@ -714,7 +722,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/3005690/733747/c0d4da424704ce1ad589dc30ef17ecf570d1fec7/1750957195/microtrailer.mp4"
       },
       "firstSeen": "2026-11-19T03:31:52.387Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-307960-free_weekend-2026-11-12",
@@ -782,7 +790,7 @@
         "video": null
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3327820-now_free-2026-11-20",
@@ -808,11 +816,16 @@
           "Aventure"
         ],
         "description": "First person, single player horror game with puzzle elements. Solve the puzzles and explore to Escape Camp Stranded.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3327820/e0202fef42f92775301d0ab12382a311e97c95a8/ss_e0202fef42f92775301d0ab12382a311e97c95a8.600x338.jpg?t=1795195508",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3327820/08d1c450d6f5241608764950c571020ca394df78/ss_08d1c450d6f5241608764950c571020ca394df78.600x338.jpg?t=1795195508",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3327820/7c906020a3acc36a2e425938fc77f29726a4e6d2/ss_7c906020a3acc36a2e425938fc77f29726a4e6d2.600x338.jpg?t=1795195508",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3327820/16bf55be6c32ebc55163c6a40dfa68aa3a7bf479/ss_16bf55be6c32ebc55163c6a40dfa68aa3a7bf479.600x338.jpg?t=1795195508"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-20T23:47:05.008Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3349040-now_free-2026-11-20",
@@ -841,11 +854,13 @@
           "Cinématographique"
         ],
         "description": "After the encounter with the mysterious crystal, Hunter is finally starting to feel like himself again, regaining his confidence and spending more time with the girls. Life seems to be improving—but not everything is as peaceful as it seems.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3349040/ss_03a84fe77755b0f2af481c52f238d6e4409cc491.600x338.jpg?t=1795191182"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3524570-now_free-2026-11-17",
@@ -871,11 +886,16 @@
           "Contenu à caractère sexuel"
         ],
         "description": "While running errands, you'll meet three cute furry characters that you can potentially date, romance, and eventually seduce. This game contains explicit sexual content.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3524570/ss_91f329426bfad9db7820843ab287b686a2f8f67b.600x338.jpg?t=1794931690",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3524570/cbe1c5ca1303ade74703b261940c0ef9ab1dba86/ss_cbe1c5ca1303ade74703b261940c0ef9ab1dba86.600x338.jpg?t=1794931690",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3524570/ss_3a0995698becb5f044c3c17c66659492477b74ac.600x338.jpg?t=1794931690",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3524570/ss_a4eedc1a0b3f99eb1f3653cb8aada89a5272161a.600x338.jpg?t=1794931690"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-17T16:30:15.932Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3526260-now_free-2026-11-18",
@@ -910,7 +930,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/3526260/828667/90a998b2def36fc3e5f437967c87f22463f4c9d1/1750858277/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3668990-now_free-2026-11-20",
@@ -945,7 +965,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/3668990/869844/1a354bdf836e008891343e50234f29c04be702b5/1750420513/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-3736240-now_free-2026-11-19",
@@ -980,7 +1000,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/3736240/956230520/f722dbb6c7594725dac96a1042d2cd9acac10171/1771259695/microtrailer.mp4"
       },
       "firstSeen": "2026-11-19T03:31:52.387Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4127470-now_free-2026-11-16",
@@ -1050,7 +1070,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4182060/2097959363/5a7403f3a15d6d2ebf1687692824da1480b23108/1767541848/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4286400-now_free-2026-11-20",
@@ -1085,7 +1105,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4286400/1658555001/754de1ae1a1557583726e967e35e289668332ec7/1766773050/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4449700-now_free-2026-11-14",
@@ -1120,7 +1140,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4449700/813077377/4c59ad0be44f32314448c58b4e68ce5dbcedfff6/1778619343/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4492520-now_free-2026-11-17",
@@ -1155,7 +1175,7 @@
         "video": null
       },
       "firstSeen": "2026-11-17T06:46:07.196Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4514600-now_free-2026-11-16",
@@ -1181,11 +1201,16 @@
           "RPG japonais"
         ],
         "description": "A Japanese-themed, anime-styled RPG card‑battler for BL/Yaoi lovers. Build your 5‑man team, master strategies, and conquer turn-based battles. Level up to unlock intimate H-scenes, collect handsome hunks, and enjoy various game modes as you purify a realm tainted by evil spirits.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4514600/0613e72357b08cdc32614fc2ba7521d9dd93e002/ss_0613e72357b08cdc32614fc2ba7521d9dd93e002.600x338.jpg?t=1794866009",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4514600/696d5f233f0424a7fad5f89c0f236b3bbf101a2a/ss_696d5f233f0424a7fad5f89c0f236b3bbf101a2a.600x338.jpg?t=1794866009",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4514600/db41404bd32807c400b335c94c806c60777aa08c/ss_db41404bd32807c400b335c94c806c60777aa08c.600x338.jpg?t=1794866009",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4514600/9be5c2a307adfce1e95a6a0aa92485b56d336089/ss_9be5c2a307adfce1e95a6a0aa92485b56d336089.600x338.jpg?t=1794866009"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4639130-now_free-2026-11-20",
@@ -1220,7 +1245,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4639130/1168554881/aa3045c17012e26095a8591632ba50d7d49ec28f/1795127759/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4710390-now_free-2026-11-20",
@@ -1246,11 +1271,16 @@
           "Casual"
         ],
         "description": "Un classique de NomnomNami ! La meilleure romance de sorciers ! vous pourriez jouer à starry flowers et finir en larmes devant l'amour que ces deux-là ressentent l'un pour l'autre... Ça a été mon cas... je n'ai rien à ajouter, jouez-y juste.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4710390/33b4baaecfee7a7e32d07a79641ddf618fff6069/ss_33b4baaecfee7a7e32d07a79641ddf618fff6069.600x338.jpg?t=1795144101",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4710390/efd71065e9b6dfa84afbc82e8214847bb73aaab5/ss_efd71065e9b6dfa84afbc82e8214847bb73aaab5.600x338.jpg?t=1795144101",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4710390/f8bf986392db2916f41c1af94d3dd3440359db01/ss_f8bf986392db2916f41c1af94d3dd3440359db01.600x338.jpg?t=1795144101",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4710390/954a755bec77dff017b7930f75efb46c2c7a3478/ss_954a755bec77dff017b7930f75efb46c2c7a3478.600x338.jpg?t=1795144101"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4764310-now_free-2026-11-16",
@@ -1276,11 +1306,16 @@
           "Chats"
         ],
         "description": "A cute BL game made for my OCs. The gameplay is simple: guide these two cuties through dessert mazes ~ ⚠️NO art theft / AI-feeding. Offenders inherit all my family's sickness and misery. ⚠️NO using my OCs as a素材库 (collage/mashup) or tracing AI art. Offenders owe my parents 10 years of your life.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4764310/692412caf50351e9310a1428745bef21ad744bd4/ss_692412caf50351e9310a1428745bef21ad744bd4.600x338.jpg?t=1794863177",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4764310/4cdb52dc385f5b841f561c1466b85ab3e47887f0/ss_4cdb52dc385f5b841f561c1466b85ab3e47887f0.600x338.jpg?t=1794863177",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4764310/7b217423407740079091a2af016d8f89320ba44b/ss_7b217423407740079091a2af016d8f89320ba44b.600x338.jpg?t=1794863177",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4764310/f62de96c33f9d642d9bea6199e189d8014f1b517/ss_f62de96c33f9d642d9bea6199e189d8014f1b517.600x338.jpg?t=1794863177"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4782420-now_free-2026-11-14",
@@ -1315,7 +1350,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4782420/1715838167/55fc500f9ed61d9722c0ad4576fb965b891a6be2/1779802567/microtrailer.mp4"
       },
       "firstSeen": "2026-11-14T19:56:03.232Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4839860-now_free-2026-11-16",
@@ -1344,11 +1379,16 @@
           "Roman graphique"
         ],
         "description": "What happens after your happily ever after? How close is too close to the man of your dreams? And what's it gonna take for Lorenn to let you love all of him; the way he loves you?",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839860/d54d6f7366b3957ef3fa1448d4e026541d0c05ff/ss_d54d6f7366b3957ef3fa1448d4e026541d0c05ff.600x338.jpg?t=1794838997",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839860/abebaeaa353295884a472e88d88796dfe2ad6ba9/ss_abebaeaa353295884a472e88d88796dfe2ad6ba9.600x338.jpg?t=1794838997",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839860/c7792992823d7f968661cb67d3a991c640ef0472/ss_c7792992823d7f968661cb67d3a991c640ef0472.600x338.jpg?t=1794838997",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839860/e42bea50b292404576d768984535b56a86e9a46e/ss_e42bea50b292404576d768984535b56a86e9a46e.600x338.jpg?t=1794838997"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4842560-now_free-2026-11-18",
@@ -1377,11 +1417,14 @@
           "Indépendant"
         ],
         "description": "Adult patch of the BL visual novel Once Upon a Throne of Thorns.",
-        "screenshots": [],
+        "screenshots": [
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4842560/2e8244e152a7cfba0bf49d6cd51edb7fffb534b3/ss_2e8244e152a7cfba0bf49d6cd51edb7fffb534b3.600x338.jpg?t=1794952565",
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4842560/45cd4fcc337dd7c51b17d6857c3eda705507374f/ss_45cd4fcc337dd7c51b17d6857c3eda705507374f.600x338.jpg?t=1794952565"
+        ],
         "video": null
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4952950-now_free-2026-11-18",
@@ -1416,7 +1459,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4952950/1038294877/f8a87cf4f0f9158c18e69892a288981f76295823/1789935419/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4962090-now_free-2026-11-18",
@@ -1451,7 +1494,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4962090/312516610/3a31d38764e055b692306d799add314d5b94a6e0/1785226376/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T06:46:09.968Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-4985690-now_free-2026-11-19",
@@ -1486,7 +1529,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/4985690/1826771928/6c72d95cf4aaf4bfdbea732a3b5d6c426379f43b/1788904089/microtrailer.mp4"
       },
       "firstSeen": "2026-11-19T03:31:52.387Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5032660-now_free-2026-11-20",
@@ -1521,7 +1564,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5032660/1187126250/6e301ad9c0cadfca2f17cf84fdcae25c00c15386/1792582116/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5049780-now_free-2026-11-20",
@@ -1556,7 +1599,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5049780/1618566255/56a4c7ffbc37253a699105049149902c0152011a/1788188698/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-513860-now_free-2026-11-20",
@@ -1589,7 +1632,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/513860/80857/2428e00fe8cd9a8d5b93bc7ab7c54bc1367ff9dc/1751295808/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T16:45:28.412Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5162870-now_free-2026-11-17",
@@ -1624,7 +1667,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5162870/2062537242/6f0974e9c0eac162947df0dbf9e2d90b61615bf2/1789498041/microtrailer.mp4"
       },
       "firstSeen": "2026-11-17T19:16:35.564Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5218930-now_free-2026-11-16",
@@ -1659,7 +1702,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5218930/2051266039/7a453a1acf64321147c5c5f40b8e603c71e59635/1792314841/microtrailer.mp4"
       },
       "firstSeen": "2026-11-16T16:29:33.948Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5230050-now_free-2026-11-16",
@@ -1689,7 +1732,7 @@
         "video": null
       },
       "firstSeen": "2026-11-16T22:22:06.760Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-5313620-now_free-2026-11-20",
@@ -1724,7 +1767,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/5313620/307352814/d805c72cf3d237b5116dd1127a73aee5f89d1454/1790096311/microtrailer.mp4"
       },
       "firstSeen": "2026-11-20T06:45:29.952Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-938260-now_free-2026-11-18",
@@ -1758,7 +1801,7 @@
         "video": "https://video.fastly.steamstatic.com/store_trailers/938260/186007/5b4f35fa3a3a7ad5df6187162e1289d61f9aa351/1751166377/microtrailer.mp4"
       },
       "firstSeen": "2026-11-18T16:45:44.990Z",
-      "lastSeen": "2026-11-21T04:24:24.921Z"
+      "lastSeen": "2026-11-21T04:26:13.056Z"
     },
     {
       "id": "steam-949230-free_weekend-2026-11-12",
