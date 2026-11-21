@@ -13,6 +13,8 @@ const fixture = (name: string) => JSON.parse(readFileSync(new URL(`./fixtures/${
 // Réponses réelles du 2026-11-14.
 // GetItems de Company of Heroes 3 avec tags, captures (« contenu adulte » seulement) et bandes-annonces.
 const coh3 = (): StoreItem => fixture('steam-getitems-details-coh3-2026-11-14.json').response.store_items[0];
+// Réponse réelle du 2026-11-21 : Crusader Kings III, descripteurs 1 et 5, 14 captures « tout public ».
+const ck3 = (): StoreItem => fixture('steam-getitems-details-ck3-2026-11-21.json').response.store_items[0];
 const tagNames = (): Map<number, string> =>
   new Map(
     fixture('steam-taglist-fr-2026-11-14.json').response.tags.map((tag: { tagid: number; name: string }) => [
@@ -63,11 +65,20 @@ describe('steamDetails', () => {
     ]);
   });
 
-  it('ne garde ni capture ni vidéo pour un jeu avec nudité ou contenu sexuel', () => {
+  it('garde les captures « tout public » d’un jeu avec nudité ou contenu sexuel, sans vidéo', () => {
+    const details = steamDetails(ck3(), tagNames());
+    assert.deepEqual(ck3().content_descriptorids, [1, 5]);
+    assert.equal(details.screenshots.length, 4);
+    assert.match(details.screenshots[0] ?? '', /\/steam\/apps\/1158310\/.+\.600x338\.jpg/);
+    assert.equal(details.video, null);
+    assert.ok(details.tags.length > 0);
+  });
+
+  it('ne reprend pas les captures « contenu adulte » d’un jeu avec nudité ou contenu sexuel', () => {
+    // Company of Heroes 3 n'a que des captures « contenu adulte ».
     const details = steamDetails({ ...coh3(), content_descriptorids: [1, 5] }, tagNames());
     assert.deepEqual(details.screenshots, []);
     assert.equal(details.video, null);
-    assert.ok(details.tags.length > 0);
   });
 
   it('ignore les tags dont le nom est inconnu', () => {
